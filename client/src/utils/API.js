@@ -1,6 +1,10 @@
 
 import axios from "axios";
-token = process.env.REACT_APP_APIKEY
+var dotenv = require('dotenv');
+dotenv.config();
+
+// token = process.env.REACT_APP_APIKEY
+// token2 = process.env.REACT_APP_APIKEY2
 
 // Export an object with a "search" method that searches the API for the passed query
 export default {
@@ -13,13 +17,14 @@ export default {
     // });
  
   }, 
-  searchEventBrite: function(){
-    return axios.get(`https://www.eventbriteapi.com/v3/events/search/?token=${token}`)
-  },
+  // searchEventBrite: function(){
+  //   return axios.get(`https://www.eventbriteapi.com/v3/events/search/?token=${token}`)
+  // },
 
-  searchTradeGov: function(){
-    return axios.get('https://www.eventbriteapi.com/v3/events/search/?token=')
-  },
+  // searchTradeGov: function(query, start, end){
+  //   return axios.get(`https://api.trade.gov/v1/trade_events/search?api_key=${token2}&q=${query}&start_date=${start}&end_date=${end}`)
+  // },
+  // Format needed for start and end dates {YYYY-mm-dd TO YYYY-mm-dd}
     // Promise.all([ticketMaster, eventBrite]).then(function(values) {
     //   return values;
     // });

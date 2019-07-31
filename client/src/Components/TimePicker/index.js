@@ -15,27 +15,27 @@ const useStyles = makeStyles({
   },
 });
 
-const MaterialUIDatePickers = ({ selectedDate, setSelectedDate }) => {
+const TimePicker = ({ selectedDate, setSelectedDate }) => {
   const classes = useStyles();
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container className={classes.grid} justify="space-around">
-        <KeyboardDatePicker
+       
+        
+        <KeyboardTimePicker
           margin="normal"
-          id="mui-pickers-date"
-          label="Date"
+          id="mui-pickers-time"
+          label="Time"
           value={selectedDate}
           onChange={date => setSelectedDate(date)}
           KeyboardButtonProps={{
-            'aria-label': 'change date',
-
+            'aria-label': 'change time',
           }}
           InputProps={{
             disableUnderline: true
           }}
         />
-    
 
 
       </Grid>
@@ -43,6 +43,4 @@ const MaterialUIDatePickers = ({ selectedDate, setSelectedDate }) => {
   );
 }
 
-export default MaterialUIDatePickers
-
-// const 
+export default TimePicker
