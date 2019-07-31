@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import Person from '@material-ui/icons/Person';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -103,9 +104,12 @@ function Nav() {
 
 
         <Link to="/SignIn">
-          <Button variant="outlined" size="small">
+          <Button variant="outlined" size="small" className="hide-on-small-only">
             Account Login
         </Button>
+        <IconButton className="hide-on-med-and-up">
+            <Person/>
+          </IconButton>
         </Link>
 
 

@@ -28,9 +28,9 @@ class SignUp extends React.Component {
         return (
             <div className="center">
                 <TextField
-                    name="Name"
+                    name="name"
                     value={this.state.name}
-                    placeholder=" name"
+                    placeholder="Name"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
@@ -50,7 +50,7 @@ class SignUp extends React.Component {
                 <TextField
                     name="lastName"
                     value={this.state.lastName}
-                    placeholder=" Last Name"
+                    placeholder="Last Name"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
@@ -69,7 +69,7 @@ class SignUp extends React.Component {
                 <TextField
                     name="email"
                     value={this.state.email}
-                    placeholder=" Email"
+                    placeholder="Email"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
@@ -88,12 +88,12 @@ class SignUp extends React.Component {
                 <TextField
                     name="password"
                     value={this.state.password}
-                    placeholder=" password"
+                    placeholder="Password"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
                     margin="normal"
-                    label="password"
+                    label="Password"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
@@ -109,7 +109,7 @@ class SignUp extends React.Component {
                     variant="extended"
                     size="medium"
                     color="primary"
-                    aria-label="asubmit"
+                    aria-label="submit"
                     // className={classes.margin}
                 >
                     <Send />
