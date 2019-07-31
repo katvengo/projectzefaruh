@@ -6,31 +6,62 @@ import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
 import CategoryInput from "../Components/CategoryInput"
 import SearchButton from "../Components/Button"
-import Location from "../Components/Location"
 import API from "../utils/API";
 import ResultCard from  "../Components/ResultCard"
-
- var latlon;
+import Geohash from 'latlon-geohash';
+var moment = require('moment');
+//  var latlon;
 //  var showPosition;
 //  var showError
 
 class Home extends Component {
-
-    state = {
+constructor(){
+    super()
+    this.state = {
+        location: {
+            lat: 0,
+            lng: 0
+        },
         events: [],
         eventSearched: "",
+        eventLocationSearched: "",
         selectedDate: new Date(),
+        geohash: 0
+    }
+}
+
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                let lat = position.coords.latitude
+                let lng = position.coords.longitude
+
+                const geohash = Geohash.encode(lat, lng, 6)
+                console.log("latitude:" + lat + "longitude" + lng)  
+                console.log("grab geohash" + geohash)
+
+                this.setState({
+                    geohash: geohash,
+                    location: {
+                      lat: lat,
+                      lng: lng
+                    },
+                  })
+                  console.log("Second geohash" + geohash)
+            }
+        )
     }
 
 
-
-
-    searchTicketMaster = (query) => {
-        console.log(this.props.coords)
-        API.search(query)
+    searchTicketMaster = (query, query2, query3, query4) => {
+         console.log("geohash" + this.state.geohash)
+        API.search(query, query2, query3, query4)
         .then(res => {
-        console.log("response" + res);
-        this.setState({ events: res.data._embedded.events })
+        var events = res.data._embedded.events
+        console.log({ events });
+        this.setState({ 
+            events: res.data._embedded.events 
+        })
     })
         .catch(err => console.log(err));
         };
@@ -45,29 +76,26 @@ class Home extends Component {
     };
 
     setSelectedDate = date => {
-        this.setState({ selectedDate: date })
+        this.setState({ selectedDate: date})
     }
+
 
     
 
     handleSubmit = event => {
         event.preventDefault() 
-        this.searchTicketMaster(this.state.eventSearched)
-        console.log("events", this.state.events)
-        console.log("event searched state ",this.state.eventSearched, "event date: ", this.state.selectedDate )
-        console.log("submiting!")
+        this.searchTicketMaster(this.state.eventSearched, this.state.geohash, this.state.eventLocationSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
+        // console.log("events", this.state.events)
+        console.log("event searched state ",this.state.eventSearched, "event date: ", moment(this.state.selectedDate).format('YYYY MM DDTHH:mm:ss') )
         }
 
     render() {
         return (
             <>
-            <Location coords={this.props.coords}></Location>
-
             <Container>
                 <h1>Search Upcoming Events</h1>
                 <div className="row">
 
-           {console.log(this.props)}
                 <TextField
                     name="eventSearched"
                     value={this.state.eventSearched}
@@ -81,10 +109,24 @@ class Home extends Component {
                     InputLabelProps={{
                         shrink: true,
                     }}
-
-                    
                     //  label="eventSearch"
                 />
+                <TextField
+                    name="eventLocationSearched"
+                    value={this.state.eventLocationSearched}
+                    placeholder="San Diego, Los Angeles, Anaheim"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    // fullWidth
+                    margin="normal"
+                    variant="outlined"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    //  label="eventSearch"
+                />
+
                     </div>
 
                     <div className="row">
@@ -97,14 +139,13 @@ class Home extends Component {
                 </div>
                 <div className="col m4">
                 <CategoryInput />
-                    
+                
                 </div>
                 </div>
 
                 <SearchButton 
                 onClick={(event) => this.handleSubmit(event)}/>
                 <Container>
-                {console.log('PROCESS', process.env.REACT_APP_API_KEY1)}
           {this.state.events.map( event => {
               return (<ResultCard
               title= {event.name}
@@ -112,7 +153,14 @@ class Home extends Component {
               image= {event.images[0].url}
               note={event.pleaseNote}
               key= {event.id}
-            //   tickets= {event.ticketLimit.url}
+              locationName={event._embedded.venues[0].name}
+              tickets={event._embedded.attractions[0].url}
+                locationAddress={event._embedded.venues[0].address.line1}
+                locationCity={event._embedded.venues[0].city.name}
+                locationPostalCode={event._embedded.venues[0].postalCode}
+                locationState={event._embedded.venues[0].state.name}
+                locationDistance={event._embedded.venues[0].distance}
+                locationDistanceUnits={event._embedded.venues[0].units}
               />
 
 
@@ -121,18 +169,6 @@ class Home extends Component {
         
 
                 </Container>
-
-            
-            <div className="location">
-            {/* <Map
-                google={this.props.google}
-                zoom={8}
-                //  style={mapStyles}
-                initialCenter={{ lat: this.props.lat, lng: this.props.lon}}
-        /> */}
-
-            </div>
-
             </Container >
         </>
         )

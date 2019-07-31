@@ -1,5 +1,5 @@
 import React from 'react';
-import {geolocated} from 'react-geolocated';
+import {geolocated, geoPropTypes} from 'react-geolocated';
 
 class Demo extends React.Component {
   render() {
@@ -8,6 +8,7 @@ class Demo extends React.Component {
       : !this.props.isGeolocationEnabled
         ? <div>Geolocation is not enabled</div>
         : this.props.coords
+
           ? <table>
             <tbody>
               <tr><td>latitude</td><td>{this.props.coords.latitude}</td></tr>
@@ -19,7 +20,13 @@ class Demo extends React.Component {
           </table>
           : <div>Getting the location data&hellip; </div>;
   }
+
+   
 }
+
+    Demo.propTypes = Object.assign({}, Demo.propTypes, geoPropTypes);
+    // Using ES6 object spread syntax
+    Demo.propTypes = { ...Demo.propTypes, ...geoPropTypes };
 
 export default geolocated({
   positionOptions: {
@@ -27,3 +34,7 @@ export default geolocated({
   },
   userDecisionTimeout: 5000,
 })(Demo);
+
+
+// watchPosition = true,
+  // geolocationProvider: navigator.geolocation,

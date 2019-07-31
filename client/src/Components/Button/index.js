@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SearchButton(props) {
-    console.log(`props: ${props}`)
+    // console.log(`props: ${props}`)
   const classes = useStyles();
 
   return (

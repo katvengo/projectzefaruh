@@ -1,6 +1,7 @@
 const express = require("express");
+var cors = require('cors');
 const path = require('path')
- const routes = require("./routes");
+const routes = require("./routes");
 const session = require("express-session");
 
 const passport = require("./config/passport")
@@ -30,12 +31,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 // app.use(flash());
 app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });
 
 
- app.use(routes);
+ app.use(cors(routes));
 // Define API routes here
 
 // Send every other request to the React app
