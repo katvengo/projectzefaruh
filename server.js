@@ -38,10 +38,6 @@ app.use(function (req, res, next) {
 
 
  app.use(cors(routes));
-// Define API routes here
-
-// Send every other request to the React app
-// Define any API routes before this runs
 
 app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });

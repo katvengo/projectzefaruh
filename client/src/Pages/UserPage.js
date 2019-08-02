@@ -31,6 +31,18 @@ class UserPage extends Component {
         <Link to="/">
           <SearchButton />
         </Link>
+        <h2>User Home Page</h2>
+        {/* user info */}
+        <Card>
+          <CardContent>
+            <Avatar
+              alt="user avatar"
+              src="https://png.pngtree.com/svg/20161027/631929649c.svg"
+            />
+            <h6>user card</h6>
+            <p>name, info, whatever...</p>
+          </CardContent>
+        </Card>
 
         <h3>saved events:</h3>
         <div className="card-columns">

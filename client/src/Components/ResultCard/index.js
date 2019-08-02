@@ -11,7 +11,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { lime } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -38,14 +38,15 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: lime[600],
   },
 }));
 
 
 
 
-function ResultCard( {expanded, handleExpandClick, locationName, title, dates, image, note, tickets, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits  } ){
+const ResultCard = ( {expanded, handleExpandClick, locationName, title, dates, image, note,
+   tickets, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits  } )=>{
   const classes = useStyles();
 
   
@@ -79,11 +80,11 @@ function ResultCard( {expanded, handleExpandClick, locationName, title, dates, i
   
 <Card className={classes.card}>
 <CardHeader
-  avatar={
-    <Avatar aria-label="recipe" className={classes.avatar}>
-      R
-    </Avatar>
-  }
+  // avatar={
+  //   <Avatar aria-label="recipe" className={classes.avatar}>
+  //     R
+  //   </Avatar>
+  // }
   action={
     <FavoriteIcon/>
   }
