@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
 import CategoryInput from "../Components/CategoryInput"
 import SearchButton from "../Components/Button"
-import API from "../utils/API";
+// import API from "../utils/API";
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 import TimePicker from "../Components/TimePicker";
@@ -52,15 +52,15 @@ class Home extends Component {
         )
     }
     searchThruDatabase = (query, query2, query3, query4) => {
-        API.search(query, query2, query3, query4)
-        .then(res => {
-        var events = res.data._embedded.events
-        console.log({ events });
-        this.setState({ 
-            events: res.data._embedded.events 
-        })
-    })
-        .catch(err => console.log(err));
+    //     API.search(query, query2, query3, query4)
+    //     .then(res => {
+    //     var events = res.data._embedded.events
+    //     console.log({ events });
+    //     this.setState({ 
+    //         events: res.data._embedded.events 
+    //     })
+    // })
+    //     .catch(err => console.log(err));
         };
 
 
