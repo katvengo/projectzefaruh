@@ -1,9 +1,15 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
+//var db = require("../models");
 
 // API Routes
 router.use("/api", apiRoutes);
+
+router.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
