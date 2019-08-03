@@ -6,6 +6,7 @@ router.route("/")
   .get(eventsController.findAll)
   .post(eventsController.create)
 
+
 // Matches with "/api/events/:id"
 router
   .route("/:id")

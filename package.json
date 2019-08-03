@@ -33,6 +33,7 @@
     "express-session": "^1.16.1",
     "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
+    "isomorphic-fetch": "^2.2.1",
     "latlon-geohash": "^2.0.0",
     "materialize-css": "^1.0.0",
     "moment": "^2.24.0",
@@ -44,6 +45,7 @@
     "passport-local": "^1.0.0",
     "require": "^2.4.20",
     "sequelize": "^5.8.9",
+    "serialize-javascript": "^1.4.0",
     "session": "^0.1.0"
   }
 }

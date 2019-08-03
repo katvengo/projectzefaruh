@@ -17,9 +17,6 @@ import SignIn from "./Pages/SignIn";
 require('dotenv').config()
 
 
-
-
-
 class App extends Component {
 
   
@@ -35,7 +32,6 @@ class App extends Component {
      
         <Switch>
 
-      
       <Route exact path="/" component={Home} /> 
       <Route exact path="/myaccount" component={UserPage} /> 
       <Route exact path ="/signUp" component= {SignUp}/>

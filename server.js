@@ -1,6 +1,7 @@
+const path = require('path')
+require('dotenv').config({path: path.resolve(__dirname+'/.env')});
 const express = require("express");
 var cors = require('cors');
-const path = require('path')
 const routes = require("./routes");
 const session = require("express-session");
 
@@ -12,7 +13,6 @@ const db = require('./models')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-require('dotenv').config({path: path.resolve(__dirname+'/.env')});
 
 // const mysql = require('mysql');
 
@@ -37,19 +37,20 @@ app.use(function (req, res, next) {
 });
 
 
- app.use(cors(routes));
-// Define API routes here
-
-// Send every other request to the React app
-// Define any API routes before this runs
 
 app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
+app.use(routes);
+// app.use('.env'(search()))
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // })
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 
 db.sequelize.sync().then(function(){ 
   app.listen(PORT, () => {
