@@ -6,7 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
 import CategoryInput from "../Components/CategoryInput"
 import SearchButton from "../Components/Button"
-import API from "../utils/API";
+//import API from "../utils/API";
+import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 import TimePicker from "../Components/TimePicker";
@@ -51,17 +52,29 @@ class Home extends Component {
             }
         )
     }
-    searchThruDatabase = (query, query2, query3, query4) => {
-        API.search(query, query2, query3, query4)
-        .then(res => {
-        var events = res.data._embedded.events
-        console.log({ events });
-        this.setState({ 
-            events: res.data._embedded.events 
-        })
-    })
-        .catch(err => console.log(err));
-        };
+
+    searchThruDatabase = (query, time) => {
+        const request = {query, time}
+        axios.post('/api/authorize', request)
+            .then(res => res.json())
+            .then((data) => {
+                console.log("getting data")
+                console.log({data})
+            })
+            // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
+    }
+    
+    // searchThruDatabase = (query, query2, query3, query4) => {
+    //     API.search(query, query2, query3, query4)
+    //     .then(res => {
+    //     var events = res.data._embedded.events
+    //     console.log({ events });
+    //     this.setState({ 
+    //         events: res.data._embedded.events 
+    //     })
+    // })
+    //     .catch(err => console.log(err));
+    //     };
 
 
     handleInputChange = event => {
@@ -87,10 +100,11 @@ class Home extends Component {
     }
 
 
-
+    //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
     handleSubmit = event => {
         event.preventDefault()
-        this.searchThruDatabase(this.state.eventSearched, this.state.geohash, this.state.eventLocationSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
+        console.log("hitting search")
+        this.searchThruDatabase(this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
         console.log("event searched state ", this.state.eventSearched, "event date: ", moment(this.state.selectedDate).format('YYYY MM DDTHH:mm:ss'))
     }
 
@@ -174,7 +188,7 @@ class Home extends Component {
 
 
                 <div className="card-columns">
-                    {/* {this.state.events.map(event => {
+                     {/* {this.state.events.map(event => {
                         return (<ResultCard
                             title={event.name.text}
                             dates={event.start.local}
@@ -182,10 +196,9 @@ class Home extends Component {
                             note={event.summary}
                             key={event.id}
                             tickets={event.url}
-
                         />
                         )
-                    })} */}
+                    })} } */}
                     {this.state.events.map(event => {
                         return (<ResultCard
                             expanded={this.state.expanded}
@@ -205,8 +218,6 @@ class Home extends Component {
                             locationDistance={event._embedded.venues[0].distance}
                             locationDistanceUnits={event._embedded.venues[0].units}
                         />
-
-
                         )
                     })}
                 </div>

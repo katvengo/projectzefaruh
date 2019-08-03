@@ -64,7 +64,6 @@ class SignUp extends React.Component {
                     InputProps={{
                         disableUnderline: true
                     }}
-
                 />
 
                 <Fab
