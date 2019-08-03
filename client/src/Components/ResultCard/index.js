@@ -1,21 +1,21 @@
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+// import clsx from 'clsx';
+// import Card from '@material-ui/core/Card';
+// import CardHeader from '@material-ui/core/CardHeader';
+// import CardMedia from '@material-ui/core/CardMedia';
+// import CardContent from '@material-ui/core/CardContent';
+// import CardActions from '@material-ui/core/CardActions';
+// import Collapse from '@material-ui/core/Collapse';
+// import Avatar from '@material-ui/core/Avatar';
+// import IconButton from '@material-ui/core/IconButton';
+// import Typography from '@material-ui/core/Typography';
 import { lime } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import ShareIcon from '@material-ui/icons/Share';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 
@@ -55,30 +55,55 @@ const ResultCard = ( {expanded, handleExpandClick, locationName, title, dates, i
 
 //   <div> 
 
-//   <h2 className="header">{props.title} at the {props.locationName}</h2>
-//   <h6> Distance: {props.locationDistance}{props.locationDistanceUnits}</h6>
+//   <h2 className="header">{title} at the {locationName}</h2>
+//   <h6> Distance: {locationDistance}{locationDistanceUnits}</h6>
 
 //   <div className="card horizontal">
 //     <div className="card-image">
-//       <img src={props.image} alt="event"/>
+//       <img src={image} alt="event"/>
 //     </div>
 //     <div className="card-stacked">
 //       <div className="card-content">
-//         <p>{props.note}</p>
-//         <p>{props.dates}</p>
-//         <p>Venue Address {props.locationAddress} {props.locationCity} {props.locationPostalCode} {props.locationState} </p>
+//         <p>{note}</p>
+//         <p>{dates}</p>
+//         <p>Venue Address {locationAddress} {locationCity} {locationPostalCode} {locationState} </p>
 
 //       </div>
 //       <div className="card-action">
-//         <a href={props.tickets} target="_blank" rel="noopener noreferrer" >Purchase Tickets</a>
+//         <a href={tickets} target="_blank" rel="noopener noreferrer" >Purchase Tickets</a>
       
 
 //       </div>
 //     </div>
 //   </div>
 // </div>
-  
-<Card className={classes.card}>
+
+
+
+
+
+<div>
+  {/* <h3>Results for {title}</h3> */}
+<div className="card mb-3">
+  <div className="row no-gutters">
+    <div className="col-md-4">
+      <img src={image} className="card-img" alt="..."/>
+    </div>
+    <div className="col-md-8">
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <h6 className="card-subheading"> {locationName}, {locationCity}, {locationState}</h6>
+        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  //----------------------------------------------------2nd card layout---------------------------
+/* <Card className={classes.card}>
 <CardHeader
   // avatar={
   //   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -135,13 +160,16 @@ const ResultCard = ( {expanded, handleExpandClick, locationName, title, dates, i
       pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
       saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
     </Typography>
-     */}
+     
     <Typography>
       Set aside off of the heat to let rest for 10 minutes, and then serve.
     </Typography>
   </CardContent>
 </Collapse>
-</Card>
+</Card> */
+
+//---------------------------------------------------------------------------------------------
+
 
 
     )

@@ -45,5 +45,13 @@
     "require": "^2.4.20",
     "sequelize": "^5.8.9",
     "session": "^0.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jessicagomez11/projectzefaruh.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jessicagomez11/projectzefaruh/issues"
+  },
+  "homepage": "https://github.com/Jessicagomez11/projectzefaruh#readme"
 }

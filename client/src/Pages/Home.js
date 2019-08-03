@@ -10,12 +10,37 @@ import API from "../utils/API";
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 import TimePicker from "../Components/TimePicker";
+import { textAlign } from "@material-ui/system";
 var moment = require('moment');
 
 //  var latlon;
 //  var showPosition;
 //  var showError
 
+
+const styles = {
+    heading: {
+        color: "white",
+        fontFamily: "Anton, sans-serif",
+        textAlign: "center",
+        padding: "50px",
+        letterSpacing: "2px"
+    },
+
+    headingDiv: {
+        background: "#F2D8C9"
+    },
+
+    button: {
+        background: "#BF8874",
+        color: "white",
+        opacity: "50%",
+        // fontFamily: 'Lora, serif',
+        letterSpacing: '1px',
+
+    }
+
+}
 
 
 
@@ -60,18 +85,18 @@ class Home extends Component {
         )
     }
     searchTicketMaster = (query, query2, query3, query4) => {
-         console.log("geohash" + this.state.geohash)
-         console.log("coords" + this.state.lat + this.state.lng)
+        console.log("geohash" + this.state.geohash)
+        console.log("coords" + this.state.lat + this.state.lng)
         API.search(query, query2, query3, query4)
-        .then(res => {
-        var events = res.data._embedded.events
-        console.log({ events });
-        this.setState({ 
-            events: res.data._embedded.events 
-        })
-    })
-        .catch(err => console.log(err));
-        };
+            .then(res => {
+                var events = res.data._embedded.events
+                console.log({ events });
+                this.setState({
+                    events: res.data._embedded.events
+                })
+            })
+            .catch(err => console.log(err));
+    };
 
     // eventBriteSearch = (query) => {
     //     console.log("geohash" + this.state.geohash)
@@ -133,84 +158,91 @@ class Home extends Component {
 
     render() {
         return (
-          
-                <Container>
-                    <h1>Search Upcoming Events</h1>
-                    <div className="row">
-                        <div className="col m6">
-                            <TextField
-                                name="eventSearched"
-                                value={this.state.eventSearched}
-                                placeholder="  i.e. outdoor concerts, roll-outs"
-                                onChange={this.handleInputChange}
-                                type="text"
-                                fullWidth
 
-                                margin="normal"
-                                label="Event or Activity"
-                                // variant="none"
-                                style={{ margin: 8 }}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                InputProps={{
-                                    disableUnderline: true
-                                }}
+            <Container>
+                <div style={styles.headingDiv}>
+
+                    <h1 style={styles.heading}>ZEFARUH</h1>
+                </div>
+                <div className="row ">
+                    <div className="col m6">
+                        <TextField
+                            name="eventSearched"
+                            value={this.state.eventSearched}
+                            placeholder="  i.e. outdoor concerts, roll-outs"
+                            onChange={this.handleInputChange}
+                            type="text"
+                            fullWidth
+
+                            margin="normal"
+                            label="Event or Activity"
+                            // variant="none"
+                            style={{ margin: 0 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                disableUnderline: true
+                            }}
 
 
 
-                            />
-                        </div>
-                        <div className="col m6 s12">
+                        />
+                    </div>
+                    <div className="col m6 s12">
 
-                            <TextField
-                                name="eventLocationSearched"
-                                value={this.state.eventLocationSearched}
-                                placeholder="San Diego, Los Angeles, Anaheim"
-                                onChange={this.handleInputChange}
-                                type="text"
-                                fullWidth
-                                label="City"
-                                margin="normal"
-                                // variant="outlined"
-                                style={{ margin: 8 }}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                InputProps={{
-                                    disableUnderline: true
-                                }}
+                        <TextField
+                            name="eventLocationSearched"
+                            value={this.state.eventLocationSearched}
+                            placeholder="San Diego, Los Angeles, Anaheim"
+                            onChange={this.handleInputChange}
+                            type="text"
+                            fullWidth
+                            label="City"
+                            margin="normal"
+                            // variant="outlined"
+                            style={{ margin: 0 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                disableUnderline: true,
 
-                            //  label="eventSearch"
-                            />
-                        </div>
+                            }}
 
+                        //  label="eventSearch"
+                        />
                     </div>
 
-                    <div className="row">
-                    <div className="col m4 s12">
+                </div>
+
+                <div className="row">
+                    <div className="col s12">
                         <DatePicker
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate}
-                        // name="selectedDate"
+                        
                         />
                     </div>
-                    <div className="col m4 s12">
+                    <div className="col s12">
 
                         <TimePicker
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate} />
                     </div>
-                    <div className="col m4 s12">
+                    <div className="col s12">
                         <CategoryInput />
 
                     </div>
-                    <SearchButton
-                        onClick={(event) => this.handleSubmit(event)} />
+                    <div className="col s12">
+
+                        <SearchButton
+                            onClick={(event) => this.handleSubmit(event)} style={styles.button} />
                     </div>
+                </div>
 
 
-                <div className="card-columns">
+                {/* <div className="card-columns"> */}
 
 
 
@@ -249,7 +281,7 @@ class Home extends Component {
 
                         )
                     })}
-                </div>
+                {/* </div> */}
 
 
             </Container >

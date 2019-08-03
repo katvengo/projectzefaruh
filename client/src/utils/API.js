@@ -43,12 +43,6 @@ export default {
   getSavedEvent: function(){
     return axios.get("/api/events")
   }
-
-
-
-
-
-
 };
 
 

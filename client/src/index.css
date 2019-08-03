@@ -1,5 +1,33 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding: 0;  
 }
+
+/* date and time pickers */
+.MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding.MuiToolbar-gutters, .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current.MuiPickersDay-daySelected, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-daySelected
+
+{
+  background-color: #395E2E
+}
+
+.MuiPickersClock-pin, .MuiPickersClockPointer-pointer{
+  background-color: #395E2E !important;
+  border: #395E2E !important;
+}
+
+.MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint {
+  background-color: #395E2E !important;
+  border: #395E2E 14px solid !important;
+}
+
+.MuiButton-label{
+ /* .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current{ */
+  color: #395E2E;
+}
+/*  this is white with the green background... user selected*/
+/* .MuiTypography-root.MuiTypography-body2.MuiTypography-colorInherit {
+  color: white;
+  background-color: #395E2E;
+} */
+/* this one is the current date */
+/*  */

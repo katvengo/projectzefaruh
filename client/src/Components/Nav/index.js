@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarTitle: {
     flex: 1,
+    fontfamily: 'Barriecito'
   },
   toolbarSecondary: {
     direction: 'row',
