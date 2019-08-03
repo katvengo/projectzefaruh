@@ -7,10 +7,23 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import SettingsIcon from "@material-ui/icons/Settings";
+import { lightGreen, green, grey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
-  card: {},
-  avatar: {}
+  card: {
+    justifyContent: "center",
+    maxWidth: 275,
+    backgroundColor: green[900],
+    color: grey[50],
+    padding: "0 20px"
+  },
+  avatar: {
+    width: 100,
+    height: 100
+  },
+  SettingsIcon: {
+    color: grey[50]
+  }
 }));
 
 function UserCard({ name, location, image }) {
@@ -20,12 +33,13 @@ function UserCard({ name, location, image }) {
     <Card className={classes.card}>
       <CardContent>
         <Avatar
+        className={classes.avatar}
           alt="user avatar"
           src="https://png.pngtree.com/svg/20161027/631929649c.svg"
         />
         <h6>user card</h6>
         <Typography component="p">
-          {name} - {location}
+          name {name} - location {location}
         </Typography>
       </CardContent>
       <CardActions>
