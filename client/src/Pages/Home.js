@@ -208,18 +208,18 @@ class Home extends Component {
                             handleExpandClick={this.setExpanded}
                             handleUnExpandClick={this.setUnExpanded}
                             title={event.name}
-                            // dates={event.dates.start.localDate}
-                            // image={event.images[0].url}
+                            dates={event.dates.start.localDate}
+                            image={event.images[0].url}
                             note={event.pleaseNote}
                             key={event.id}
-                            // locationName={event._embedded.venues[0].name}
-                            // // tickets={event._embedded.attractions[0].url}
-                            // locationAddress={event._embedded.venues[0].address.line1}
-                            // locationCity={event._embedded.venues[0].city.name}
-                            // locationPostalCode={event._embedded.venues[0].postalCode}
-                            // locationState={event._embedded.venues[0].state.name}
-                            // locationDistance={event._embedded.venues[0].distance}
-                            // locationDistanceUnits={event._embedded.venues[0].units}
+                            locationName={event._embedded.venues[0].name}
+                            // tickets={event._embedded.attractions[0].url}
+                            locationAddress={event._embedded.venues[0].address.line1}
+                            locationCity={event._embedded.venues[0].city.name}
+                            locationPostalCode={event._embedded.venues[0].postalCode}
+                            locationState={event._embedded.venues[0].state.name}
+                            locationDistance={event._embedded.venues[0].distance}
+                            locationDistanceUnits={event._embedded.venues[0].units}
                         />
                         )
                     })}
