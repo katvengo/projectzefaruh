@@ -55,11 +55,14 @@ class Home extends Component {
 
     searchThruDatabase = (query, time) => {
         const request = {query, time}
-        axios.post('/api/authorize', request)
-            .then(res => res.json())
-            .then((data) => {
-                console.log("getting data")
-                console.log({data})
+        axios.post('/api/authorize', request)   
+            //.then(res => res.json())
+            .then((events) => {
+                console.log({events})
+                //console.log(ticketMaster)
+                this.setState({
+                    events: events.data
+                })
             })
             // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
     }
@@ -205,18 +208,18 @@ class Home extends Component {
                             handleExpandClick={this.setExpanded}
                             handleUnExpandClick={this.setUnExpanded}
                             title={event.name}
-                            dates={event.dates.start.localDate}
-                            image={event.images[0].url}
+                            // dates={event.dates.start.localDate}
+                            // image={event.images[0].url}
                             note={event.pleaseNote}
                             key={event.id}
-                            locationName={event._embedded.venues[0].name}
-                            // tickets={event._embedded.attractions[0].url}
-                            locationAddress={event._embedded.venues[0].address.line1}
-                            locationCity={event._embedded.venues[0].city.name}
-                            locationPostalCode={event._embedded.venues[0].postalCode}
-                            locationState={event._embedded.venues[0].state.name}
-                            locationDistance={event._embedded.venues[0].distance}
-                            locationDistanceUnits={event._embedded.venues[0].units}
+                            // locationName={event._embedded.venues[0].name}
+                            // // tickets={event._embedded.attractions[0].url}
+                            // locationAddress={event._embedded.venues[0].address.line1}
+                            // locationCity={event._embedded.venues[0].city.name}
+                            // locationPostalCode={event._embedded.venues[0].postalCode}
+                            // locationState={event._embedded.venues[0].state.name}
+                            // locationDistance={event._embedded.venues[0].distance}
+                            // locationDistanceUnits={event._embedded.venues[0].units}
                         />
                         )
                     })}
