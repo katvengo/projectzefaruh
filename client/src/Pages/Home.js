@@ -160,97 +160,106 @@ class Home extends Component {
         return (
 
             <Container>
+
                 <div style={styles.headingDiv}>
 
                     <h1 style={styles.heading}>ZEFARUH</h1>
                 </div>
-                <div className="row ">
-                    <div className="col m6">
-                        <TextField
-                            id="inputLine"
-                            name="eventSearched"
-                            value={this.state.eventSearched}
-                            placeholder="  i.e. outdoor concerts, roll-outs"
-                            onChange={this.handleInputChange}
-                            type="text"
-                            fullWidth
-
-                            margin="normal"
-                            label="Event or Activity"
-                            // variant="none"
-                            style={{ margin: 0 }}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                disableUnderline: true
-                            }}
 
 
 
-                        />
-                    </div>
-                    <div className="col m6 s12">
+                <TextField
 
-                        <TextField
-                            id="inputLine"
-                            name="eventLocationSearched"
-                            value={this.state.eventLocationSearched}
-                            placeholder="San Diego, Los Angeles, Anaheim"
-                            onChange={this.handleInputChange}
-                            type="text"
-                            fullWidth
-                            label="City"
-                            margin="normal"
-                            // variant="outlined"
-                            style={{ margin: 0 }}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                disableUnderline: true,
+                    id="inputLine"
+                    name="eventSearched"
+                    value={this.state.eventSearched}
+                    placeholder="  i.e. outdoor concerts, roll-outs"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
 
-                            }}
+                    margin="normal"
+                    label="Event or Activity"
+                    // variant="none"
+                    style={{ margin: 0 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+                />
 
-                        //  label="eventSearch"
-                        />
-                    </div>
 
-                </div>
+
+
+                {/* <TextField
+                                id="inputLine"
+                                name="eventLocationSearched"
+                                value={this.state.eventLocationSearched}
+                                placeholder="San Diego, Los Angeles, Anaheim"
+                                onChange={this.handleInputChange}
+                                type="text"
+                                fullWidth
+                                label="City"
+                                margin="normal"
+                                // variant="outlined"
+                                style={{ margin: 0 }}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                InputProps={{
+                                    disableUnderline: true,
+
+                                }}
+
+                            //  label="eventSearch"
+                            /> */}
+
+
+
 
                 <div className="row">
-                    <div className="col s12">
+                    <div className="col m6">
+
+
                         <DatePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate}
-                        
+
                         />
                     </div>
-                    <div className="col s12">
 
+                    <div className="col m6">
                         <TimePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate} />
-                    </div>
-                    <div className="col s12">
-                        <CategoryInput />
 
-                    </div>
-                    <div className="col s12">
+                        `
+                            {/* <CategoryInput />
 
-                        <SearchButton
-                            onClick={(event) => this.handleSubmit(event)} style={styles.button} />
+                       */}
                     </div>
                 </div>
+                <div className="row ">
+                    <SearchButton
+                        onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center"/>
+
+
+                </div>
+
+
+
+
 
 
                 {/* <div className="card-columns"> */}
 
 
 
-                    {/* {this.state.events.map(event => {
+                {/* {this.state.events.map(event => {
                         return (<ResultCard
                             title={event.name.text}
                             dates={event.start.local}
@@ -262,33 +271,37 @@ class Home extends Component {
                         />
                         )
                     })} */}
-                    {this.state.events.map(event => {
-                        return (<ResultCard
-                            expanded={this.state.expanded}
-                            handleExpandClick={this.setExpanded}
-                            handleUnExpandClick={this.setUnExpanded}
-                            title={event.name}
-                            dates={event.dates.start.localDate}
-                            image={event.images[0].url}
-                            note={event.pleaseNote}
-                            key={event.id}
-                            locationName={event._embedded.venues[0].name}
-                            // tickets={event._embedded.attractions[0].url}
-                            locationAddress={event._embedded.venues[0].address.line1}
-                            locationCity={event._embedded.venues[0].city.name}
-                            locationPostalCode={event._embedded.venues[0].postalCode}
-                            locationState={event._embedded.venues[0].state.name}
-                            locationDistance={event._embedded.venues[0].distance}
-                            locationDistanceUnits={event._embedded.venues[0].units}
-                        />
+
+            {/* {this.state.events} ? < */}
+
+                {this.state.events.map(event => {
+                    return (<ResultCard
+                        expanded={this.state.expanded}
+                        handleExpandClick={this.setExpanded}
+                        handleUnExpandClick={this.setUnExpanded}
+                        title={event.name}
+                        dates={event.dates.start.localDate}
+                        image={event.images[0].url}
+                        note={event.pleaseNote}
+                        key={event.id}
+                        locationName={event._embedded.venues[0].name}
+                        tickets={event._embedded.attractions[0].url}
+                        locationAddress={event._embedded.venues[0].address.line1}
+                        locationCity={event._embedded.venues[0].city.name}
+                        locationPostalCode={event._embedded.venues[0].postalCode}
+                        locationState={event._embedded.venues[0].state.name}
+                        locationDistance={event._embedded.venues[0].distance}
+                        locationDistanceUnits={event._embedded.venues[0].units}
+                    />
 
 
-                        )
-                    })}
-                {/* </div> */}
+                    )
+                })}
 
 
-            </Container >
+
+
+            </Container>
 
         )
     }
