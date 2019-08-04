@@ -4,6 +4,7 @@ module.exports = {
 
     create: function (req, res) {
         db.User.create({
+            username: req.body.email,
             email: req.body.email,
             password: req.body.password
           }).then(function() {
