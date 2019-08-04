@@ -73,12 +73,12 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-      <div className="card-columns">
+      <div>
         <ResultCard />
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-      <div className="card-columns">
+      <div>
       <ResultCard />
       </div>
       </TabPanel>

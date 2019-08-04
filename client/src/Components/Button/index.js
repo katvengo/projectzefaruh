@@ -32,7 +32,7 @@ export default function SearchButton(props) {
     
       <div>
         
-        <Fab variant="extended" color="green" aria-label="Search" className={classes.margin} {...props}>
+        <Fab variant="extended" color="primary" aria-label="Search" className={classes.margin} {...props}>
           <Search className={classes.extendedIcon} {...props} />
           Search
         </Fab>

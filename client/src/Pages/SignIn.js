@@ -50,12 +50,12 @@ class SignUp extends React.Component {
                 <TextField
                     name="password"
                     value={this.state.password}
-                    placeholder=" password"
+                    placeholder=" Password"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
                     margin="normal"
-                    label="password"
+                    label="Password"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
@@ -64,7 +64,6 @@ class SignUp extends React.Component {
                     InputProps={{
                         disableUnderline: true
                     }}
-
                 />
 
                 <Fab
