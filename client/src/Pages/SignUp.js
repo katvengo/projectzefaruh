@@ -6,7 +6,6 @@ import Send from '@material-ui/icons/Send';
 
 class SignUp extends React.Component {
     state = {
-
         firstName: '',
         lastName: '',
         email: '',
@@ -113,8 +112,8 @@ class SignUp extends React.Component {
                     // className={classes.margin}
                 >
                     <Send />
-                   Submit
-                </Fab>
+                    Submit
+                    </Fab>
 
                     {/* this submit button needs to save the user information to the database */}
 

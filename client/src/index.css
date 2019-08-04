@@ -21,13 +21,59 @@ body {
 }
 
 .MuiButton-label{
- /* .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current{ */
+
   color: #395E2E;
 }
-/*  this is white with the green background... user selected*/
-/* .MuiTypography-root.MuiTypography-body2.MuiTypography-colorInherit {
-  color: white;
+.MuiPickersDay-current{
+  color: #395E2E !important;
+}
+.MuiPickersDay-daySelected{
+  color: white !important;
   background-color: #395E2E;
+}
+
+
+/* labels */
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
+  color: #6c757d;
+}
+
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
+  color:#395E2E;
+  ;
+}
+
+
+/* round button focus */
+.MuiButtonBase-root.MuiIconButton-root:focus{
+  background-color: #395E2E !important;
+  color: white;
+}
+.MuiButtonBase-root.MuiIconButton-root:active{
+  background-color: transparent !important;
+  
+}
+
+/* category box outline  */
+/* not working */
+.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-inputMuiOutlinedInput-input.MuiInputBase-inputSelect.MuiOutlinedInput-inputSelect.MuiSelect-outlined{
+ border-color:red !important;
+}
+#inputLine:focus{
+  border-bottom: 1px solid #395E2E;
+  box-shadow:none;
+}
+
+
+
+/* button.MuiButton-label:
+.MuiInputBase-root.MuiInput-root.MuiInputBase-fullWidth.MuiInput-fullWidth.Mui-focused.Mui-focused.MuiInputBase-formControl.MuiInput-formControl.MuiInputBase-input.MuiInput-input{
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 blue;
 } */
-/* this one is the current date */
-/*  */
+
+
+/* heart button */
+button.MuiButtonBase-root.MuiIconButton-root{
+  margin: 0px, 10px, 0px, 0px;
+}

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 
 class UserPage extends Component {
   handleClick = event => {
+    event.preventDefault()
     console.log("Clicked");
 
   };
@@ -16,7 +17,7 @@ class UserPage extends Component {
   render() {
     return (
       <Container>
-        <h2> this is the user home page</h2>
+        <h2>User Home Page</h2>
         {/* user info */}
         <Card>
           <CardContent>
