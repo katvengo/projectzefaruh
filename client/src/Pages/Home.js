@@ -262,7 +262,7 @@ class Home extends Component {
                             note={event.pleaseNote}
                             key={event.id}
                             locationName={event._embedded.venues[0].name}
-                            // tickets={event._embedded.attractions[0].url}
+                            tickets={event._embedded.attractions[0].url}
                             locationAddress={event._embedded.venues[0].address.line1}
                             locationCity={event._embedded.venues[0].city.name}
                             locationPostalCode={event._embedded.venues[0].postalCode}

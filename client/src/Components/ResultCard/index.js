@@ -16,7 +16,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 // import ShareIcon from '@material-ui/icons/Share';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+var moment = require('moment');
 
 
 // const useStyles = makeStyles(theme => ({
@@ -73,39 +73,12 @@ const Styles = {
 
 const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, image, note,
   tickets, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits }) => {
-  // const classes = useStyles();
+    // const classes = useStyles();
+    const eventDate= {dates}
 
 
 
   return (
-
-    //   <div> 
-
-    //   <h2 className="header">{title} at the {locationName}</h2>
-    //   <h6> Distance: {locationDistance}{locationDistanceUnits}</h6>
-
-    //   <div className="card horizontal">
-    //     <div className="card-image">
-    //       <img src={image} alt="event"/>
-    //     </div>
-    //     <div className="card-stacked">
-    //       <div className="card-content">
-    //         <p>{note}</p>
-    //         <p>{dates}</p>
-    //         <p>Venue Address {locationAddress} {locationCity} {locationPostalCode} {locationState} </p>
-
-    //       </div>
-    //       <div className="card-action">
-    //         <a href={tickets} target="_blank" rel="noopener noreferrer" >Purchase Tickets</a>
-
-
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-
-
-
 
 
     <div>
@@ -131,6 +104,8 @@ const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, i
                 </div>
 
 
+                {/* <h5 className="card-subheading"> .toUTCString({dates}){moment({dates}).format('ll')}</h5> */}
+                <h5 className="card-subheading" style={Styles.place}> {console.log(eventDate)}</h5>
                 <h5 className="card-subheading" style={Styles.place}> {locationName}</h5>
                 <h6 className="card-subheading"> {locationCity}, {locationState}</h6>
 
@@ -147,10 +122,10 @@ const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, i
             </div>
 
           </div>
-          <div className="col-md-1" style={Styles.heartBtn} >
+          <div className="col-md-1" style={Styles.cardBodyMargins} >
             <div className="row"> 
             <IconButton aria-label="add to favorites"  >
-              <FavoriteIcon  style={Styles.heart}/>
+              <FavoriteIcon  id=" " style={Styles.heart}/>
             </IconButton>
             </div>
 
