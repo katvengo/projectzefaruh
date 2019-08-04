@@ -5,13 +5,17 @@ import Send from '@material-ui/icons/Send';
 
 
 class SignUp extends React.Component {
-    state = {
-
-        firstName: '',
-        lastName: '',
+    constructor(props){
+        super(props) 
+        this.state = {
+        username: '',
         email: '',
         password: '',
+        msg: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    }
+   
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -21,21 +25,42 @@ class SignUp extends React.Component {
 
     };
 
+    handleSubmit = event => {
+        event.preventDefault()
+        console.log("submit is being hit")
+        var userInfo = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        }
+        console.log(userInfo)
+        fetch("/api/signup", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(userInfo)
+        }).then(function(response) {
+            if (response.status >= 400) {
+              throw new Error("Bad response from server");
+            }
+            return response.json();
+        }).then(function(data) {
+            console.log(data)    
+        }).catch((err) => {
+            console.log(err)
+        });
+    }
     render() {
-
-
-
         return (
             <div className="center">
                 <TextField
-                    name="name"
-                    value={this.state.name}
-                    placeholder="Name"
+                    name="username"
+                    value={this.state.username}
+                    placeholder="username"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
                     margin="normal"
-                    label="Name"
+                    label="username"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
@@ -47,25 +72,6 @@ class SignUp extends React.Component {
 
                 />
 
-                <TextField
-                    name="lastName"
-                    value={this.state.lastName}
-                    placeholder="Last Name"
-                    onChange={this.handleInputChange}
-                    type="text"
-                    fullWidth
-                    margin="normal"
-                    label="Last Name"
-                    // variant="none"
-                    style={{ margin: 8 }}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    InputProps={{
-                        disableUnderline: true
-                    }}
-
-                />
                 <TextField
                     name="email"
                     value={this.state.email}
@@ -105,16 +111,15 @@ class SignUp extends React.Component {
 
                 />
 
-                <Fab
+                <Fab onClick={(event) => this.handleSubmit(event)}
                     variant="extended"
                     size="medium"
                     color="primary"
                     aria-label="submit"
-                    // className={classes.margin}
                 >
-                    <Send />
-                   Submit
-                </Fab>
+                    <Send/>
+                    Submit
+                    </Fab>
 
                     {/* this submit button needs to save the user information to the database */}
 

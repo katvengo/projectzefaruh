@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { ThemeProvider } from '@material-ui/styles';
 import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
 // import Nav from '../Components/Nav'
@@ -12,7 +13,11 @@ import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 import TimePicker from "../Components/TimePicker";
 //import { textAlign } from "@material-ui/system";
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
 var moment = require('moment');
+
+
 
 //  var latlon;
 //  var showPosition;
@@ -22,28 +27,28 @@ var moment = require('moment');
 const styles = {
     heading: {
         color: "white",
-        fontFamily: "Anton, sans-serif",
+        textShadow: '2px 2px 1px #white',
+        fontFamily: 'abys', 
+        // fontFamily: "Anton, sans-serif",
         textAlign: "center",
         padding: "50px",
-        letterSpacing: "2px"
+        letterSpacing: "2px",
+        fontSize: '30px'
     },
 
     headingDiv: {
-        background: "#F2D8C9"
+        background: "white"
     },
 
     button: {
-        background: "#BF8874",
-        color: "white",
-        opacity: "50%",
+        background: "#769A75",
+        color: "#d9d9d9",
+        //opacity: "50%",
         // fontFamily: 'Lora, serif',
         letterSpacing: '1px',
-
-    }
-
+    },
+    
 }
-
-
 
 
 class Home extends Component {
@@ -146,18 +151,8 @@ class Home extends Component {
 
     render() {
         return (
-
             <Container>
-
-                <div style={styles.headingDiv}>
-
-                    <h1 style={styles.heading}>ZEFARUH</h1>
-                </div>
-
-
-
-                <TextField
-
+               <TextField
                     id="inputLine"
                     name="eventSearched"
                     value={this.state.eventSearched}
@@ -165,7 +160,6 @@ class Home extends Component {
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
-
                     margin="normal"
                     label="Event or Activity"
                     // variant="none"
@@ -176,8 +170,16 @@ class Home extends Component {
                     InputProps={{
                         disableUnderline: true
                     }}
+                    InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                          <SearchIcon /> 
+                          </InputAdornment>
+                        ),
+                      }}
                 />
 
+               
 
 
 
@@ -234,7 +236,6 @@ class Home extends Component {
                 <div className="row ">
                     <SearchButton
                         onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center"/>
-
 
                 </div>
 
