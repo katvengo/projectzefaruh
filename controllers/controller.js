@@ -4,7 +4,6 @@ module.exports = {
 
     create: function (req, res) {
         db.Event.create({
-        
         }).then(function () {
             res.redirect(307, "/api/login");
         }).catch(function (err) {
