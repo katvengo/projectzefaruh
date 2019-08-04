@@ -140,7 +140,7 @@ const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, i
               </div> */}
 
                 <a href={tickets} className="card-link">Tickets</a>
-                <a href="#" className="card-link">Another link</a>
+                {/* <a href="#" className="card-link">Another link</a> */}
 
                 <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
               </div>

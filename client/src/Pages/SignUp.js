@@ -14,7 +14,6 @@ class SignUp extends React.Component {
         msg: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-
     }
    
 
