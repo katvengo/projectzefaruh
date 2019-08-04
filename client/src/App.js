@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserPage from "./Pages/UserPage";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
+import Event from "./Pages/Event";
 require('dotenv').config()
 
 
@@ -37,6 +38,7 @@ class App extends Component {
       <Route exact path ="/signUp" component= {SignUp}/>
       <Route exact path ="/signIn" component= {SignIn}/>
       <Route exact path ="/profile" component= {UserPage}/>
+      <Route exact path ="/event" component= {Event}/>
      
       <Home/>
 

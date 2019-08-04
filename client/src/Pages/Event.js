@@ -1,10 +1,24 @@
 import React, { Component } from "react"
-
-
+import Container from '../Components/Container'
+import TextField from '@material-ui/core/TextField';
+import DatePicker from '../Components/DatePicker'
+import CategoryInput from "../Components/CategoryInput"
+// import axios from 'axios';
+import TimePicker from "../Components/TimePicker";
+//var moment = require('moment');
+import Fab from '@material-ui/core/Button';
+import Send from '@material-ui/icons/Send';
 
 const styles = {
     heading: {
         color: "white",
+        fontFamily: "Anton, sans-serif",
+        textAlign: "center",
+        padding: "50px",
+        letterSpacing: "2px"
+    },
+    subheading: {
+        color: "black",
         fontFamily: "Anton, sans-serif",
         textAlign: "center",
         padding: "50px",
@@ -21,45 +35,29 @@ const styles = {
         opacity: "50%",
         // fontFamily: 'Lora, serif',
         letterSpacing: '1px',
-
+    },
+    centerStage:{
+        textAlign: "center",
     }
 
 }
 
-
-
-
-class Home extends Component {
+class Event extends Component {
     constructor() {
         super()
         this.state = {
-            eventName: "",
-            eventLocation,
-            eventSearched: "",
-            eventLocationSearched: "",
-            selectedDate: new Date(),
-            geohash: 0,
-            expanded: false
+          eventName: '',
+          eventLocation: '',
+          eventPriceRange: '',
+          eventDate: '',
+          eventTime: '',
+          eventDescription: '',
+          eventCategory: '',
+          eventImage: '',
 
         }
     }
    
-
-    // searchThruDatabase = (query, time) => {
-    //     const request = {query, time}
-    //     axios.post('/api/authorize', request)   
-    //         //.then(res => res.json())
-    //         .then((events) => {
-    //             console.log({events})
-    //             //console.log(ticketMaster)
-    //             this.setState({
-    //                 events: events.data
-    //             })
-    //         })
-    //         // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
-    // }
-    
- 
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -69,29 +67,31 @@ class Home extends Component {
 
     };
   
-    //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
     handleSubmit = event => {
         event.preventDefault()
         console.log("hitting search")
-        this.searchThruDatabase(this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
-        console.log("event searched state ", this.state.eventSearched, "event date: ", moment(this.state.selectedDate).format('YYYY MM DDTHH:mm:ss'))
+        //this.searchThruDatabase(this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
     }
 
     render() {
         return (
-
             <Container>
+                  <div style={styles.headingDiv}>
+
+                   <h1 style={styles.heading}>ZEFARUH</h1>
+                   </div>
+
+                    <h2 style={styles.subheading}>Create your Event!</h2>
+
                 <TextField
                     id="inputLine"
-                    name="eventSearched"
-                    value={this.state.eventSearched}
-                    placeholder="  i.e. outdoor concerts, roll-outs"
+                    name="eventName"
+                    value={this.state.eventName}
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
-
                     margin="normal"
-                    label="Event or Activity"
+                    label="Event Name"
                     // variant="none"
                     style={{ margin: 0 }}
                     InputLabelProps={{
@@ -102,15 +102,14 @@ class Home extends Component {
                     }}
                 />
 
-<TextField
-                    name="email"
-                    value={this.state.email}
-                    placeholder=" Email"
+                  <TextField
+                    name="eventLocation"
+                    value={this.state.eventLocation}
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
                     margin="normal"
-                    label="Email"
+                    label="Event Address"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
@@ -121,15 +120,34 @@ class Home extends Component {
                     }}
 
                 />
-                <TextField
-                    name="password"
-                    value={this.state.password}
-                    placeholder=" Password"
+              
+              <TextField
+                    id="inputLine"
+                    name="priceRange"
+                    placeholder="12-45"
+                    value={this.state.eventPriceRange}
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
                     margin="normal"
-                    label="Password"
+                    label="Event Price Range"
+                    // variant="none"
+                    style={{ margin: 0 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+                />
+                  <TextField
+                    name="eventDescription"
+                    value={this.state.eventDescription}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Description of Event"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
@@ -138,16 +156,51 @@ class Home extends Component {
                     InputProps={{
                         disableUnderline: true
                     }}
+
                 />
+                 <TextField
+                    name="eventImage"
+                    value={this.state.eventImage}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Image"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
 
+                />
+                <div className="row">
+                    <div className="col m6">
+                    <CategoryInput></CategoryInput>
+                    </div>
+                    <div className="col m6">
+                     <DatePicker></DatePicker>
+                    </div>
+                    <div className="col m6">
+                    <TimePicker></TimePicker>
 
-            
-
-
-               
-                    <SearchButton
-                        onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center"/>
-
+                    </div>
+</div>
+               <div className="row">
+                   <div className="col m6" style={styles.centerStage}>
+                <Fab onClick={(event) => this.handleSubmit(event)}
+                    variant="extended"
+                    size="medium"
+                    color="primary"
+                    aria-label="submit"
+                >
+                    <Send/>
+                    Submit
+                    </Fab>
+                    </div>
+                    </div>
             </Container>
 
         )
