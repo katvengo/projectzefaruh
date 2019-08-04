@@ -82,7 +82,20 @@ class Event extends Component {
             eventImage: this.state.eventImage
         }
         console.log(eventInfo)
-        //this.searchThruDatabase(this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
+        fetch("/api/events", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(userInfo)
+        }).then(function(response) {
+            if (response.status >= 400) {
+              throw new Error("Bad response from server");
+            }
+            return response.json();
+        }).then(function(data) {
+            console.log(data)    
+        }).catch((err) => {
+            console.log(err)
+        });
     }
 
     render() {
