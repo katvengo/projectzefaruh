@@ -36,6 +36,7 @@ class App extends Component {
       <Route exact path="/myaccount" component={UserPage} /> 
       <Route exact path ="/signUp" component= {SignUp}/>
       <Route exact path ="/signIn" component= {SignIn}/>
+      <Route exact path ="/profile" component= {UserPage}/>
      
       <Home/>
 
