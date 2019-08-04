@@ -8,6 +8,7 @@ import TimePicker from "../Components/TimePicker";
 //var moment = require('moment');
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
+import DropDown from '../Components/DropDown'
 
 const styles = {
     heading: {
@@ -70,6 +71,17 @@ class Event extends Component {
     handleSubmit = event => {
         event.preventDefault()
         console.log("hitting search")
+        var eventInfo = {
+            eventName: this.state.eventName,
+            eventLocation: this.state.eventLocation,
+            eventPriceRange: this.state.eventPriceRange,
+            eventDate: this.state.eventDate,
+            eventTime: this.state.eventTime,
+            eventDescription: this.state.eventDescription,
+            eventCategory: this.state.eventCategory,
+            eventImage: this.state.eventImage
+        }
+        console.log(eventInfo)
         //this.searchThruDatabase(this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
     }
 
@@ -121,25 +133,6 @@ class Event extends Component {
 
                 />
               
-              <TextField
-                    id="inputLine"
-                    name="priceRange"
-                    placeholder="12-45"
-                    value={this.state.eventPriceRange}
-                    onChange={this.handleInputChange}
-                    type="text"
-                    fullWidth
-                    margin="normal"
-                    label="Event Price Range"
-                    // variant="none"
-                    style={{ margin: 0 }}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    InputProps={{
-                        disableUnderline: true
-                    }}
-                />
                   <TextField
                     name="eventDescription"
                     value={this.state.eventDescription}
@@ -177,16 +170,20 @@ class Event extends Component {
 
                 />
                 <div className="row">
-                    <div className="col m6">
+                    <div className="col m4">
                     <CategoryInput></CategoryInput>
                     </div>
-                    <div className="col m6">
+                    <div className="col m4">
                      <DatePicker></DatePicker>
                     </div>
-                    <div className="col m6">
+                    <div className="col m4">
                     <TimePicker></TimePicker>
+                    </div>
+                    <div className="col m4">
+                    <DropDown></DropDown>
 
                     </div>
+
 </div>
                <div className="row">
                    <div className="col m6" style={styles.centerStage}>
