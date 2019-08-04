@@ -15,6 +15,10 @@ import TimePicker from "../Components/TimePicker";
 //import { textAlign } from "@material-ui/system";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+
 var moment = require('moment');
 
 
@@ -28,8 +32,8 @@ const styles = {
     heading: {
         color: "white",
         textShadow: '2px 2px 1px #white',
-        fontFamily: 'abys', 
-        // fontFamily: "Anton, sans-serif",
+        // fontFamily: 'abys', 
+        fontFamily: "Anton, sans-serif",
         textAlign: "center",
         padding: "50px",
         letterSpacing: "2px",
@@ -47,6 +51,14 @@ const styles = {
         // fontFamily: 'Lora, serif',
         letterSpacing: '1px',
     },
+    toolbarTitle: {
+        flex: 1,
+        fontFamily: 'Raleway',
+        fontSize: "30px",
+        color: "#769A75",
+        textShadow: '1px 1px'
+
+      },
     
 }
 
@@ -151,7 +163,18 @@ class Home extends Component {
 
     render() {
         return (
+
             <Container>
+                <Typography
+                component="h2"
+                 variant="h5"
+                 color="inherit"
+                 align="center"
+                  noWrap
+                 style={styles.toolbarTitle}
+                  >
+              A place to search for events and things to do
+        </Typography>
                <TextField
                     id="inputLine"
                     name="eventSearched"
