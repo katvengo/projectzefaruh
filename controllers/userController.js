@@ -4,6 +4,7 @@ module.exports = {
 
     create: function (req, res) {
         db.User.create({
+            username: req.body.email,
             email: req.body.email,
             password: req.body.password
           }).then(function() {
@@ -16,12 +17,22 @@ module.exports = {
     },
 
     findAll: function (req, res) {
-        db.User.findAll({}).then(function (dbEvents) {
+        db.User.findAll({}).then(function (dbUsers) {
             return res.json(dbUsers)
         })
     },
 
-    findById: function(req, res) {},
-    remove: function(req, res) {}
+    findById: function(req, res) {
+    // var user = req.user
+    db.User.findOne({
+      where: {
+          username: req.user.username
+      }
+  }).then(function (users) {
+      return res.json(users)
+  }).catch(next)
+    },
+
+    //remove: function(req, res) {}
 
 }

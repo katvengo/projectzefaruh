@@ -42,7 +42,7 @@
     })
   }
 
-  console.log(search('lady%gaga', 'gbsuv', 'San Diego', '2020-08-01T14:00:00'))
+  //console.log(search('lady%gaga', 'gbsuv', 'San Diego', '2020-08-01T14:00:00'))
    
  module.exports = search
 
