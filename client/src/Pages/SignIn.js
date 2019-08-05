@@ -32,6 +32,7 @@ class SignUp extends React.Component {
         console.log(userLoginInfo)
         if(!userLoginInfo.email || !userLoginInfo.password){
             return;
+
         } else {
         fetch("/api/login", {
             method: 'POST',
@@ -41,10 +42,9 @@ class SignUp extends React.Component {
             if (response.status >= 400) {
               throw new Error("Bad response from server");
             }
-            return response.redirect("/event")
-        }).then(function(data) {
-            console.log(data)    
-
+            return response.json()
+        }).then(function(req, res) {
+            res.redirect('/user/:username')
         }).catch((err) => {
             console.log(err)
         });

@@ -4,7 +4,7 @@ module.exports = {
 
     create: function (req, res) {
         db.User.create({
-            username: req.body.email,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password
           }).then(function() {
@@ -24,8 +24,8 @@ module.exports = {
 
     findById: function(req, res) {
     // var user = req.user
-    db.User.findOne({
-      where: {
+       db.User.findOne({
+        where: {
           username: req.user.username
       }
   }).then(function (users) {

@@ -34,7 +34,8 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarTitle: {
     flex: 1,
-    fontFamily: 'Indie Flower',
+    fontFamily: 'Raleway',
+    color: 'white',
     fontSize: "20px"
   },
   toolbarSecondary: {
@@ -63,8 +64,6 @@ function Nav() {
   return (
 
     // <Navbar brand={<a />} alignLinks="right" className="blue " sidenav={<li />}>
-
-
     //     <Link
     //         to="/myaccount"
     //         className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
@@ -95,6 +94,7 @@ function Nav() {
           className={classes.toolbarTitle}
           >
         </Typography>
+
           {/* </Link> */}
 
 
@@ -103,7 +103,6 @@ function Nav() {
             <SearchIcon />
           </IconButton>
         </Link> */}
-
         <Link to="/SignUp">
           <Button size="small" className={classes.buttonDesign}>Sign up</Button>
         </Link>
