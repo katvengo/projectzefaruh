@@ -9,7 +9,6 @@ import Box from "@material-ui/core/Box";
 import ResultCard from "../ResultCard";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import EventIcon from "@material-ui/icons/Event";
-import { lightGreen, grey } from "@material-ui/core/colors";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     // backgroundColor: theme.palette.background.paper
   },
   tab: {
-    backgroundColor: lightGreen[600]
+    backgroundColor: "#4a8148"
   }
 }));
 
