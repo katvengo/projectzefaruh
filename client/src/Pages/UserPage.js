@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import Container from "../Components/Container";
-import Avatar from "@material-ui/core/Avatar";
+// import Card from "@material-ui/core/Card";
+// import CardContent from "@material-ui/core/CardContent";
+// import Avatar from "@material-ui/core/Avatar";
 import SearchButton from "../Components/Button";
 import { Link } from "react-router-dom";
+// import ResultCard from "../Components/ResultCard";
 import UserCard from "../Components/UserCard";
 import TabPanel from "../Components/TabPanel";
-import { makeStyles } from "@material-ui/styles";
+// import { makeStyles } from "@material-ui/styles";
 // import TextField from '@material-ui/core/TextField'
 
 const styles = {

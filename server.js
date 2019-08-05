@@ -1,23 +1,22 @@
 const path = require('path')
 require('dotenv').config({path: path.resolve(__dirname+'/.env')});
 const express = require("express");
-var cors = require('cors');
 const routes = require("./routes");
+var bodyParser = require("body-parser");
 const session = require("express-session");
-
 const passport = require("./config/passport")
-
 LocalStrategy = require('passport-local').Strategy;
-
-const db = require('./models')
-
 const PORT = process.env.PORT || 3001;
+const db = require('./models')
 const app = express();
+
+
 
 // const mysql = require('mysql');
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false })); //For body parser
+app.use(bodyParser.json());
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -52,7 +51,7 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
-db.sequelize.sync({force: true}).then(function(){ 
+db.sequelize.sync().then(function(){ 
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });

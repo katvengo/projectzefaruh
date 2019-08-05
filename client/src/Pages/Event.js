@@ -34,10 +34,10 @@ const styles = {
         background: "#BF8874",
         color: "white",
         opacity: "50%",
-        // fontFamily: 'Lora, serif',
+        // fontFamily: 'Lora, nserif',
         letterSpacing: '1px',
     },
-    centerStage:{
+    centerStage: {
         textAlign: "center",
     }
 
@@ -47,18 +47,19 @@ class Event extends Component {
     constructor() {
         super()
         this.state = {
-          eventName: '',
-          eventLocation: '',
-          eventPriceRange: '',
-          eventDate: '',
-          eventTime: '',
-          eventDescription: '',
-          eventCategory: '',
-          eventImage: '',
+            eventName: '',
+            eventLocation: '',
+            eventPriceRange: '',
+            eventDate: '',
+            eventTime: '',
+            eventDescription: '',
+            eventCategory: '',
+            eventImage: '',
+            selectedDate: new Date(),
 
         }
     }
-   
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -67,19 +68,19 @@ class Event extends Component {
         });
 
     };
-  
+
     handleSubmit = event => {
         event.preventDefault()
         console.log("hitting search")
         var eventInfo = {
             eventName: this.state.eventName,
             eventLocation: this.state.eventLocation,
-            eventPriceRange: this.state.eventPriceRange,
+            eventDescription: this.state.eventDescription,
+            eventImage: this.state.eventImage,
             eventDate: this.state.eventDate,
             eventTime: this.state.eventTime,
-            eventDescription: this.state.eventDescription,
             eventCategory: this.state.eventCategory,
-            eventImage: this.state.eventImage
+            eventPriceRange: this.state.eventPriceRange,
         }
         console.log(eventInfo)
         fetch("/api/events", {
@@ -88,25 +89,35 @@ class Event extends Component {
             body: JSON.stringify(eventInfo)
         }).then(function(response) {
             if (response.status >= 400) {
-              throw new Error("Bad response from server");
+                throw new Error("Bad response from server");
             }
             return response.json();
-        }).then(function(data) {
-            console.log(data)    
+        }).then(function (data) {
+            console.log(data)
         }).catch((err) => {
             console.log(err)
         });
     }
 
-    render() {
+
+    setSelectedDate = date => {
+        this.setState({ eventDate: date })
+    }
+
+    setCategory = value => {
+        this.setState({ eventCategory: value })
+    }
+
+    render( ) {
+        
         return (
             <Container>
-                  <div style={styles.headingDiv}>
+                <div style={styles.headingDiv}>
 
-                   <h1 style={styles.heading}>ZEFARUH</h1>
-                   </div>
+                    <h1 style={styles.heading}>ZEFARUH</h1>
+                </div>
 
-                    <h2 style={styles.subheading}>Create your Event!</h2>
+                <h2 style={styles.subheading}>Create your Event!</h2>
 
                 <TextField
                     id="inputLine"
@@ -127,7 +138,7 @@ class Event extends Component {
                     }}
                 />
 
-                  <TextField
+                <TextField
                     name="eventLocation"
                     value={this.state.eventLocation}
                     onChange={this.handleInputChange}
@@ -145,8 +156,8 @@ class Event extends Component {
                     }}
 
                 />
-              
-                  <TextField
+
+                <TextField
                     name="eventDescription"
                     value={this.state.eventDescription}
                     onChange={this.handleInputChange}
@@ -164,7 +175,7 @@ class Event extends Component {
                     }}
 
                 />
-                 <TextField
+                <TextField
                     name="eventImage"
                     value={this.state.eventImage}
                     onChange={this.handleInputChange}
@@ -184,33 +195,55 @@ class Event extends Component {
                 />
                 <div className="row">
                     <div className="col m4">
-                    <CategoryInput></CategoryInput>
+                        <CategoryInput
+                            value={this.state.eventCategory}
+                            onChange={this.setCategory}
+                            setCat={this.setCategory}
+                        />
+
+
                     </div>
                     <div className="col m4">
-                     <DatePicker></DatePicker>
+                        <DatePicker
+                            value={this.state.eventDate}
+                            selectedDate={this.state.selectedDate}
+                            setSelectedDate={this.setSelectedDate}
+                            onChange={this.handleInputChange}
+                        />
                     </div>
                     <div className="col m4">
-                    <TimePicker></TimePicker>
+                        <TimePicker
+                            selectedDate={this.state.selectedDate}
+                            setSelectedDate={this.setSelectedDate}
+                            value={this.state.eventTime}
+                            onChange={this.handleInputChange}
+
+                        />
                     </div>
                     <div className="col m4">
-                    <DropDown></DropDown>
+                        <DropDown
+                         
+                            value={this.state.eventPriceRange}
+                            setCat={this.setCategory}
+                            onChange={this.handleInputChange}
+                        />
 
                     </div>
 
-</div>
-               <div className="row">
-                   <div className="col m6" style={styles.centerStage}>
-                <Fab onClick={(event) => this.handleSubmit(event)}
-                    variant="extended"
-                    size="medium"
-                    color="primary"
-                    aria-label="submit"
-                >
-                    <Send/>
-                    Submit
+                </div>
+                <div className="row">
+                    <div className="col m6" style={styles.centerStage}>
+                        <Fab onClick={(event) => this.handleSubmit(event)}
+                            // variant="extended"
+                            // size="medium"
+                            // color="primary"
+                            aria-label="submit"
+                        >
+                            <Send />
+                            Submit
                     </Fab>
                     </div>
-                    </div>
+                </div>
             </Container>
 
         )

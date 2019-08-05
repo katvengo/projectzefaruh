@@ -50,6 +50,8 @@ router
         }
       } = req;
       const apiEvents = await search(query, time);
+      const dataBaseEvents = await 
+
       console.log('------------------------------------------');
       var events = apiEvents.ticketMaster.data._embedded.events
       //console.log({events})
