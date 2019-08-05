@@ -7,7 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import SettingsIcon from "@material-ui/icons/Settings";
-import { lightGreen, green, grey } from "@material-ui/core/colors";
+import { green, grey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
   card: {

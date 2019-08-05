@@ -12,18 +12,18 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import { red } from "@material-ui/core/colors";
 
 
-const sections = [
-  'Technology',
-  'Design',
-  'Culture',
-  'Business',
-  'Politics',
-  'Opinion',
-  'Science',
-  'Health',
-  'Style',
+// const sections = [
+//   'Technology',
+//   'Design',
+//   'Culture',
+//   'Business',
+//   'Politics',
+//   'Opinion',
+//   'Science',
+//   'Health',
+//   'Style',
 
-];
+// ];
 
 const useStyles = makeStyles(theme => ({
   toolbar: {

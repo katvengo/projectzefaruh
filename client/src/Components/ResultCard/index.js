@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 // import clsx from 'clsx';
 // import Card from '@material-ui/core/Card';
 // import CardHeader from '@material-ui/core/CardHeader';
@@ -11,12 +11,12 @@ import { makeStyles } from '@material-ui/core/styles';
 // import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 // import Typography from '@material-ui/core/Typography';
-import { lime } from '@material-ui/core/colors';
+// import { lime } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 // import ShareIcon from '@material-ui/icons/Share';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
-var moment = require('moment');
+// var moment = require('moment');
 
 
 // const useStyles = makeStyles(theme => ({
@@ -115,7 +115,7 @@ const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, i
               </div> */}
 
                 <a href={tickets} className="card-link">Tickets</a>
-                <a href="#" className="card-link">Another link</a>
+                <a href="/" className="card-link">Another link</a>
 
                 <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
               </div>

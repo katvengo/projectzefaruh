@@ -5,7 +5,7 @@ import Container from '../Components/Container'
 import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
 // import CategoryInput from "../Components/CategoryInput"
-import SearchButton from "../Components/Button"
+import SubmitButton from "../Components/Button"
 //import API from "../utils/API";
 import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
@@ -232,7 +232,7 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="row ">
-                    <SearchButton
+                    <SubmitButton
                         onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center"/>
 
 
