@@ -85,9 +85,9 @@ class Event extends Component {
         console.log(eventInfo)
         fetch("/api/events", {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(event)
-        }).then(function (response) {
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(eventInfo)
+        }).then(function(response) {
             if (response.status >= 400) {
                 throw new Error("Bad response from server");
             }

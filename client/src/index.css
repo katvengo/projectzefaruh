@@ -1,8 +1,7 @@
 body {
   margin: 0;
   padding: 0;
- 
-  
+
 }
 
 /* date and time pickers */
@@ -17,7 +16,7 @@ body {
   border: #395E2E !important;
 }
 
-.MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint {
+.MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
   background-color: #395E2E !important;
   border: #395E2E 14px solid !important;
 }

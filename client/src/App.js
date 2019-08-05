@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Home from "./Pages/Home"
 import Nav from "./Components/Nav"
 import "./App.css";
+//import { ThemeProvider } from '@material-ui/styles';
+
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
 // import Typography from '@material-ui/core/Typography';
@@ -20,8 +22,6 @@ require('dotenv').config()
 
 class App extends Component {
 
-  
-  
   render() {
 
     
@@ -39,7 +39,7 @@ class App extends Component {
       <Route exact path ="/signIn" component= {SignIn}/>
       <Route exact path ="/profile" component= {UserPage}/>
       <Route exact path ="/event" component= {Event}/>
-     
+  
       <Home/>
 
       </Switch>
