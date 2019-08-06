@@ -21,9 +21,20 @@ body {
   border: #395E2E 14px solid !important;	  border: #395E2E 14px solid !important;
 }	
 
-.MuiButton-label{
+.MuiButton-label, .MuiButton-label:focus, .MuiButton-label:active{
 
   color: #395E2E;
+
+}
+
+/* span.MuiButton-label:hover{
+
+} */
+a:hover{
+  text-decoration: none;
+}
+button:focus{
+  background-color:white;
 }
 .MuiPickersDay-current{
   color: #395E2E !important;
