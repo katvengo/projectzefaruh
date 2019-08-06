@@ -2,13 +2,14 @@ import React, { Component } from "react"
 import Container from '../Components/Container'
 import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
-import CategoryInput from "../Components/CategoryInput"
+// import CategoryInput from "../Components/CategoryInput"
 // import axios from 'axios';
 import TimePicker from "../Components/TimePicker";
 //var moment = require('moment');
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
-import DropDown from '../Components/DropDown'
+import FileInput from "../Components/FileInput"
+// import DropDown from '../Components/DropDown'
 var moment = require('moment');
 
 
@@ -231,7 +232,7 @@ class Event extends Component {
                     }}
 
                 />
-                <TextField
+                {/* <TextField
                     id="inputLine"
                     name="eventImage"
                     value={this.state.eventImage}
@@ -249,24 +250,11 @@ class Event extends Component {
                         disableUnderline: true
                     }}
 
+                /> */}
+                <FileInput 
+                onChange={this.handleInputChange}
+                value={this.state.eventImage}
                 />
-
-
-                <form action="#">
-                    <div className="file-field input-field">
-                        <div className="btn">
-                            <span>File</span>
-                            <input type="file" multiple />
-                        </div>
-                        <div className="file-path-wrapper">
-                            <input
-                                className="file-path validate"
-                                type="text"
-                                placeholder="Upload one or more files"
-                            />
-                        </div>
-                    </div>
-                </form>
 
 
 
