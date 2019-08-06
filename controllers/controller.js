@@ -4,7 +4,14 @@ module.exports = {
 
     create: function (req, res) {
         db.Event.create({
-        
+            eventName: req.body.eventName,
+            eventLocation: req.body.eventLocation,
+            eventDescription: req.body.eventDescription,
+            eventImage: req.body.eventImage,
+            eventDate: req.body.eventDate,
+            eventTime: req.body.eventTime,
+            eventCategory: req.body.eventCategory,
+            eventPriceRange: req.body.eventPriceRange,
         }).then(function () {
             res.redirect(307, "/api/login");
         }).catch(function (err) {
@@ -15,7 +22,14 @@ module.exports = {
     },
 
     findAll: function (req, res) {
-        db.Event.findAll({}).then(function (dbEvents) {
+        db.Event.findAll({
+            where: {
+                eventName: req.params.eventName,
+                eventLocation: req.params.eventLocation,
+                eventDate: req.params.eventDate,
+                eventTime: req.params.eventTime
+            }
+        }).then(function (dbEvents) {
             return res.json(dbEvents)
         })
     },

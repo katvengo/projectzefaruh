@@ -1,22 +1,19 @@
-const express = require("express");
 const path = require('path')
- const routes = require("./routes");
-const session = require("express-session");
-
-const passport = require("./config/passport")
-
-LocalStrategy = require('passport-local').Strategy;
-
-const db = require('./models')
-
-const PORT = process.env.PORT || 3001;
-const app = express();
 require('dotenv').config({path: path.resolve(__dirname+'/.env')});
+const express = require("express");
+const routes = require("./routes");
+var bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("./config/passport")
+LocalStrategy = require('passport-local').Strategy;
+const PORT = process.env.PORT || 3001;
+const db = require('./models')
+const app = express();
 
-// const mysql = require('mysql');
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false })); //For body parser
+app.use(bodyParser.json());
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -30,24 +27,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 // app.use(flash());
 app.use(function (req, res, next) {
-  res.locals.messages = require('express-messages')(req, res);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
 });
 
 
- app.use(routes);
-// Define API routes here
-
-// Send every other request to the React app
-// Define any API routes before this runs
 
 app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// })
+app.use(routes);
+// app.use('.env'(search()))
+
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 
 db.sequelize.sync().then(function(){ 
   app.listen(PORT, () => {

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Home from "./Pages/Home"
 import Nav from "./Components/Nav"
 import "./App.css";
+//import { ThemeProvider } from '@material-ui/styles';
+
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
 // import Typography from '@material-ui/core/Typography';
@@ -12,16 +14,14 @@ import "./App.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserPage from "./Pages/UserPage";
+import SignUp from "./Pages/SignUp";
+import SignIn from "./Pages/SignIn";
+import Event from "./Pages/Event";
 require('dotenv').config()
-
-
-
 
 
 class App extends Component {
 
-  
-  
   render() {
 
     
@@ -33,10 +33,16 @@ class App extends Component {
      
         <Switch>
 
-      
       <Route exact path="/" component={Home} /> 
-      <Route exact path="/myaccount" component={UserPage} /> 
-     
+      <Route exact path ="/signUp" component= {SignUp}/>
+      <Route exact path ="/signIn" component= {SignIn}/>
+      {/* <Route path='profile' onEnter={requireAuth}> 
+      <IndexRoute component={ProfileSelfComponent} />
+      <Route path='/user/:username' component={ProfileOtherComponent} />
+      </Route> */}
+      <Route path ="/user/:username" component= {UserPage}/>
+      <Route exact path ="/event" component= {Event}/>
+  
       <Home/>
 
       </Switch>

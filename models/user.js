@@ -2,39 +2,24 @@ var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('User', {
-        name: DataTypes.STRING,
         username: {
             type: DataTypes.STRING,
             unique: true,
         },
-
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isEmail: true
             }
-        },
+        },        
         // The password cannot be null
         password: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        age: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                isNumeric: true,
-            }
-
-        },
-        profile: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            // validate: {
-            //     isURL: true,
-            // }
-        },
+        image: DataTypes.BLOB,
+        intersts: DataTypes.STRING,
         resetPasswordToken: {
             type: DataTypes.STRING
         },
@@ -42,8 +27,9 @@ module.exports = function (sequelize, DataTypes) {
         resetPasswordExpires: {
             type: DataTypes.DATE
         }
+        
     });
-
+    
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
     };
@@ -53,5 +39,23 @@ module.exports = function (sequelize, DataTypes) {
         console.log("before create hook");
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
+
+    Author.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        Author.hasMany(models.FavoriteEvents, {
+          onDelete: "cascade"
+        });
+    }
+    Author.associate = function(models) {
+        // Associating Author with Posts
+        // When an Author is deleted, also delete any associated Posts
+        Author.hasMany(models.FavoriteEvents, {
+          onDelete: "cascade"
+        });
+        Author.hasMany(models.CreatedEvents, {
+          onDelete: "cascade"
+        });
+    }
     return User;
 };

@@ -1,44 +1,96 @@
 import React, { Component } from "react";
 import Container from "../Components/Container";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Avatar from "@material-ui/core/Avatar";
+// import Card from "@material-ui/core/Card";
+// import CardContent from "@material-ui/core/CardContent";
+// import Avatar from "@material-ui/core/Avatar";
 import SearchButton from "../Components/Button";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+// import ResultCard from "../Components/ResultCard";
+import UserCard from "../Components/UserCard";
+import TabPanel from "../Components/TabPanel";
+// import { makeStyles } from "@material-ui/styles";
 // import TextField from '@material-ui/core/TextField'
 
-class UserPage extends Component {
-  handleClick = event => {
-    console.log("Clicked");
+const styles = {
+  button: {
+    background: "#769A75",
+    color: "#d9d9d9",
+    //opacity: "50%",
+    // fontFamily: 'Lora, serif',
+    letterSpacing: "1px"
+  }
+};
 
-  };
+class UserPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      locationCity: "",
+      postedEvents: [],
+      favEvents: []
+    };
+  }
 
   render() {
     return (
       <Container>
-        <h2> this is the user home page</h2>
-        {/* user info */}
-        <Card>
-          <CardContent>
-            <Avatar
-              alt="user avatar"
-              src="https://png.pngtree.com/svg/20161027/631929649c.svg"
-            />
-            <h6>user card</h6>
-            <p>name, info, whatever...</p>
-          </CardContent>
-        </Card>
+        {/* <h3>user home page</h3> */}
+        <div className="row">
+          <div className="col-sm-4">
+            <UserCard />
+            <Link to="/">
+              <SearchButton style={styles.button} />
+            </Link>
+          </div>
+          <div className="col-sm-8">
+            <TabPanel />
+          </div>
+        </div>
 
-        <Link to="/components.html"><SearchButton /></Link>
-        
-        <h3>saved events:</h3>
-        {/* saved evets */}
-        <h2> this page needs to:</h2>
-        <ul>
-          <li>show saved events</li>
-          <li>allow the user to post events</li>
-          <li>search events?</li>
-        </ul>
+        {/* <h5>My Events:</h5> */}
+        {/* <div className="card-columns"> */}
+        {/* <ResultCard /> */}
+        {/* posted evets */}
+        {/* {this.state.postedEvents.map(event => {
+            return (
+              <ResultCard
+                title={favEvents.name}
+                dates={event.dates.start.localDate}
+                image={event.images[0].url}
+                note={event.pleaseNote}
+                key={event.id}
+                locationName={event._embedded.venues[0].name}
+                locationAddress={event._embedded.venues[0].address.line1}
+                locationCity={event._embedded.venues[0].city.name}
+                locationState={event._embedded.venues[0].state.name}
+              />
+            );
+          })} */}
+        {/* </div> */}
+        {/* <h5>Saved Events:</h5> */}
+        {/* <div className="card-columns"> */}
+        {/* saved/favorite evets */}
+        {/* <ResultCard /> */}
+        {/* {this.state.favEvents.map(event => {
+            return (
+              <ResultCard
+                title={favEvents.name}
+                dates={event.dates.start.localDate}
+                image={event.images[0].url}
+                note={event.pleaseNote}
+                key={event.id}
+                locationName={event._embedded.venues[0].name}
+                locationAddress={event._embedded.venues[0].address.line1}
+                locationCity={event._embedded.venues[0].city.name}
+                locationPostalCode={event._embedded.venues[0].postalCode}
+                locationState={event._embedded.venues[0].state.name}
+                locationDistance={event._embedded.venues[0].distance}
+                locationDistanceUnits={event._embedded.venues[0].units}
+              />
+            );
+          })} */}
+        {/* </div> */}
       </Container>
     );
   }

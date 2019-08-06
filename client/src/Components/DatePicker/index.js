@@ -3,19 +3,18 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+
 
 const useStyles = makeStyles({
   grid: {
-    width: '60%',
+    width: '100%',
   },
 });
 
-const MaterialUIPickers = ({ selectedDate, setSelectedDate }) => {
+
+
+const MaterialUIDatePickers = ({ selectedDate, setSelectedDate }) => {
   const classes = useStyles();
 
   return (
@@ -26,27 +25,22 @@ const MaterialUIPickers = ({ selectedDate, setSelectedDate }) => {
           id="mui-pickers-date"
           label="Date"
           value={selectedDate}
-          onChange={ date => setSelectedDate(date) }
+          onChange={date => setSelectedDate(date)}
           KeyboardButtonProps={{
             'aria-label': 'change date',
-          
+
           }}
-        />
-        <KeyboardTimePicker
-          margin="normal"
-          id="mui-pickers-time"
-          label="Time"
-          value={selectedDate}
-          onChange={ date => setSelectedDate(date) }
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
+          InputProps={{
+            disableUnderline: true
           }}
         />
 
-       
+
+
       </Grid>
     </MuiPickersUtilsProvider>
   );
 }
 
-export default MaterialUIPickers
+export default MaterialUIDatePickers
+

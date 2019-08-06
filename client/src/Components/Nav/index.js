@@ -5,73 +5,75 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import Person from '@material-ui/icons/Person';
+import AddPerson from '@material-ui/icons/PersonAdd';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { red } from "@material-ui/core/colors";
+import Tooltip from '@material-ui/core/Tooltip';
+// import { red } from "@material-ui/core/colors";
 
 
-const sections = [
-    'Technology',
-    'Design',
-    'Culture',
-    'Business',
-    'Politics',
-    'Opinion',
-    'Science',
-    'Health',
-    'Style',
-    
-  ];
+const useStyles = makeStyles(theme => ({
+  toolbar: {
+    // borderBottom: `1px solid `,
+    padding: `15px`,
+    backgroundColor: "#769A75",
+    height: "79px"
+  },
+  toolbarTitle: {
+    flex: 1,
+    fontFamily: 'Raleway',
+    color: 'white',
+    fontSize: "20px"
+  },
+  toolbarSecondary: {
+    direction: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    overflowX: 'auto',
+    boxShaddoe: 'none'
 
-  const useStyles = makeStyles(theme => ({
-    toolbar: {
-      borderBottom: `1px solid `,
-     
-    },
-    toolbarTitle: {
-      flex: 1,
-    },
-    toolbarSecondary: {
-      justifyContent: 'space-between',
-      overflowX: 'auto',
-      boxShaddoe: 'none'
-      
-    },
-    toolbarLink: {
-      padding: theme.spacing(5),
-      flexShrink: 0,
-    
-      
-    },
-   
-   
-  }));
+  },
+ buttonDesign:{
+  backgroundColor: '#F4FBF3',
+  color: 'white',
+  margin: "5px",
+ },
+  toolbarLink: {
+    padding: theme.spacing(10),
+    flexShrink: 0,
+  },
+
+
+}));
 function Nav() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
+  return (
 
-        // <Navbar brand={<a />} alignLinks="right" className="blue " sidenav={<li />}>
+    // <Navbar brand={<a />} alignLinks="right" className="blue " sidenav={<li />}>
+    //     <Link
+    //         to="/myaccount"
+    //         className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
+    //     >
+    //         <NavItem href="">
+    //             My Account
+    //     </NavItem>
 
+    //     </Link>
+    //     <NavItem href="components.html">
+    //         Saved Events
+    // </NavItem>
+    // </Navbar>
+    <React.Fragment>
+      <CssBaseline />
+      <Toolbar className={classes.toolbar}>
 
-        //     <Link
-        //         to="/myaccount"
-        //         className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
-        //     >
-        //         <NavItem href="">
-        //             My Account
-        //     </NavItem>
-
-        //     </Link>
-        //     <NavItem href="components.html">
-        //         Saved Events
-        // </NavItem>
-        // </Navbar>
-        <React.Fragment>
-               <CssBaseline/>
-        <Toolbar className={classes.toolbar}>
-        <Button size="small">Account Log In</Button>
+      <Link to="/">
+        <img src='https://i.ibb.co/qyh8GPg/Add-a-little-bit-of-body-text.png' alt = "giraffe" height="75" width="200"/>
+</Link>
+        {/* <Link to="/"> */}
         <Typography
           component="h2"
           variant="h5"
@@ -79,21 +81,43 @@ function Nav() {
           align="center"
           noWrap
           className={classes.toolbarTitle}
-        >
-         Zefaruh
+          >
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
+
+          {/* </Link> */}
+
+
+        {/* <Link to="/">
+          <IconButton>
+            <SearchIcon />
+          </IconButton>
+        </Link> */}
+        <Link to="/SignUp">
+          {/* <Tooltip title="Signup"> */}
+          <Button size="small" className="hide-on-small-only">Sign up</Button>
+          <IconButton className="hide-on-med-and-up">
+            <AddPerson/>
+          </IconButton>
+          {/* </Tooltip> */}
+        </Link>
+
+        <Link to="/SignIn">
+          <Button variant="outlined" size="small" className="hide-on-small-only" className="hide-on-small-only">
+            Login
         </Button>
+        <IconButton className="hide-on-med-and-up">
+            <Person/>
+          </IconButton>
+        </Link>
+
+
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className='white' >
+      {/* <Toolbar component="nav" variant="dense" className='light-green darken-4' >
         {sections.map(section => (
           <Link
+            to="/"
             color="inherit"
-            noWrap
+           nowrap
             key={section}
             variant="body2"
             href="#"
@@ -102,11 +126,11 @@ function Nav() {
             {section}
           </Link>
         ))}
-      </Toolbar>
-     
-      </React.Fragment>
+      </Toolbar> */}
 
-    )
+    </React.Fragment>
+
+  )
 
 }
 

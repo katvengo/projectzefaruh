@@ -1,5 +1,80 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+
+}
+
+/* date and time pickers */
+.MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding.MuiToolbar-gutters, .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current.MuiPickersDay-daySelected, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-daySelected
+
+{
+  background-color: #395E2E
+}
+
+.MuiPickersClock-pin, .MuiPickersClockPointer-pointer{
+  background-color: #395E2E !important;
+  border: #395E2E !important;
+}
+
+.MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
+  background-color: #395E2E !important;	  background-color: #395E2E !important;
+  border: #395E2E 14px solid !important;	  border: #395E2E 14px solid !important;
+}	
+
+.MuiButton-label{
+
+  color: #395E2E;
+}
+.MuiPickersDay-current{
+  color: #395E2E !important;
+}
+.MuiPickersDay-daySelected{
+  color: white !important;
+  background-color: #395E2E;
+}
+
+
+/* labels */
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
+  color: #6c757d;
+}
+
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
+  color:#395E2E;
+  ;
+}
+
+
+/* round button focus */
+.MuiButtonBase-root.MuiIconButton-root:focus{
+  background-color: #395E2E !important;
+  color: white;
+}
+.MuiButtonBase-root.MuiIconButton-root:active{
+  background-color: transparent !important;
+  
+}
+
+/* category box outline  */
+/* not working */
+.MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-inputMuiOutlinedInput-input.MuiInputBase-inputSelect.MuiOutlinedInput-inputSelect.MuiSelect-outlined{
+ border-color:red !important;
+}
+#inputLine:focus{
+  border-bottom: 1px solid #395E2E;
+  box-shadow:none;
+}
+
+
+
+/* button.MuiButton-label:
+.MuiInputBase-root.MuiInput-root.MuiInputBase-fullWidth.MuiInput-fullWidth.Mui-focused.Mui-focused.MuiInputBase-formControl.MuiInput-formControl.MuiInputBase-input.MuiInput-input{
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 blue;
+} */
+
+
+/* heart button */
+button.MuiButtonBase-root.MuiIconButton-root{
+  margin: 0px, 10px, 0px, 0px;
 }
