@@ -6,24 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Person from '@material-ui/icons/Person';
+import AddPerson from '@material-ui/icons/PersonAdd';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Tooltip from '@material-ui/core/Tooltip';
 // import { red } from "@material-ui/core/colors";
 
-
-// const sections = [
-//   'Technology',
-//   'Design',
-//   'Culture',
-//   'Business',
-//   'Politics',
-//   'Opinion',
-//   'Science',
-//   'Health',
-//   'Style',
-
-// ];
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -104,11 +93,16 @@ function Nav() {
           </IconButton>
         </Link> */}
         <Link to="/SignUp">
-          <Button size="small" className={classes.buttonDesign}>Sign up</Button>
+          {/* <Tooltip title="Signup"> */}
+          <Button size="small" className="hide-on-small-only">Sign up</Button>
+          <IconButton className="hide-on-med-and-up">
+            <AddPerson/>
+          </IconButton>
+          {/* </Tooltip> */}
         </Link>
 
         <Link to="/SignIn">
-          <Button variant="outlined" size="small" className="hide-on-small-only" className={classes.buttonDesign}>
+          <Button variant="outlined" size="small" className="hide-on-small-only" className="hide-on-small-only">
             Login
         </Button>
         <IconButton className="hide-on-med-and-up">
