@@ -11,11 +11,13 @@ module.exports = function (sequelize, DataTypes) {
         eventPriceRange: DataTypes.STRING,
     
         eventDate:  { 
-            type: Sequelize.DATE, 
+            type: Sequelize.DATEONLY, 
             defaultValue: Sequelize.NOW 
             },
             
-        eventTime: DataTypes.TIME,
+        eventTime: {
+            type: DataTypes.TIME,
+        },
 
         eventDescription: { type: Sequelize.STRING, allowNull: false },
 

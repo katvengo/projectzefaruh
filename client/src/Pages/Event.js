@@ -61,6 +61,8 @@ class Event extends Component {
             selectedDate: new Date(),
 
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
 
@@ -80,8 +82,8 @@ class Event extends Component {
             eventLocation: this.state.eventLocation,
             eventDescription: this.state.eventDescription,
             eventImage: this.state.eventImage,
-            eventDate: moment(this.state.eventDate).format("MMM Do YY"),
-            eventTime: moment(this.state.eventDate).format("LT"),
+            eventDate: this.state.eventDate,
+            eventTime: moment(this.state.eventDate).format("LTS"),
             eventCategory: this.state.eventCategory,
             eventPriceRange: this.state.eventPriceRange,
 
@@ -113,16 +115,11 @@ class Event extends Component {
     }
 
 
-    render(children) {
+    render() {
 
         return (
             <Container>
-                <div style={styles.headingDiv}>
-
-                    <h1 style={styles.heading}>ZEFARUH</h1>
-                </div>
-
-                <h2 style={styles.subheading}>Create your Event!</h2>
+             <h2 style={styles.subheading}>Create your Event!</h2>
 
                 <TextField
                     id="inputLine"
@@ -228,7 +225,7 @@ class Event extends Component {
 
                         <TextField
                             name="eventCategory"
-                            placeholder="Music, Dining, Outdoor"
+                            placeholder="Music, Outdoor, Arts"
                             value={this.state.eventCategory}
                             onChange={this.handleInputChange}
                             type="text"
@@ -272,12 +269,9 @@ class Event extends Component {
                             
                         /> */}
 
-
-
-
                         <TextField
                             name="eventPriceRange"
-                            placeholder="Music, Dining, Outdoor"
+                            placeholder="Free, $, $$, $$$"
                             value={this.state.eventPriceRange}
                             onChange={this.handleInputChange}
                             type="text"
