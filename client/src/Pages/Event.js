@@ -61,6 +61,8 @@ class Event extends Component {
             selectedDate: new Date(),
 
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
 
@@ -80,7 +82,7 @@ class Event extends Component {
             eventLocation: this.state.eventLocation,
             eventDescription: this.state.eventDescription,
             eventImage: this.state.eventImage,
-            eventDate: moment(this.state.eventDate).format("MMM Do YY"),
+            eventDate: this.state.eventDate,
             eventTime: moment(this.state.eventDate).format("LTS"),
             eventCategory: this.state.eventCategory,
             eventPriceRange: this.state.eventPriceRange,
@@ -104,14 +106,19 @@ class Event extends Component {
     }
 
 
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+
+    };
+
     setSelectedDate = date => {
-        this.setState({ eventDate: date })
+        this.setState({ selectedDate: date })
     }
 
-    setPriceRange = () => {
-        this.setState({ eventPriceRange: "howdy" })
-    }
-
+   
 
     render() {
 
@@ -120,7 +127,7 @@ class Event extends Component {
                 <div style={styles.headingDiv}>
 
                     {/* <h1 style={styles.heading}>ZEFARUH</h1> */}
-                <h2 style={styles.heading}>Create your Event!</h2>
+                    <h2 style={styles.heading}>Create your Event!</h2>
                 </div>
 
 
@@ -134,7 +141,7 @@ class Event extends Component {
                     margin="normal"
                     label="Event Name"
                     // variant="none"
-                    style={{ margin: 0 }}
+                    style={{ margin: 8 }}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -172,6 +179,48 @@ class Event extends Component {
                     fullWidth
                     margin="normal"
                     label="Description of Event"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+
+                />
+
+                <TextField
+                    id="inputLine"
+                    name="eventCategory"
+                    placeholder="Music, Outdoor, Arts"
+                    value={this.state.eventCategory}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Category"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+
+                />
+
+                <TextField
+                    id="inputLine"
+                    name="eventPriceRange"
+                    placeholder="Free, $, $$, $$$"
+                    value={this.state.eventPriceRange}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Price Range"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
@@ -222,85 +271,25 @@ class Event extends Component {
 
 
                 <div className="row">
-                    <div className="col m4">
-                        {/* <CategoryInput
-                            value={this.state.eventCategory}
-                            onChange={this.setCategory}
-                            setCat={this.setCategory}
-                        /> */}
-
-                        <TextField
-                            id="inputLine"
-                            name="eventCategory"
-                            placeholder="Music, Dining, Outdoor"
-                            value={this.state.eventCategory}
-                            onChange={this.handleInputChange}
-                            type="text"
-                            fullWidth
-                            margin="normal"
-                            label="Category"
-                            // variant="none"
-                            style={{ margin: 8 }}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                disableUnderline: true
-                            }}
-
-                        />
-
-                    </div>
-                    <div className="col m4">
+                    
+                    <div className="col-m-6 col-s-12">
                         <DatePicker
                             value={this.state.eventDate}
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate}
                             onChange={this.handleInputChange}
-                        />
-                    </div>
-                    <div className="col m4">
-                        <TimePicker
-                            value={this.state.eventDate}
-                            selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate}
-                            onChange={this.handleInputChange}
-
-                        />
-                    </div>
-                    <div className="col m4">
-                        {/* <DropDown
-                      
-                            // value={this.state.eventPriceRange}
-                            // onChange={this.handleInputChange}
-                            
-                        /> */}
-
-
-
-
-                        <TextField
-                            id="inputLine"
-                            name="eventPriceRange"
-                            placeholder="$, $$, $$$"
-                            value={this.state.eventPriceRange}
-                            onChange={this.handleInputChange}
-                            type="text"
                             fullWidth
-                            margin="normal"
-                            label="Price Range"
-                            // variant="none"
-                            style={{ margin: 8 }}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                disableUnderline: true
-                            }}
-
                         />
-
                     </div>
+                    <div className="col-m-6 col-s-12">
+
+                    <TimePicker
+                   selectedDate={this.state.selectedDate}
+                   setSelectedDate={this.setSelectedDate} 
+                          
+                            />
+                    </div>
+                   
 
                 </div>
                 <div className="row">

@@ -34,10 +34,13 @@ class App extends Component {
         <Switch>
 
       <Route exact path="/" component={Home} /> 
-      <Route exact path="/myaccount" component={UserPage} /> 
       <Route exact path ="/signUp" component= {SignUp}/>
       <Route exact path ="/signIn" component= {SignIn}/>
-      <Route exact path ="/profile" component= {UserPage}/>
+      {/* <Route path='profile' onEnter={requireAuth}> 
+      <IndexRoute component={ProfileSelfComponent} />
+      <Route path='/user/:username' component={ProfileOtherComponent} />
+      </Route> */}
+      <Route path ="/user/:username" component= {UserPage}/>
       <Route exact path ="/event" component= {Event}/>
   
       <Home/>

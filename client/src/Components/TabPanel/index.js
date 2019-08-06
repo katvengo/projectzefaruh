@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     // backgroundColor: theme.palette.background.paper
   },
   tab: {
-    backgroundColor: lightGreen[600]
+    backgroundColor: "#4a8148"
   }
 }));
 

@@ -32,22 +32,22 @@ class SignUp extends React.Component {
         console.log(userLoginInfo)
         if (!userLoginInfo.email || !userLoginInfo.password) {
             return;
-        } else {
-            fetch("/api/login", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(userLoginInfo)
-            }).then(function (response) {
-                if (response.status >= 400) {
-                    throw new Error("Bad response from server");
-                }
-                return response.redirect("/event")
-            }).then(function (data) {
-                console.log(data)
 
-            }).catch((err) => {
-                console.log(err)
-            });
+        } else {
+        fetch("/api/login", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(userLoginInfo)
+        }).then(function(response) {
+            if (response.status >= 400) {
+              throw new Error("Bad response from server");
+            }
+            return response.json()
+        }).then(function(req, res) {
+            res.redirect('/user/:username')
+        }).catch((err) => {
+            console.log(err)
+        });
         }
     }
     render() {
@@ -65,7 +65,7 @@ class SignUp extends React.Component {
                     margin="normal"
                     label="Email"
                     // variant="none"
-                    style={{ margin: 8 }}
+                    style={{ margin: 5 }}
                     InputLabelProps={{
                         shrink: true,
                     }}

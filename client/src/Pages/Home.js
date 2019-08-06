@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { ThemeProvider } from '@material-ui/styles';
 import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
 // import Nav from '../Components/Nav'
@@ -16,7 +15,8 @@ import TimePicker from "../Components/TimePicker";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom"
 
 
 var moment = require('moment');
@@ -46,17 +46,15 @@ const styles = {
 
     button: {
         background: "#769A75",
-        color: "#d9d9d9",
-        //opacity: "50%",
-        // fontFamily: 'Lora, serif',
+        color: "white",
         letterSpacing: '1px',
     },
     toolbarTitle: {
         flex: 1,
         fontFamily: 'Raleway',
         fontSize: "30px",
-        color: "#769A75",
-        textShadow: '1px 1px'
+        color: 'black',
+        marginBottom: '50px'
 
       },
     
@@ -154,7 +152,6 @@ class Home extends Component {
 
     render() {
         return (
-
             <Container>
                 <Typography
                 component="h2"
@@ -164,8 +161,8 @@ class Home extends Component {
                   noWrap
                  style={styles.toolbarTitle}
                   >
-              A place to search for events and things to do
-        </Typography>
+                A place to search for events and things to do
+               </Typography>
                <TextField
                     id="inputLine"
                     name="eventSearched"
@@ -256,6 +253,12 @@ class Home extends Component {
 
                 </div>
 
+                   <div className="row center">
+                    <div className="col m6">    
+                    <h6>Have an event to share with the world?</h6><br />
+         <Link to="/event"><Button style={styles.button}>Create Event</Button></Link>
+                    </div>
+                    </div>
 
               
                      {/* {this.state.events.map(event => {
