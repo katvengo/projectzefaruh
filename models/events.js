@@ -27,4 +27,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     return Event;
+      // This function grabs posts from the database and updates the view
+
+  
 };
