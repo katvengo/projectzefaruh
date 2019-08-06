@@ -176,21 +176,24 @@ class Home extends Component {
                     fullWidth
                     margin="normal"
                     label="Event or Activity"
+                    InputProps={{
+                        disableUnderline: true,
+
+                    }}
                     // variant="none"
                     style={{ margin: 0 }}
                     InputLabelProps={{
                         shrink: true,
                     }}
                     InputProps={{
-                        disableUnderline: true
-                    }}
-                    InputProps={{
+                        disableUnderline: true,
                         startAdornment: (
-                          <InputAdornment position="start">
-                          <SearchIcon /> 
-                          </InputAdornment>
-                        ),
-                      }}
+                            <InputAdornment position="start">
+                            <SearchIcon /> 
+                            </InputAdornment>
+                          ),
+                    }}
+                    
                 />
 
                
