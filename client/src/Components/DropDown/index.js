@@ -5,7 +5,7 @@
 // import FormControl from '@material-ui/core/FormControl';
 // import Select from '@material-ui/core/Select';
 
-// const useStyles = makeStyles(theme => ({
+ // const useStyles = makeStyles(theme => ({
 //   root: {
 //     display: 'flex',
 //     flexWrap: 'wrap',
@@ -19,7 +19,7 @@
 //   },
 // }));
 
-// export default function SimpleSelect() {
+ // export default function SimpleSelect() {
 //   const classes = useStyles();
 //   const [values, setValues] = React.useState({
 //     free: 0,
@@ -28,16 +28,16 @@
 //     $$$: 0,
 //   });
 
-//   const inputLabel = React.useRef(null);
- 
-//   function handleChange(event) {
+ //   const inputLabel = React.useRef(null);
+
+ //   function handleChange(event) {
 //     setValues(oldValues => ({
 //       ...oldValues,
 //       [event.target.name]: event.target.value,
 //     }));
 //   }
 
-//   return (
+ //   return (
 //     <form className={classes.root} autoComplete="off">
 //       <FormControl className={classes.formControl}>
 //         <InputLabel htmlFor="age-simple">Price Range</InputLabel>
@@ -55,10 +55,11 @@
 //           <MenuItem value={100}>$$$</MenuItem>
 //         </Select>
 //       </FormControl>
-      
-//     </form>
+
+ //     </form>
 //   );
 // }
+
 
 
 import React from 'react';

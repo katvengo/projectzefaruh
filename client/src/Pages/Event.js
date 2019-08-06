@@ -222,7 +222,8 @@ class Event extends Component {
                     </div>
                     <div className="col m4">
                         <DropDown
-                         
+                            name="priceRange"
+                            id="price"
                             value={this.state.eventPriceRange}
                             setCat={this.setCategory}
                             onChange={this.handleInputChange}

@@ -28,9 +28,9 @@ module.exports = {
         where: {
           username: req.user.username
       }
-  }).then(function (users) {
+    }).then(function (users) {
       return res.json(users)
-  }).catch(next)
+     }).catch(next)
     },
 
     //remove: function(req, res) {}

@@ -17,9 +17,9 @@ body {
 }
 
 .MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
-  background-color: #395E2E !important;
-  border: #395E2E 14px solid !important;
-}
+  background-color: #395E2E !important;	  background-color: #395E2E !important;
+  border: #395E2E 14px solid !important;	  border: #395E2E 14px solid !important;
+}	
 
 .MuiButton-label{
 

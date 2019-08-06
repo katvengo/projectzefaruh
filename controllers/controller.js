@@ -14,7 +14,14 @@ module.exports = {
     },
 
     findAll: function (req, res) {
-        db.Event.findAll({}).then(function (dbEvents) {
+        db.Event.findAll({
+            where: {
+                eventName: req.params.eventName,
+                eventLocation: req.params.eventLocation,
+                eventDate: req.params.eventDate,
+                eventTime: req.params.eventTime
+            }
+        }).then(function (dbEvents) {
             return res.json(dbEvents)
         })
     },
