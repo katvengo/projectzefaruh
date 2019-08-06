@@ -140,16 +140,7 @@ class Home extends Component {
         this.setState({ selectedDate: date })
     }
 
-    // setExpanded = () => {
-    //     if (this.state.expanded === false) {
-    //         this.setState({ expanded: true });
-    //         console.log("this needs to expand")
-    //     }
-    //     else {
-    //         this.setState({ expanded: false })
-    //     }
-    // }
-
+  
 
     //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
     handleSubmit = event => {

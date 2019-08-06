@@ -29,7 +29,7 @@
 //   });
 
 //   const inputLabel = React.useRef(null);
- 
+
 //   function handleChange(event) {
 //     setValues(oldValues => ({
 //       ...oldValues,
@@ -55,10 +55,12 @@
 //           <MenuItem value={100}>$$$</MenuItem>
 //         </Select>
 //       </FormControl>
-      
+
 //     </form>
 //   );
 // }
+// ------------------------------------------------------------------------------------------------------------------------
+
 
 
 import React from 'react';
@@ -66,6 +68,14 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+var moment = require('moment');
+
+
+const PriceRangeContext = React.createContext('')
+console.log(PriceRangeContext)
+
+
+//we have to make this a stateful component
 
 const categories = [
   {
@@ -105,25 +115,29 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleSelect() {
   const classes = useStyles();
+
   const [values, setValues] = React.useState({
- 
-    Category: '',
+    PriceRange: '',
   });
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
+    console.log(values)
+ 
   };
 
   return (
+
+    
     <form className={classes.container} noValidate autoComplete="off">
-      
+
       <TextField
         id="Price Range"
         select
         label="Select"
         className={classes.textField}
-        value={values.Category}
-        onChange={handleChange('Category')}
+        value={values.PriceRange}
+        onChange={handleChange('PriceRange')}
         SelectProps={{
           MenuProps: {
             className: classes.menu,
@@ -139,7 +153,10 @@ export default function SimpleSelect() {
           </MenuItem>
         ))}
       </TextField>
-     
+
     </form>
+  
   );
 }
+
+
