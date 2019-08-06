@@ -5,14 +5,23 @@ import Container from '../Components/Container'
 import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
 // import CategoryInput from "../Components/CategoryInput"
-import SearchButton from "../Components/Button"
+import SubmitButton from "../Components/Button"
 //import API from "../utils/API";
 import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 import TimePicker from "../Components/TimePicker";
 //import { textAlign } from "@material-ui/system";
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom"
+
+
 var moment = require('moment');
+
+
 
 //  var latlon;
 //  var showPosition;
@@ -22,28 +31,34 @@ var moment = require('moment');
 const styles = {
     heading: {
         color: "white",
+        textShadow: '2px 2px 1px #white',
+        // fontFamily: 'abys', 
         fontFamily: "Anton, sans-serif",
         textAlign: "center",
         padding: "50px",
-        letterSpacing: "2px"
+        letterSpacing: "2px",
+        fontSize: '30px'
     },
 
     headingDiv: {
-        background: "#F2D8C9"
+        background: "white"
     },
 
     button: {
-        background: "#BF8874",
+        background: "#769A75",
         color: "white",
-        opacity: "50%",
-        // fontFamily: 'Lora, serif',
         letterSpacing: '1px',
+    },
+    toolbarTitle: {
+        flex: 1,
+        fontFamily: 'Raleway',
+        fontSize: "30px",
+        color: 'black',
+        marginBottom: '50px'
 
-    }
-
+      },
+    
 }
-
-
 
 
 class Home extends Component {
@@ -125,16 +140,7 @@ class Home extends Component {
         this.setState({ selectedDate: date })
     }
 
-    // setExpanded = () => {
-    //     if (this.state.expanded === false) {
-    //         this.setState({ expanded: true });
-    //         console.log("this needs to expand")
-    //     }
-    //     else {
-    //         this.setState({ expanded: false })
-    //     }
-    // }
-
+  
 
     //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
     handleSubmit = event => {
@@ -146,18 +152,18 @@ class Home extends Component {
 
     render() {
         return (
-
             <Container>
-
-                <div style={styles.headingDiv}>
-
-                    <h1 style={styles.heading}>ZEFARUH</h1>
-                </div>
-
-
-
-                <TextField
-
+                <Typography
+                component="h2"
+                 variant="h5"
+                 color="inherit"
+                 align="center"
+                  noWrap
+                 style={styles.toolbarTitle}
+                  >
+                A place to search for events and things to do
+               </Typography>
+               <TextField
                     id="inputLine"
                     name="eventSearched"
                     value={this.state.eventSearched}
@@ -165,7 +171,6 @@ class Home extends Component {
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
-
                     margin="normal"
                     label="Event or Activity"
                     // variant="none"
@@ -176,8 +181,16 @@ class Home extends Component {
                     InputProps={{
                         disableUnderline: true
                     }}
+                    InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                          <SearchIcon /> 
+                          </InputAdornment>
+                        ),
+                      }}
                 />
 
+               
 
 
 
@@ -232,12 +245,17 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="row ">
-                    <SearchButton
+                    <SubmitButton
                         onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center"/>
-
 
                 </div>
 
+                   <div className="row center">
+                    <div className="col m6">    
+                    <h6>Have an event to share with the world?</h6><br />
+         <Link to="/event"><Button style={styles.button}>Create Event</Button></Link>
+                    </div>
+                    </div>
 
               
                      {/* {this.state.events.map(event => {
@@ -262,7 +280,7 @@ class Home extends Component {
                             note={event.pleaseNote}
                             key={event.id}
                             locationName={event._embedded.venues[0].name}
-                            // tickets={event._embedded.attractions[0].url}
+                            tickets={event._embedded.attractions[0].url}
                             locationAddress={event._embedded.venues[0].address.line1}
                             locationCity={event._embedded.venues[0].city.name}
                             locationPostalCode={event._embedded.venues[0].postalCode}

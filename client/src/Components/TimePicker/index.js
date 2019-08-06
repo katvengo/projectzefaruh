@@ -19,7 +19,7 @@ const TimePicker = ({ selectedDate, setSelectedDate }) => {
   const classes = useStyles();
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} theme={CustomTheme}  style={classes.header}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} theme={CustomTheme}>
       <Grid container className={classes.grid} justify="space-around">
        
         

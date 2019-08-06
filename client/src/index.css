@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  padding: 0;  
+  padding: 0;
+
 }
 
 /* date and time pickers */
@@ -15,10 +16,10 @@ body {
   border: #395E2E !important;
 }
 
-.MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint {
-  background-color: #395E2E !important;
-  border: #395E2E 14px solid !important;
-}
+.MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
+  background-color: #395E2E !important;	  background-color: #395E2E !important;
+  border: #395E2E 14px solid !important;	  border: #395E2E 14px solid !important;
+}	
 
 .MuiButton-label{
 

@@ -12,43 +12,48 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import { red } from "@material-ui/core/colors";
 
 
-const sections = [
-  'Technology',
-  'Design',
-  'Culture',
-  'Business',
-  'Politics',
-  'Opinion',
-  'Science',
-  'Health',
-  'Style',
+// const sections = [
+//   'Technology',
+//   'Design',
+//   'Culture',
+//   'Business',
+//   'Politics',
+//   'Opinion',
+//   'Science',
+//   'Health',
+//   'Style',
 
-];
+// ];
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid `,
-    padding: `20px`
-
+    padding: `15px`,
+    backgroundColor: "#769A75",
+    height: "79px"
   },
   toolbarTitle: {
     flex: 1,
-    fontfamily: 'Barriecito'
+    fontFamily: 'Raleway',
+    color: 'white',
+    fontSize: "20px"
   },
   toolbarSecondary: {
     direction: 'row',
-
     alignItems: 'center',
     justifyContent: 'space-evenly',
     overflowX: 'auto',
     boxShaddoe: 'none'
 
   },
+ buttonDesign:{
+  backgroundColor: '#F4FBF3',
+  color: 'white',
+  margin: "5px",
+ },
   toolbarLink: {
     padding: theme.spacing(10),
     flexShrink: 0,
-
-
   },
 
 
@@ -59,8 +64,6 @@ function Nav() {
   return (
 
     // <Navbar brand={<a />} alignLinks="right" className="blue " sidenav={<li />}>
-
-
     //     <Link
     //         to="/myaccount"
     //         className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
@@ -78,11 +81,9 @@ function Nav() {
       <CssBaseline />
       <Toolbar className={classes.toolbar}>
 
-
-        <Link to="/SignUp">
-          <Button size="small">Sign up</Button>
-        </Link>
-
+      <Link to="/">
+        <img src='https://i.ibb.co/qyh8GPg/Add-a-little-bit-of-body-text.png' alt = "giraffe" height="75" width="200"/>
+</Link>
         {/* <Link to="/"> */}
         <Typography
           component="h2"
@@ -92,21 +93,23 @@ function Nav() {
           noWrap
           className={classes.toolbarTitle}
           >
-          Zefaruh
         </Typography>
+
           {/* </Link> */}
 
 
-        <Link to="/">
+        {/* <Link to="/">
           <IconButton>
             <SearchIcon />
           </IconButton>
+        </Link> */}
+        <Link to="/SignUp">
+          <Button size="small" className={classes.buttonDesign}>Sign up</Button>
         </Link>
 
-
         <Link to="/SignIn">
-          <Button variant="outlined" size="small" className="hide-on-small-only">
-            Account Login
+          <Button variant="outlined" size="small" className="hide-on-small-only" className={classes.buttonDesign}>
+            Login
         </Button>
         <IconButton className="hide-on-med-and-up">
             <Person/>

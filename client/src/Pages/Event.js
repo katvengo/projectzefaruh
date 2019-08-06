@@ -9,6 +9,8 @@ import TimePicker from "../Components/TimePicker";
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
 import DropDown from '../Components/DropDown'
+var moment = require('moment');
+
 
 const styles = {
     heading: {
@@ -34,31 +36,35 @@ const styles = {
         background: "#BF8874",
         color: "white",
         opacity: "50%",
-        // fontFamily: 'Lora, serif',
+        // fontFamily: 'Lora, nserif',
         letterSpacing: '1px',
     },
-    centerStage:{
+    centerStage: {
         textAlign: "center",
     }
 
 }
 
+
 class Event extends Component {
     constructor() {
         super()
         this.state = {
-          eventName: '',
-          eventLocation: '',
-          eventPriceRange: '',
-          eventDate: '',
-          eventTime: '',
-          eventDescription: '',
-          eventCategory: '',
-          eventImage: '',
+            eventName: '',
+            eventLocation: '',
+            eventPriceRange: '',
+            eventDate: '',
+            eventTime: '',
+            eventDescription: '',
+            eventCategory: '',
+            eventImage: '',
+            selectedDate: new Date(),
 
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
-   
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -67,46 +73,53 @@ class Event extends Component {
         });
 
     };
-  
+
     handleSubmit = event => {
         event.preventDefault()
         console.log("hitting search")
         var eventInfo = {
             eventName: this.state.eventName,
             eventLocation: this.state.eventLocation,
-            eventPriceRange: this.state.eventPriceRange,
-            eventDate: this.state.eventDate,
-            eventTime: this.state.eventTime,
             eventDescription: this.state.eventDescription,
+            eventImage: this.state.eventImage,
+            eventDate: this.state.eventDate,
+            eventTime: moment(this.state.eventDate).format("LTS"),
             eventCategory: this.state.eventCategory,
-            eventImage: this.state.eventImage
+            eventPriceRange: this.state.eventPriceRange,
+
         }
         console.log(eventInfo)
         fetch("/api/events", {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(eventInfo)
-        }).then(function(response) {
+        }).then(function (response) {
             if (response.status >= 400) {
-              throw new Error("Bad response from server");
+                throw new Error("Bad response from server");
             }
             return response.json();
-        }).then(function(data) {
-            console.log(data)    
+        }).then(function (data) {
+            console.log(data)
         }).catch((err) => {
             console.log(err)
         });
     }
 
+
+    setSelectedDate = date => {
+        this.setState({ eventDate: date })
+    }
+
+    setPriceRange = () => {
+        this.setState({ eventPriceRange: "howdy" })
+    }
+
+
     render() {
+
         return (
             <Container>
-                  <div style={styles.headingDiv}>
-
-                   <h1 style={styles.heading}>ZEFARUH</h1>
-                   </div>
-
-                    <h2 style={styles.subheading}>Create your Event!</h2>
+             <h2 style={styles.subheading}>Create your Event!</h2>
 
                 <TextField
                     id="inputLine"
@@ -127,7 +140,7 @@ class Event extends Component {
                     }}
                 />
 
-                  <TextField
+                <TextField
                     name="eventLocation"
                     value={this.state.eventLocation}
                     onChange={this.handleInputChange}
@@ -145,8 +158,8 @@ class Event extends Component {
                     }}
 
                 />
-              
-                  <TextField
+
+                <TextField
                     name="eventDescription"
                     value={this.state.eventDescription}
                     onChange={this.handleInputChange}
@@ -164,7 +177,7 @@ class Event extends Component {
                     }}
 
                 />
-                 <TextField
+                <TextField
                     name="eventImage"
                     value={this.state.eventImage}
                     onChange={this.handleInputChange}
@@ -182,35 +195,116 @@ class Event extends Component {
                     }}
 
                 />
+
+
+                <form action="#">
+                    <div className="file-field input-field">
+                        <div className="btn">
+                            <span>File</span>
+                            <input type="file" multiple />
+                        </div>
+                        <div className="file-path-wrapper">
+                            <input
+                                className="file-path validate"
+                                type="text"
+                                placeholder="Upload one or more files"
+                            />
+                        </div>
+                    </div>
+                </form>
+
+
+
                 <div className="row">
                     <div className="col m4">
-                    <CategoryInput></CategoryInput>
+                        {/* <CategoryInput
+                            value={this.state.eventCategory}
+                            onChange={this.setCategory}
+                            setCat={this.setCategory}
+                        /> */}
+
+                        <TextField
+                            name="eventCategory"
+                            placeholder="Music, Outdoor, Arts"
+                            value={this.state.eventCategory}
+                            onChange={this.handleInputChange}
+                            type="text"
+                            fullWidth
+                            margin="normal"
+                            label="Category"
+                            // variant="none"
+                            style={{ margin: 8 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                disableUnderline: true
+                            }}
+
+                        />
+
                     </div>
                     <div className="col m4">
-                     <DatePicker></DatePicker>
+                        <DatePicker
+                            value={this.state.eventDate}
+                            selectedDate={this.state.selectedDate}
+                            setSelectedDate={this.setSelectedDate}
+                            onChange={this.handleInputChange}
+                        />
                     </div>
                     <div className="col m4">
-                    <TimePicker></TimePicker>
+                        <TimePicker
+                            value={this.state.eventDate}
+                            selectedDate={this.state.selectedDate}
+                            setSelectedDate={this.setSelectedDate}
+                            onChange={this.handleInputChange}
+
+                        />
                     </div>
                     <div className="col m4">
-                    <DropDown></DropDown>
+                        {/* <DropDown
+                      
+                            // value={this.state.eventPriceRange}
+                            // onChange={this.handleInputChange}
+                            
+                        /> */}
+
+                        <TextField
+                            name="eventPriceRange"
+                            placeholder="Free, $, $$, $$$"
+                            value={this.state.eventPriceRange}
+                            onChange={this.handleInputChange}
+                            type="text"
+                            fullWidth
+                            margin="normal"
+                            label="Price Range"
+                            // variant="none"
+                            style={{ margin: 8 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                disableUnderline: true
+                            }}
+
+                        />
 
                     </div>
 
-</div>
-               <div className="row">
-                   <div className="col m6" style={styles.centerStage}>
-                <Fab onClick={(event) => this.handleSubmit(event)}
-                    variant="extended"
-                    size="medium"
-                    color="primary"
-                    aria-label="submit"
-                >
-                    <Send/>
-                    Submit
+                </div>
+                <div className="row">
+                    <div className="col m6" style={styles.centerStage}>
+                        <Fab onClick={(event) => this.handleSubmit(event)}
+                            // variant="extended"
+                            // size="medium"
+                            // color="primary"
+                            aria-label="submit"
+                        >
+                            <Send />
+                            Submit
                     </Fab>
                     </div>
-                    </div>
+                </div>
             </Container>
 
         )
