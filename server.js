@@ -11,9 +11,6 @@ const db = require('./models')
 const app = express();
 
 
-
-// const mysql = require('mysql');
-
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: false })); //For body parser
 app.use(bodyParser.json());
@@ -43,9 +40,7 @@ app.get('/express_backend', (req, res) => {
 
 app.use(routes);
 // app.use('.env'(search()))
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// })
+
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
