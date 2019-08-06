@@ -3,7 +3,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import DateFnsUtils from '@date-io/date-fns';
-import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
 
 const useStyles = makeStyles({
@@ -12,9 +12,7 @@ const useStyles = makeStyles({
   },
 });
 
-// const Styles {
 
-// }
 
 const MaterialUIDatePickers = ({ selectedDate, setSelectedDate }) => {
   const classes = useStyles();
@@ -36,7 +34,7 @@ const MaterialUIDatePickers = ({ selectedDate, setSelectedDate }) => {
             disableUnderline: true
           }}
         />
-    
+
 
 
       </Grid>
@@ -46,4 +44,3 @@ const MaterialUIDatePickers = ({ selectedDate, setSelectedDate }) => {
 
 export default MaterialUIDatePickers
 
-// const 

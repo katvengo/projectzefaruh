@@ -9,6 +9,8 @@ import TimePicker from "../Components/TimePicker";
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
 import DropDown from '../Components/DropDown'
+var moment = require('moment');
+
 
 const styles = {
     heading: {
@@ -42,6 +44,7 @@ const styles = {
     }
 
 }
+
 
 class Event extends Component {
     constructor() {
@@ -77,17 +80,18 @@ class Event extends Component {
             eventLocation: this.state.eventLocation,
             eventDescription: this.state.eventDescription,
             eventImage: this.state.eventImage,
-            eventDate: this.state.eventDate,
-            eventTime: this.state.eventTime,
+            eventDate: moment(this.state.eventDate).format("MMM Do YY"),
+            eventTime: moment(this.state.eventDate).format("LT"),
             eventCategory: this.state.eventCategory,
             eventPriceRange: this.state.eventPriceRange,
+
         }
         console.log(eventInfo)
         fetch("/api/events", {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(eventInfo)
-        }).then(function(response) {
+        }).then(function (response) {
             if (response.status >= 400) {
                 throw new Error("Bad response from server");
             }
@@ -104,12 +108,13 @@ class Event extends Component {
         this.setState({ eventDate: date })
     }
 
-    setCategory = value => {
-        this.setState({ eventCategory: value })
+    setPriceRange = () => {
+        this.setState({ eventPriceRange: "howdy" })
     }
 
-    render( ) {
-        
+
+    render(children) {
+
         return (
             <Container>
                 <div style={styles.headingDiv}>
@@ -193,14 +198,53 @@ class Event extends Component {
                     }}
 
                 />
+
+
+                <form action="#">
+                    <div className="file-field input-field">
+                        <div className="btn">
+                            <span>File</span>
+                            <input type="file" multiple />
+                        </div>
+                        <div className="file-path-wrapper">
+                            <input
+                                className="file-path validate"
+                                type="text"
+                                placeholder="Upload one or more files"
+                            />
+                        </div>
+                    </div>
+                </form>
+
+
+
                 <div className="row">
                     <div className="col m4">
-                        <CategoryInput
+                        {/* <CategoryInput
                             value={this.state.eventCategory}
                             onChange={this.setCategory}
                             setCat={this.setCategory}
-                        />
+                        /> */}
 
+                        <TextField
+                            name="eventCategory"
+                            placeholder="Music, Dining, Outdoor"
+                            value={this.state.eventCategory}
+                            onChange={this.handleInputChange}
+                            type="text"
+                            fullWidth
+                            margin="normal"
+                            label="Category"
+                            // variant="none"
+                            style={{ margin: 8 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                disableUnderline: true
+                            }}
+
+                        />
 
                     </div>
                     <div className="col m4">
@@ -213,19 +257,42 @@ class Event extends Component {
                     </div>
                     <div className="col m4">
                         <TimePicker
+                            value={this.state.eventDate}
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate}
-                            value={this.state.eventTime}
                             onChange={this.handleInputChange}
 
                         />
                     </div>
                     <div className="col m4">
-                        <DropDown
-                         
+                        {/* <DropDown
+                      
+                            // value={this.state.eventPriceRange}
+                            // onChange={this.handleInputChange}
+                            
+                        /> */}
+
+
+
+
+                        <TextField
+                            name="eventPriceRange"
+                            placeholder="Music, Dining, Outdoor"
                             value={this.state.eventPriceRange}
-                            setCat={this.setCategory}
                             onChange={this.handleInputChange}
+                            type="text"
+                            fullWidth
+                            margin="normal"
+                            label="Price Range"
+                            // variant="none"
+                            style={{ margin: 8 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                disableUnderline: true
+                            }}
+
                         />
 
                     </div>
