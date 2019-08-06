@@ -27,7 +27,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
-    borderBottom: `1px solid `,
+    // borderBottom: `1px solid `,
     padding: `15px`,
     backgroundColor: "#769A75",
     height: "79px"
