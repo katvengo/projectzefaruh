@@ -6,7 +6,9 @@ module.exports = {
         db.User.create({
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            image: req.body.image,
+            interests: req.body.interests,
           }).then(function() {
             res.redirect(307, "/api/login");
           }).catch(function(err) {

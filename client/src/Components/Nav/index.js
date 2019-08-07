@@ -8,9 +8,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import Person from '@material-ui/icons/Person';
 import AddPerson from '@material-ui/icons/PersonAdd';
 import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Tooltip from '@material-ui/core/Tooltip';
+
+
 // import { red } from "@material-ui/core/colors";
 
 
@@ -52,20 +54,7 @@ function Nav() {
 
   return (
 
-    // <Navbar brand={<a />} alignLinks="right" className="blue " sidenav={<li />}>
-    //     <Link
-    //         to="/myaccount"
-    //         className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
-    //     >
-    //         <NavItem href="">
-    //             My Account
-    //     </NavItem>
-
-    //     </Link>
-    //     <NavItem href="components.html">
-    //         Saved Events
-    // </NavItem>
-    // </Navbar>
+  
     <React.Fragment>
       <CssBaseline />
       <Toolbar className={classes.toolbar}>
@@ -94,7 +83,7 @@ function Nav() {
         </Link> */}
         <Link to="/SignUp">
           {/* <Tooltip title="Signup"> */}
-          <Button size="small" className="hide-on-small-only">Sign up</Button>
+          <Fab size="small" focusable="false" className="hide-on-small-only">Sign up</Fab>
           <IconButton className="hide-on-med-and-up">
             <AddPerson/>
           </IconButton>
@@ -102,9 +91,9 @@ function Nav() {
         </Link>
 
         <Link to="/SignIn">
-          <Button variant="outlined" size="small" className="hide-on-small-only" className="hide-on-small-only">
+          <Fab variant="outlined" size="small" className="hide-on-small-only" >
             Login
-        </Button>
+        </Fab>
         <IconButton className="hide-on-med-and-up">
             <Person/>
           </IconButton>

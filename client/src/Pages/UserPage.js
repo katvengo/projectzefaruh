@@ -38,7 +38,8 @@ class UserPage extends Component {
         {/* <h3>user home page</h3> */}
         <div className="row">
           <div className="col-sm-4">
-            <UserCard />
+            <UserCard
+            name={this.props.name} />
             <Link to="/">
               <SearchButton style={styles.button} />
             </Link>

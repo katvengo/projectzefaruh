@@ -11,6 +11,8 @@ class SignUp extends React.Component {
         username: '',
         email: '',
         password: '',
+        image: '',
+        interests: '',
         msg: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -43,8 +45,8 @@ class SignUp extends React.Component {
               throw new Error("Bad response from server");
             }
             return response.json();
-        }).then(function(data) {
-            console.log(data)    
+        }).then(function() {
+            window.location.replace("/api/event");
         }).catch((err) => {
             console.log(err)
         });
@@ -91,6 +93,7 @@ class SignUp extends React.Component {
                     }}
 
                 />
+        
                 <TextField
                     name="password"
                     value={this.state.password}
@@ -100,6 +103,45 @@ class SignUp extends React.Component {
                     fullWidth
                     margin="normal"
                     label="Password"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+
+                />
+                  <TextField
+                    name="image"
+                    value={this.state.image}
+                    placeholder="url"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Image"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+
+                />
+
+                <TextField
+                    name="interests"
+                    value={this.state.interests}
+                    placeholder="Sports, Arts/Entertainment, Hiking, Music"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Interests"
                     // variant="none"
                     style={{ margin: 8 }}
                     InputLabelProps={{
