@@ -44,7 +44,7 @@ class SignUp extends React.Component {
             }
             return response.json()
         }).then(function(req, res) {
-            res.redirect('/user/:username')
+           window.location.replace(res)
         }).catch((err) => {
             console.log(err)
         });

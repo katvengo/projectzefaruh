@@ -12,6 +12,9 @@ module.exports = {
             eventTime: req.body.eventTime,
             eventCategory: req.body.eventCategory,
             eventPriceRange: req.body.eventPriceRange,
+            eventURL: req.body.eventPriceRange,
+            eventPreSale: req.body.eventPriceRange,
+            eventPublicSell: req.body.eventPriceRange,
         }).then(function () {
             res.redirect(307, "/api/login");
         }).catch(function (err) {
@@ -27,7 +30,9 @@ module.exports = {
                 eventName: req.params.eventName,
                 eventLocation: req.params.eventLocation,
                 eventDate: req.params.eventDate,
-                eventTime: req.params.eventTime
+                eventTime: req.params.eventTime,
+                eventCategory: req.params.eventCategory,
+
             }
         }).then(function (dbEvents) {
             return res.json(dbEvents)

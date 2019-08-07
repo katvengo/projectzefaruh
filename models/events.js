@@ -24,6 +24,12 @@ module.exports = function (sequelize, DataTypes) {
         eventCategory: { type: Sequelize.STRING, allowNull: false },
 
         eventImage: DataTypes.BLOB,
+
+        eventURL: DataTypes.STRING,
+
+        eventPreSale: DataTypes.STRING,
+
+        eventPublicSell: DataTypes.STRING,
     
        
     });

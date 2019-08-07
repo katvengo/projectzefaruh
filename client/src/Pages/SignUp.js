@@ -47,8 +47,10 @@ class SignUp extends React.Component {
                 throw new Error("Bad response from server");
             }
             return response.json();
-        }).then(function (data) {
-            console.log(data)
+        // }).then(function (data) {
+        //     console.log(data)
+        }).then(function() {
+            window.location.replace("/api/event");
         }).catch((err) => {
             console.log(err)
         });
