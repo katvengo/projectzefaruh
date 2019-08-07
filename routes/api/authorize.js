@@ -16,35 +16,35 @@ router
       // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
       var events = apiEvents.ticketMaster.data._embedded.events
      
-      for (let i = 0; i < events.length; i++) {
-       array[i];
+      // for (let i = 0; i < events.length; i++) {
+      //  array[i];
         
-      }
+      // }
 
-      var formattedEvents = {
-        eventName: event.name,
+      // var formattedEvents = {
+      //   eventName: event.name,
 
-        eventLocation: event.event._embedded.venues[0].name,
+      //   eventLocation: event.event._embedded.venues[0].name,
         
-        eventPriceRange: event.eventPriceRanges[0].max,
+      //   eventPriceRange: event.eventPriceRanges[0].max,
     
-        eventDate: event.dates.start.localDate,
+      //   eventDate: event.dates.start.localDate,
             
-        eventTime: event.dates.start.localTime,
+      //   eventTime: event.dates.start.localTime,
 
-        eventDescription: event.info,
+      //   eventDescription: event.info,
 
-        eventCategory: event.classifications[0].segment.name,
+      //   eventCategory: event.classifications[0].segment.name,
 
-        eventImage: event.images[0].url,
+      //   eventImage: event.images[0].url,
 
-        eventURL: event.url,
+      //   eventURL: event.url,
 
-        eventPreSale: event.sales.presales[0].startDateTime,
+      //   eventPreSale: event.sales.presales[0].startDateTime,
 
-        eventPublicSell: event.sales.public[0].startDateTime,
+      //   eventPublicSell: event.sales.public[0].startDateTime,
       
-      }
+      // }
       console.log('------------------------------------------');
       //var events = apiEvents.ticketMaster.data._embedded.events
       //console.log(events)
