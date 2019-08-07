@@ -2,13 +2,14 @@ import React, { Component } from "react"
 import Container from '../Components/Container'
 import TextField from '@material-ui/core/TextField';
 import DatePicker from '../Components/DatePicker'
-import CategoryInput from "../Components/CategoryInput"
+// import CategoryInput from "../Components/CategoryInput"
 // import axios from 'axios';
 import TimePicker from "../Components/TimePicker";
 //var moment = require('moment');
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
-import DropDown from '../Components/DropDown'
+import FileInput from "../Components/FileInput"
+// import DropDown from '../Components/DropDown'
 var moment = require('moment');
 
 
@@ -61,6 +62,8 @@ class Event extends Component {
             selectedDate: new Date(),
 
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
 
@@ -80,8 +83,8 @@ class Event extends Component {
             eventLocation: this.state.eventLocation,
             eventDescription: this.state.eventDescription,
             eventImage: this.state.eventImage,
-            eventDate: moment(this.state.eventDate).format("MMM Do YY"),
-            eventTime: moment(this.state.eventDate).format("LT"),
+            eventDate: this.state.eventDate,
+            eventTime: moment(this.state.eventDate).format("LTS"),
             eventCategory: this.state.eventCategory,
             eventPriceRange: this.state.eventPriceRange,
 
@@ -104,25 +107,30 @@ class Event extends Component {
     }
 
 
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+
+    };
+
     setSelectedDate = date => {
-        this.setState({ eventDate: date })
+        this.setState({ selectedDate: date })
     }
 
-    setPriceRange = () => {
-        this.setState({ eventPriceRange: "howdy" })
-    }
+   
 
-
-    render(children) {
+    render() {
 
         return (
             <Container>
                 <div style={styles.headingDiv}>
 
-                    <h1 style={styles.heading}>ZEFARUH</h1>
+                    {/* <h1 style={styles.heading}>ZEFARUH</h1> */}
+                    <h2 style={styles.heading}>Create your Event!</h2>
                 </div>
 
-                <h2 style={styles.subheading}>Create your Event!</h2>
 
                 <TextField
                     id="inputLine"
@@ -134,7 +142,7 @@ class Event extends Component {
                     margin="normal"
                     label="Event Name"
                     // variant="none"
-                    style={{ margin: 0 }}
+                    style={{ margin: 8 }}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -144,6 +152,7 @@ class Event extends Component {
                 />
 
                 <TextField
+                    id="inputLine"
                     name="eventLocation"
                     value={this.state.eventLocation}
                     onChange={this.handleInputChange}
@@ -163,6 +172,7 @@ class Event extends Component {
                 />
 
                 <TextField
+                    id="inputLine"
                     name="eventDescription"
                     value={this.state.eventDescription}
                     onChange={this.handleInputChange}
@@ -180,7 +190,50 @@ class Event extends Component {
                     }}
 
                 />
+
                 <TextField
+                    id="inputLine"
+                    name="eventCategory"
+                    placeholder="Music, Outdoor, Arts"
+                    value={this.state.eventCategory}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Category"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+
+                />
+
+                <TextField
+                    id="inputLine"
+                    name="eventPriceRange"
+                    placeholder="Free, $, $$, $$$"
+                    value={this.state.eventPriceRange}
+                    onChange={this.handleInputChange}
+                    type="text"
+                    fullWidth
+                    margin="normal"
+                    label="Price Range"
+                    // variant="none"
+                    style={{ margin: 8 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    InputProps={{
+                        disableUnderline: true
+                    }}
+
+                />
+                {/* <TextField
+                    id="inputLine"
                     name="eventImage"
                     value={this.state.eventImage}
                     onChange={this.handleInputChange}
@@ -197,105 +250,34 @@ class Event extends Component {
                         disableUnderline: true
                     }}
 
+                /> */}
+                <FileInput 
+                onChange={this.handleInputChange}
+                value={this.state.eventImage}
                 />
-
-
-                <form action="#">
-                    <div className="file-field input-field">
-                        <div className="btn">
-                            <span>File</span>
-                            <input type="file" multiple />
-                        </div>
-                        <div className="file-path-wrapper">
-                            <input
-                                className="file-path validate"
-                                type="text"
-                                placeholder="Upload one or more files"
-                            />
-                        </div>
-                    </div>
-                </form>
 
 
 
                 <div className="row">
-                    <div className="col m4">
-                        {/* <CategoryInput
-                            value={this.state.eventCategory}
-                            onChange={this.setCategory}
-                            setCat={this.setCategory}
-                        /> */}
-
-                        <TextField
-                            name="eventCategory"
-                            placeholder="Music, Dining, Outdoor"
-                            value={this.state.eventCategory}
-                            onChange={this.handleInputChange}
-                            type="text"
-                            fullWidth
-                            margin="normal"
-                            label="Category"
-                            // variant="none"
-                            style={{ margin: 8 }}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                disableUnderline: true
-                            }}
-
-                        />
-
-                    </div>
-                    <div className="col m4">
+                    
+                    <div className="col-m-6 col-s-12">
                         <DatePicker
                             value={this.state.eventDate}
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate}
                             onChange={this.handleInputChange}
-                        />
-                    </div>
-                    <div className="col m4">
-                        <TimePicker
-                            value={this.state.eventDate}
-                            selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate}
-                            onChange={this.handleInputChange}
-
-                        />
-                    </div>
-                    <div className="col m4">
-                        {/* <DropDown
-                      
-                            // value={this.state.eventPriceRange}
-                            // onChange={this.handleInputChange}
-                            
-                        /> */}
-
-
-
-
-                        <TextField
-                            name="eventPriceRange"
-                            placeholder="Music, Dining, Outdoor"
-                            value={this.state.eventPriceRange}
-                            onChange={this.handleInputChange}
-                            type="text"
                             fullWidth
-                            margin="normal"
-                            label="Price Range"
-                            // variant="none"
-                            style={{ margin: 8 }}
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            InputProps={{
-                                disableUnderline: true
-                            }}
-
                         />
-
                     </div>
+                    <div className="col-m-6 col-s-12">
+
+                    <TimePicker
+                   selectedDate={this.state.selectedDate}
+                   setSelectedDate={this.setSelectedDate} 
+                          
+                            />
+                    </div>
+                   
 
                 </div>
                 <div className="row">

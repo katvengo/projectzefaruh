@@ -4,6 +4,14 @@ module.exports = {
 
     create: function (req, res) {
         db.Event.create({
+            eventName: req.body.eventName,
+            eventLocation: req.body.eventLocation,
+            eventDescription: req.body.eventDescription,
+            eventImage: req.body.eventImage,
+            eventDate: req.body.eventDate,
+            eventTime: req.body.eventTime,
+            eventCategory: req.body.eventCategory,
+            eventPriceRange: req.body.eventPriceRange,
         }).then(function () {
             res.redirect(307, "/api/login");
         }).catch(function (err) {

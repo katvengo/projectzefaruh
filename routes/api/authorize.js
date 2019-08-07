@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const search = require("../../APIs/API");
-const searchDatabase = require("../api/events")
 
 router
   .post("/", async function (req, res) {
@@ -15,8 +14,8 @@ router
           date,
         }
       } = req;
-      const apiEvents = await search(query, time);
-      const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
+      const apiEvents = await search(query, time, location, date);
+      // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
 
       console.log('------------------------------------------');
       var events = apiEvents.ticketMaster.data._embedded.events

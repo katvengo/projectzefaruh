@@ -1,8 +1,7 @@
 var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
 
 module.exports = function (sequelize, DataTypes) {
-    var Event = sequelize.define('Event', {
+    var CreatedEvents = sequelize.define('CreatedEvents', {
 
         eventName: { type: Sequelize.STRING, allowNull: false },
 
@@ -27,6 +26,15 @@ module.exports = function (sequelize, DataTypes) {
     
        
     });
+    CreatedEvents.associate = function(models){
+        CreatedEvents.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+              }   
+        })
+    }
+    return CreatedEvents;
+      // This function grabs favorite from the database and updates the view
 
-    return Event;
+  
 };

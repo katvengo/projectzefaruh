@@ -5,13 +5,13 @@ import Send from '@material-ui/icons/Send';
 
 
 class SignUp extends React.Component {
-    constructor(props){
-        super(props) 
+    constructor(props) {
+        super(props)
         this.state = {
-        email: '',
-        password: '',
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
+            email: '',
+            password: '',
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleInputChange = event => {
@@ -28,9 +28,9 @@ class SignUp extends React.Component {
         var userLoginInfo = {
             email: this.state.email,
             password: this.state.password
-        } 
+        }
         console.log(userLoginInfo)
-        if(!userLoginInfo.email || !userLoginInfo.password){
+        if (!userLoginInfo.email || !userLoginInfo.password) {
             return;
 
         } else {
@@ -53,8 +53,9 @@ class SignUp extends React.Component {
     render() {
         return (
             <div className="center">
-            
+
                 <TextField
+                    id="inputLine"
                     name="email"
                     value={this.state.email}
                     placeholder=" Email"
@@ -64,7 +65,7 @@ class SignUp extends React.Component {
                     margin="normal"
                     label="Email"
                     // variant="none"
-                    style={{ margin: 8 }}
+                    style={{ margin: 5 }}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -74,6 +75,7 @@ class SignUp extends React.Component {
 
                 />
                 <TextField
+                    id="inputLine"
                     name="password"
                     value={this.state.password}
                     placeholder=" Password"
@@ -97,12 +99,12 @@ class SignUp extends React.Component {
                     size="medium"
                     color="primary"
                     aria-label="submit"
-                   >
-                    <Send/>
+                >
+                    <Send />
                     Submit
                     </Fab>
 
-                    {/* this submit button needs to save the user information to the database */}
+                {/* this submit button needs to save the user information to the database */}
 
 
             </div>
