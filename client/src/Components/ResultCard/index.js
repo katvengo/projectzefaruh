@@ -52,9 +52,9 @@ const Styles = {
     margin: "0px"
   },
   cardImage: {
-    height: "100%",
-    width: "100%",
-    margin: "10px"
+    // height: "75%",
+    // width: "100%",
+    margin: "30px 10px"
   },
   cardBodyMargins: {
     margin: "15px 10px 0px",
@@ -66,6 +66,9 @@ const Styles = {
   },
   heart:{
     margin: "0px, 20px, 0px, 0px"
+  },
+  imgDiv:{
+    margin: "20px"
   }
 }
 
@@ -90,7 +93,7 @@ const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, i
             <img src={image} className="card-img" alt="..." style={Styles.cardImage} />
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-7">
             <div className="card-body" style={Styles.cardBodyMargins}>
               <div className="bodyContainer">
                 <div className="row " style={Styles.margins}>
@@ -122,14 +125,14 @@ const ResultCard = ({ expanded, handleExpandClick, locationName, title, dates, i
             </div>
 
           </div>
-          <div className="col-md-1" style={Styles.cardBodyMargins} >
+          {/* <div className="col-md-1" style={Styles.cardBodyMargins} >
             <div className="row"> 
             <IconButton aria-label="add to favorites"  >
               <FavoriteIcon  id=" " style={Styles.heart}/>
             </IconButton>
             </div>
 
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

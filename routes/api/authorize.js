@@ -12,10 +12,15 @@ router
           time,
         }
       } = req;
-      const apiEvents = await search(query, time);
-      // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
-      var events = apiEvents.ticketMaster.data._embedded.events
-     
+      try{
+        const apiEvents = await search(query, time); 
+        console.log({apiEvents})
+        // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
+        var events = apiEvents.ticketMaster.data._embedded.events  
+      } catch (e) {
+        console.log(e);
+      }
+      
       // for (let i = 0; i < events.length; i++) {
       //  array[i];
         
@@ -57,7 +62,6 @@ router
       return res.send(events);
       // creating a function to search our database
     } catch (err) {
-      console.log('error catch block was triggered');
       console.error(err);
       res.sendStatus(500);
     }
