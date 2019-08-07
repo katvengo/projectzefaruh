@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   // }
 }));
 
-function UserCard({ name, location, image }) {
+function UserCard(props) {
   const classes = useStyles();
   const username = {username}
 
@@ -43,7 +43,7 @@ function UserCard({ name, location, image }) {
       <CardContent>
         <Typography gutterBottom variant="h6" component="h6">
           name 
-          {}
+          {props.name}
         </Typography>
       </CardContent>
       {/* <CardActions>
