@@ -4,14 +4,14 @@
   const envPath = path.join(__dirname, '..', '.env');
   const moment = require('moment')
   const searchTicketMaster = require("./services/ticketmasterDataService")
-  //const searchThruDatabase = require("./services/database")
-  console.log(envPath);
+  const searchThruDatabase = require("./services/database")
+  //console.log(envPath);
   
   require("dotenv").config({path:envPath})
   
    token = process.env.REACT_APP_API_KEY
    token2 = process.env.REACT_APP_API_KEY_SECOND
-  console.log(token, token2)
+   //console.log(token, token2)
   var defaultTime = moment(Date.now()).format(); 
   //var defaultDay = moment(Date.now()).format('YYYY[-]MM[-]').toString(); 
   // geohash = "gbsuv", city = "San Diego",
@@ -22,20 +22,19 @@
     //console.log(ticketmasterUrl);
     return axios.all([
         searchTicketMaster(query, time),
-        //searchThruDatabase(query, location, date, time)
+        searchThruDatabase(query, time)
          //axios.get(`https://www.eventbriteapi.com/v3/events/search/?token=${token}`),
       // axios.get(`https://api.trade.gov/v1/trade_events/search?api_key=${token2}&q=${query}&start_date=${start}&end_date=${end}`)
     ])
     //, eventBrite, tradeGov
-    .then(axios.spread((ticketMaster) => {
-       console.log({ticketMaster})
+    .then(axios.spread((ticketMaster, database) => {
       //eventBrite = eventBrite.data.response;
-      
+      console.log(ticketMaster)
       // tradeGov = tradeGov.response;      
       return({
       title: 'events',
       ticketMaster: ticketMaster,
-      // dataBase: dataBase
+      database: database
       //  eventBrite,
       //   tradeGov
       })
@@ -46,7 +45,7 @@
     })
   }
 
-  console.log(search())
+  //console.log(search())
    
  module.exports = search
 

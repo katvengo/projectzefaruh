@@ -107,10 +107,10 @@ class Home extends Component {
         axios.post('/api/authorize', request)
             //.then(res => res.json())
             .then((events) => {
-                console.log({ events })
+                console.log(events)
                 //console.log(ticketMaster)
                 this.setState({
-                    events: events.data
+                    events: events
                 })
             })
         // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
@@ -279,7 +279,7 @@ class Home extends Component {
                         />
                         )
                     })} } */}
-                {this.state.events.map(event => {
+                {/* {this.state.events.map(event => {
                     return (<ResultCard
                         expanded={this.state.expanded}
                         handleExpandClick={this.setExpanded}
@@ -299,7 +299,7 @@ class Home extends Component {
                         locationDistanceUnits={event._embedded.venues[0].units}
                     />
                     )
-                })}
+                })} */}
 
 
 

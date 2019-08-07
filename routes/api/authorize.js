@@ -16,7 +16,7 @@ router
         const apiEvents = await search(query, time); 
         console.log({apiEvents})
         // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
-        var events = apiEvents.ticketMaster.data._embedded.events  
+        // var events = apiEvents.ticketMaster.data._embedded.events  
       } catch (e) {
         console.log(e);
       }
@@ -59,7 +59,7 @@ router
       // var dataBaseEvents = dataBaseSearchEvents
       //console.log({events})
       //console.log(apiEvents);
-      return res.send(events);
+      return res.send();
       // creating a function to search our database
     } catch (err) {
       console.error(err);
