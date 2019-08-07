@@ -31,7 +31,7 @@ class UserPage extends Component {
       favEvents: []
     };
   }
-// ! start
+// ! needs work
   componentDidMount(){
     this.loadUser();
   }
@@ -41,7 +41,7 @@ class UserPage extends Component {
     //   .then(res => this.setState({user: res.data}))
     //   .catch(err => console.log(err));
   }
-  // ! end
+  // ! 
 
   render() {
     return (

@@ -17,6 +17,7 @@ router
   .get(userController.findById)
 //   .delete(userController.remove);
 
+// copied
 /* Me Route - get the currently logged in user
 ========================================================= */
 router.get('/me', (req, res) => {

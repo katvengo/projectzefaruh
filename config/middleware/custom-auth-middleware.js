@@ -1,3 +1,5 @@
+// test stuff
+
 const { User, AuthToken } = require("../models");
 
 module.exports = async function(req, res, next) {
