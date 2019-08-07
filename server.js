@@ -4,10 +4,10 @@ const express = require("express");
 const routes = require("./routes");
 var bodyParser = require("body-parser");
 const session = require("express-session");
-const passport = require("./config/passport")
+const passport = require("./config/passport");
 LocalStrategy = require('passport-local').Strategy;
 const PORT = process.env.PORT || 3001;
-const db = require('./models')
+const db = require('./models');
 const app = express();
 
 
@@ -36,7 +36,7 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.use(routes);``
+app.use(routes);
 // app.use('.env'(search()))
 
 
@@ -48,4 +48,4 @@ db.sequelize.sync().then(function(){
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
-})``
+});
