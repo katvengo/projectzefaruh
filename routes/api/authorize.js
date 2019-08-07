@@ -57,7 +57,6 @@ router
       return res.send(events);
       // creating a function to search our database
     } catch (err) {
-      console.log('error catch block was triggered');
       console.error(err);
       res.sendStatus(500);
     }
