@@ -4,7 +4,7 @@
   const envPath = path.join(__dirname, '..', '.env');
   const moment = require('moment')
   const searchTicketMaster = require("./services/ticketmasterDataService")
-  const searchThruDatabase = require("./services/database")
+  //const searchThruDatabase = require("./services/database")
   console.log(envPath);
   
   require("dotenv").config({path:envPath})
@@ -13,30 +13,29 @@
    token2 = process.env.REACT_APP_API_KEY_SECOND
   console.log(token, token2)
   var defaultTime = moment(Date.now()).format(); 
-  var defaultDay = moment(Date.now()).format('YYYY[-]MM[-]').toString(); 
+  //var defaultDay = moment(Date.now()).format('YYYY[-]MM[-]').toString(); 
   // geohash = "gbsuv", city = "San Diego",
-  async function search( query = '', location = geoHash, date = defaultDay, time = defaultTime){
+  //location = geoHash, date = defaultDay,
+  async function search( query = 'concerts', time = defaultTime){
     // const ticketmasterUrl = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${query}&countryCode=US&localStartDateTime=${time}&apikey=h0unNltRv7LnmEOS2kYZ43GR9GKBQjCC`;
 
     //console.log(ticketmasterUrl);
     return axios.all([
         searchTicketMaster(query, time),
-        searchThruDatabase(query, location, date, time)
+        //searchThruDatabase(query, location, date, time)
          //axios.get(`https://www.eventbriteapi.com/v3/events/search/?token=${token}`),
       // axios.get(`https://api.trade.gov/v1/trade_events/search?api_key=${token2}&q=${query}&start_date=${start}&end_date=${end}`)
     ])
     //, eventBrite, tradeGov
-    .then(axios.spread((ticketMaster, dataBase) => {
-      console.log(ticketMaster, dataBase)
-      ticketMasterData = ticketMaster.data._embedded.events
-
+    .then(axios.spread((ticketMaster) => {
+       console.log({ticketMaster})
       //eventBrite = eventBrite.data.response;
       
       // tradeGov = tradeGov.response;      
       return({
       title: 'events',
-      ticketMaster: ticketMasterData,
-      dataBase: dataBase
+      ticketMaster: ticketMaster,
+      // dataBase: dataBase
       //  eventBrite,
       //   tradeGov
       })
@@ -47,7 +46,7 @@
     })
   }
 
-  console.log(search('lady%gaga', 'gbsuv', 'San Diego', '2020-08-01T14:00:00'))
+  console.log(search())
    
  module.exports = search
 
