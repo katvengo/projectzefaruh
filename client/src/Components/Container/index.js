@@ -8,7 +8,7 @@ const styles={
 
 function Container({ children }) {
     return (
-        <div>
+        <main>
             <div className="container" style={styles.alignment}>
         
 
@@ -16,7 +16,7 @@ function Container({ children }) {
                 {children}
             </div>
 
-        </div>
+        </main>
     )
 }
 
