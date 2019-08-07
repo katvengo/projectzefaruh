@@ -17,6 +17,8 @@ const useStyles = makeStyles(theme => ({
     color: "#d9d9d9"
   }
 
+
+
   // avatar: {
   //   width: 100,
   //   height: 100
@@ -28,21 +30,20 @@ const useStyles = makeStyles(theme => ({
 
 function UserCard({ name, location, image }) {
   const classes = useStyles();
+  const username = {username}
 
   return (
     <Card className={classes.card}>
-      <CardMedia
+      {/* <CardMedia
         component="img"
         alt="default user image"
         height="140"
         image="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-squares-01/3/31-512.png"
-      />
+      /> */}
       <CardContent>
         <Typography gutterBottom variant="h6" component="h6">
-          name {this.state.name}
-        </Typography>
-        <Typography variant="body1" component="p">
-          location {this.state.location}
+          name 
+          {}
         </Typography>
       </CardContent>
       {/* <CardActions>
