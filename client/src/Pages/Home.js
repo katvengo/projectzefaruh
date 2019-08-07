@@ -48,6 +48,7 @@ const styles = {
         background: "#D4D85B",
         color: "white ",
         letterSpacing: '1px',
+        
     },
     toolbarTitle: {
         flex: 1,
@@ -223,7 +224,7 @@ class Home extends Component {
 
 
 
-                <div className="row">
+                {/* <div className="row">
                     <div className="col m6">
 
 
@@ -239,17 +240,18 @@ class Home extends Component {
                         <TimePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate} />
+                            setSelectedDate={this.setSelectedDate} /> */}
 
                         `
                             {/* <CategoryInput />
 
                        */}
-                    </div>
-                </div>
+                    {/* </div>
+                </div> */}
                 <div className="row ">
                     <SubmitButton
-                        onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center" />
+                        onClick={(event) => this.handleSubmit(event)} 
+                        style={styles.button} className="center" />
 
                 </div>
 

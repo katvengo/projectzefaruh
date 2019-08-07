@@ -30,7 +30,7 @@ class App extends Component {
       
     <Router>
 
-      <div>
+    
         <header>
         <Nav/>
         </header>
@@ -54,7 +54,7 @@ class App extends Component {
       <footer>
       <FooterBar/>
       </footer>
-      </div>
+     
     </Router>
 
     );

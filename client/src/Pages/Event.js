@@ -9,6 +9,7 @@ import TimePicker from "../Components/TimePicker";
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
 import FileInput from "../Components/FileInput"
+import { StylesContext } from "@material-ui/styles/StylesProvider";
 // import DropDown from '../Components/DropDown'
 var moment = require('moment');
 
@@ -23,14 +24,15 @@ const styles = {
     },
     subheading: {
         color: "black",
-        fontFamily: "Anton, sans-serif",
+        fontFamily: 'Raleway',
+
         textAlign: "center",
-        padding: "50px",
+        // padding: "50px",
         letterSpacing: "2px"
     },
 
     headingDiv: {
-        background: "#79D8AC"
+        background: "#769A75"
     },
 
     button: {
@@ -125,11 +127,11 @@ class Event extends Component {
 
         return (
             <Container>
-                <div style={styles.headingDiv}>
+                {/* <div style={styles.headingDiv}> */}
 
                     {/* <h1 style={styles.heading}>ZEFARUH</h1> */}
-                    <h2 style={styles.heading}>Create your Event!</h2>
-                </div>
+                    <h2 style={styles.subheading}>Create your Event!</h2>
+                {/* </div> */}
 
 
                 <TextField
@@ -258,9 +260,9 @@ class Event extends Component {
 
 
 
-                <div className="row">
+                <div className="row center">
                     
-                    <div className="col-m-6 col-s-12">
+                    <div className="col-m-6 col-s-12 center">
                         <DatePicker
                             value={this.state.eventDate}
                             selectedDate={this.state.selectedDate}
@@ -269,7 +271,7 @@ class Event extends Component {
                             fullWidth
                         />
                     </div>
-                    <div className="col-m-6 col-s-12">
+                    <div className="col-m-6 col-s-12 center">
 
                     <TimePicker
                    selectedDate={this.state.selectedDate}

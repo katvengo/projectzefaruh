@@ -1,15 +1,10 @@
-/* body {
-  margin: 0;
-  padding: 0;
 
-
-} */
-
-body {
+#root{
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
+
 main {
   flex: 1 0 auto;
 }
@@ -19,27 +14,27 @@ main {
 .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding.MuiToolbar-gutters, .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current.MuiPickersDay-daySelected, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-daySelected
 
 {
-  background-color: #0C3F31
+  background-color: #D4D85B
 }
 
 .MuiPickersClock-pin, .MuiPickersClockPointer-pointer{
-  background-color: #0C3F31 !important;
-  border: #0C3F31 !important;
+  background-color: #D4D85B !important;
+  border: #D4D85B !important;
 }
 
 .MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
-  background-color: #0C3F31 !important;	  background-color: #0C3F31 !important;
-  border: #0C3F31 14px solid !important;	  border: #0C3F31 14px solid !important;
+  background-color: #D4D85B !important;	  background-color: #D4D85B !important;
+  border: #D4D85B 14px solid !important;	  border: #D4D85B 14px solid !important;
 }	
 /* button labels */
 /* .MuiButton-label, .MuiButton-label:focus, .MuiButton-label:active{ */
 .navBtns{
-  color: #0C3F31 !important;
+  color: #D4D85B !important;
 
 }
-.navBtns:focus, ..navBtns:hover, .MuiButton-root:hover{
+.navBtns:focus, .navBtns:hover, .MuiButton-root:hover{
   color: white !important;
-  background-color: #0C3F31;
+  background-color: #D4D85B;
 
 }
 
@@ -55,11 +50,11 @@ button:focus{
   background-color:white;
 }
 .MuiPickersDay-current{
-  color: #0C3F31 !important;
+  color: #D4D85B !important;
 }
 .MuiPickersDay-daySelected{
   color: white !important;
-  background-color: #0C3F31;
+  background-color: #D4D85B;
 }
 
 
@@ -69,14 +64,14 @@ button:focus{
 }
 
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
-  color:#0C3F31;
+  color:#D4D85B;
   ;
 }
 
 
 /* round button focus */
 .MuiButtonBase-root.MuiIconButton-root:focus{
-  background-color: #0C3F31 !important;
+  background-color: #D4D85B !important;
   color: white;
 }
 .MuiButtonBase-root.MuiIconButton-root:active{
@@ -90,7 +85,7 @@ button:focus{
  border-color:red !important;
 }
 #inputLine:focus{
-  border-bottom: 1px solid #0C3F31;
+  border-bottom: 1px solid #D4D85B;
   box-shadow:none;
 }
 
