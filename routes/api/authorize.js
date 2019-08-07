@@ -12,10 +12,11 @@ router
           time,
         }
       } = req;
-      const apiEvents = await search(query, time);
+      const apiEvents = await search(query, time); 
+      console.log({apiEvents})
       // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
       var events = apiEvents.ticketMaster.data._embedded.events
-     
+    
       // for (let i = 0; i < events.length; i++) {
       //  array[i];
         
