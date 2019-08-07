@@ -25,12 +25,23 @@ class UserPage extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
+      username: "",
       locationCity: "",
       postedEvents: [],
       favEvents: []
     };
   }
+// ! needs work
+  componentDidMount(){
+    this.loadUser();
+  }
+
+  loadUser = () => {
+    // API.getUser()
+    //   .then(res => this.setState({user: res.data}))
+    //   .catch(err => console.log(err));
+  }
+  // ! 
 
   render() {
     return (
@@ -39,7 +50,7 @@ class UserPage extends Component {
         <div className="row">
           <div className="col-sm-4">
             <UserCard
-            name={this.props.name} />
+            name={this.props.username} />
             <Link to="/">
               <SearchButton style={styles.button} />
             </Link>
