@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "./Pages/Home"
 import Nav from "./Components/Nav"
 import "./App.css";
+import FooterBar from "./Components/Footer"
 //import { ThemeProvider } from '@material-ui/styles';
 
 // import AppBar from '@material-ui/core/AppBar';
@@ -28,9 +29,12 @@ class App extends Component {
     return (
       
     <Router>
+
       <div>
+        <header>
         <Nav/>
-     
+        </header>
+        <main>
         <Switch>
 
       <Route exact path="/" component={Home} /> 
@@ -46,6 +50,10 @@ class App extends Component {
       <Home/>
 
       </Switch>
+      </main>
+      <footer>
+      <FooterBar/>
+      </footer>
       </div>
     </Router>
 

@@ -45,8 +45,8 @@ const styles = {
     },
 
     button: {
-        background: "#769A75",
-        color: "white",
+        background: "#0C3F31",
+        color: "white ",
         letterSpacing: '1px',
     },
     toolbarTitle: {
@@ -56,8 +56,8 @@ const styles = {
         color: 'black',
         marginBottom: '50px'
 
-      },
-    
+    },
+
 }
 
 
@@ -102,19 +102,19 @@ class Home extends Component {
     }
 
     searchThruDatabase = (query, time) => {
-        const request = {query, time}
-        axios.post('/api/authorize', request)   
+        const request = { query, time }
+        axios.post('/api/authorize', request)
             //.then(res => res.json())
             .then((events) => {
-                console.log({events})
+                console.log({ events })
                 //console.log(ticketMaster)
                 this.setState({
                     events: events.data
                 })
             })
-            // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
+        // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
     }
-    
+
     // searchThruDatabase = (query, query2, query3, query4) => {
     //     API.search(query, query2, query3, query4)
     //     .then(res => {
@@ -140,7 +140,7 @@ class Home extends Component {
         this.setState({ selectedDate: date })
     }
 
-  
+
 
     //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
     handleSubmit = event => {
@@ -154,16 +154,16 @@ class Home extends Component {
         return (
             <Container>
                 <Typography
-                component="h2"
-                 variant="h5"
-                 color="inherit"
-                 align="center"
-                  noWrap
-                 style={styles.toolbarTitle}
-                  >
-                A place to search for events and things to do
+                    component="h2"
+                    variant="h5"
+                    color="inherit"
+                    align="center"
+                    noWrap
+                    style={styles.toolbarTitle}
+                >
+                    A place to search for events and things to do
                </Typography>
-               <TextField
+                <TextField
                     id="inputLine"
                     name="eventSearched"
                     value={this.state.eventSearched}
@@ -186,14 +186,14 @@ class Home extends Component {
                         disableUnderline: true,
                         startAdornment: (
                             <InputAdornment position="start">
-                            <SearchIcon /> 
+                                <SearchIcon />
                             </InputAdornment>
-                          ),
+                        ),
                     }}
-                    
+
                 />
 
-               
+
 
 
 
@@ -249,19 +249,24 @@ class Home extends Component {
                 </div>
                 <div className="row ">
                     <SubmitButton
-                        onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center"/>
+                        onClick={(event) => this.handleSubmit(event)} style={styles.button} className="center" />
 
                 </div>
 
-                   <div className="row center">
-                    <div className="col m6">    
-                    <h6>Have an event to share with the world?</h6><br />
-         <Link to="/event"><Button style={styles.button}>Create Event</Button></Link>
+                <div className="row center">
+                    <div className="col m6">
+                        <h6>Have an event to share with the world?</h6><br />
+                        <Link
+                            to="/event">
+                            <Button 
+                            id="createEventBtn"
+                            style={styles.button}>Create Event</Button>
+                        </Link>
                     </div>
-                    </div>
+                </div>
 
-              
-                     {/* {this.state.events.map(event => {
+
+                {/* {this.state.events.map(event => {
                         return (<ResultCard
                             title={event.name.text}
                             dates={event.start.local}
@@ -272,28 +277,28 @@ class Home extends Component {
                         />
                         )
                     })} } */}
-                    {this.state.events.map(event => {
-                        return (<ResultCard
-                            expanded={this.state.expanded}
-                            handleExpandClick={this.setExpanded}
-                            handleUnExpandClick={this.setUnExpanded}
-                            title={event.name}
-                            dates={event.dates.start.localDate}
-                            image={event.images[0].url}
-                            note={event.pleaseNote}
-                            key={event.id}
-                            locationName={event._embedded.venues[0].name}
-                            tickets={event._embedded.attractions[0].url}
-                            locationAddress={event._embedded.venues[0].address.line1}
-                            locationCity={event._embedded.venues[0].city.name}
-                            locationPostalCode={event._embedded.venues[0].postalCode}
-                            locationState={event._embedded.venues[0].state.name}
-                            locationDistance={event._embedded.venues[0].distance}
-                            locationDistanceUnits={event._embedded.venues[0].units}
-                        />
-                        )
-                    })}
-              
+                {this.state.events.map(event => {
+                    return (<ResultCard
+                        expanded={this.state.expanded}
+                        handleExpandClick={this.setExpanded}
+                        handleUnExpandClick={this.setUnExpanded}
+                        title={event.name}
+                        dates={event.dates.start.localDate}
+                        image={event.images[0].url}
+                        note={event.pleaseNote}
+                        key={event.id}
+                        locationName={event._embedded.venues[0].name}
+                        tickets={event._embedded.attractions[0].url}
+                        locationAddress={event._embedded.venues[0].address.line1}
+                        locationCity={event._embedded.venues[0].city.name}
+                        locationPostalCode={event._embedded.venues[0].postalCode}
+                        locationState={event._embedded.venues[0].state.name}
+                        locationDistance={event._embedded.venues[0].distance}
+                        locationDistanceUnits={event._embedded.venues[0].units}
+                    />
+                    )
+                })}
+
 
 
             </Container>

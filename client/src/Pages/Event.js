@@ -30,11 +30,11 @@ const styles = {
     },
 
     headingDiv: {
-        background: "#F2D8C9"
+        background: "#79D8AC"
     },
 
     button: {
-        background: "#BF8874",
+        background: "#0C3F31",
         color: "white",
         opacity: "50%",
         // fontFamily: 'Lora, nserif',

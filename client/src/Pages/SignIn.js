@@ -59,12 +59,11 @@ class SignUp extends React.Component {
                     name="email"
                     value={this.state.email}
                     placeholder=" Email"
-                    onChange={this.handleInputChange}
                     type="text"
                     fullWidth
                     margin="normal"
                     label="Email"
-                    // variant="none"
+                    
                     style={{ margin: 5 }}
                     InputLabelProps={{
                         shrink: true,
@@ -72,6 +71,7 @@ class SignUp extends React.Component {
                     InputProps={{
                         disableUnderline: true
                     }}
+                    onChange={this.handleInputChange}
 
                 />
                 <TextField
