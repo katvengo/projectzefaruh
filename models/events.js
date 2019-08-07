@@ -34,6 +34,15 @@ module.exports = function (sequelize, DataTypes) {
        
     });
 
+    Event.associate = function(models){
+        Event.belongsTo(models.User, {
+            foreignKey: 'e_user_id' /* { 
+                //allowNull: false
+              }    */
+        })
+    }
+    
+
     return Event;
       // This function grabs posts from the database and updates the view
 

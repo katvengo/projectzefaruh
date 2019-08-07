@@ -1,5 +1,5 @@
 var db = require("../models");
-
+// this is event controller
 module.exports = {
 
     create: function (req, res) {
