@@ -30,12 +30,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
-
 app.use(routes);
 // app.use('.env'(search()))
 
