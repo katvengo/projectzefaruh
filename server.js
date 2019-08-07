@@ -18,8 +18,6 @@ app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  require('dotenv').load();
-
 }
 
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
@@ -38,7 +36,7 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.use(routes);
+app.use(routes);``
 // app.use('.env'(search()))
 
 
@@ -50,4 +48,4 @@ db.sequelize.sync().then(function(){
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
-})
+})``
