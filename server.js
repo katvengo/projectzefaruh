@@ -9,12 +9,17 @@ LocalStrategy = require('passport-local').Strategy;
 const PORT = process.env.PORT || 3001;
 const db = require('./models');
 const app = express();
+// !added this
+const customAuthMiddleware = require('./middleware/custom-auth-middleware');
 
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: false })); //For body parser
 app.use(bodyParser.json());
 app.use(express.json());
+// ! this
+app.use(customAuthMiddleware);
+// !
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
