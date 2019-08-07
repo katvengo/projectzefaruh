@@ -43,7 +43,7 @@ function UserCard(props) {
       <CardContent>
         <Typography gutterBottom variant="h6" component="h6">
           name 
-          {props.name}
+          {props.username}
         </Typography>
       </CardContent>
       {/* <CardActions>

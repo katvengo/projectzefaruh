@@ -12,10 +12,15 @@ router
           time,
         }
       } = req;
-      const apiEvents = await search(query, time);
-      // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
-      var events = apiEvents.ticketMaster.data._embedded.events
-     
+      try{
+        const apiEvents = await search(query, time); 
+        console.log({apiEvents})
+        // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
+        // var events = apiEvents.ticketMaster.data._embedded.events  
+      } catch (e) {
+        console.log(e);
+      }
+      
       // for (let i = 0; i < events.length; i++) {
       //  array[i];
         
@@ -54,7 +59,7 @@ router
       // var dataBaseEvents = dataBaseSearchEvents
       //console.log({events})
       //console.log(apiEvents);
-      return res.send(events);
+      return res.send();
       // creating a function to search our database
     } catch (err) {
       console.error(err);

@@ -19,13 +19,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TIME,
         },
 
-        eventDescription: { type: Sequelize.STRING, allowNull: false },
+        eventDescription: Sequelize.STRING,
+        
+        eventNote: Sequelize.STRING,
 
-        eventCategory: { type: Sequelize.STRING, allowNull: false },
+        eventCategory: Sequelize.STRING,
 
         eventImage: DataTypes.BLOB,
 
-        eventURL: DataTypes.STRING,
+        eventLink: DataTypes.STRING,
 
         eventPreSale: DataTypes.STRING,
 
