@@ -6,8 +6,14 @@ const moment = require('moment')
 var defaultTime = moment(Date.now()).format('DDTHH:mm:ss').toString(); 
 // console.log(defaultTime)
 function searchThruDatabase(query, location, date, time) {
-  const databaseURL = `/api/events/:${query}/:${location}/:${date}/:${time}`;
-       return axios.get(databaseURL)
+       return axios.get("/events/", {
+         params: {
+          query: query,
+          // location: location,
+          // date: date,
+          // time: time
+         }
+       })
            .catch((err) =>{
            console.log(err)   
            })
@@ -17,5 +23,6 @@ function searchThruDatabase(query, location, date, time) {
           // .then(transformData)
           
 }
+//console.log(searchThruDatabase('rollerblade'))
 //console.log("transforming" + transformData)
 module.exports = searchThruDatabase
