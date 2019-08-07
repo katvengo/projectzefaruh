@@ -1,31 +1,44 @@
-body {
-  margin: 0;
-  padding: 0;
 
+#root{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+
+main {
+  flex: 1 0 auto;
+}
+
 
 /* date and time pickers */
 .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding.MuiToolbar-gutters, .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current.MuiPickersDay-daySelected, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-daySelected
 
 {
-  background-color: #395E2E
+  background-color: #D4D85B
 }
 
 .MuiPickersClock-pin, .MuiPickersClockPointer-pointer{
-  background-color: #395E2E !important;
-  border: #395E2E !important;
+  background-color: #D4D85B !important;
+  border: #D4D85B !important;
 }
 
 .MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
-  background-color: #395E2E !important;	  background-color: #395E2E !important;
-  border: #395E2E 14px solid !important;	  border: #395E2E 14px solid !important;
+  background-color: #D4D85B !important;	  background-color: #D4D85B !important;
+  border: #D4D85B 14px solid !important;	  border: #D4D85B 14px solid !important;
 }	
-
-.MuiButton-label, .MuiButton-label:focus, .MuiButton-label:active{
-
-  color: #395E2E;
+/* button labels */
+/* .MuiButton-label, .MuiButton-label:focus, .MuiButton-label:active{ */
+.navBtns{
+  color: #D4D85B !important;
 
 }
+.navBtns:focus, .navBtns:hover, .MuiButton-root:hover{
+  color: white !important;
+  background-color: #D4D85B;
+
+}
+
+
 
 /* span.MuiButton-label:hover{
 
@@ -37,28 +50,28 @@ button:focus{
   background-color:white;
 }
 .MuiPickersDay-current{
-  color: #395E2E !important;
+  color: #D4D85B !important;
 }
 .MuiPickersDay-daySelected{
   color: white !important;
-  background-color: #395E2E;
+  background-color: #D4D85B;
 }
 
 
 /* labels */
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
-  color: #6c757d;
+  color: #03261C;
 }
 
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
-  color:#395E2E;
+  color:#D4D85B;
   ;
 }
 
 
 /* round button focus */
 .MuiButtonBase-root.MuiIconButton-root:focus{
-  background-color: #395E2E !important;
+  background-color: #D4D85B !important;
   color: white;
 }
 .MuiButtonBase-root.MuiIconButton-root:active{
@@ -72,7 +85,7 @@ button:focus{
  border-color:red !important;
 }
 #inputLine:focus{
-  border-bottom: 1px solid #395E2E;
+  border-bottom: 1px solid #D4D85B;
   box-shadow:none;
 }
 
@@ -88,4 +101,11 @@ button:focus{
 /* heart button */
 button.MuiButtonBase-root.MuiIconButton-root{
   margin: 0px, 10px, 0px, 0px;
+}
+
+
+/*  footer   */
+.page-footer {
+  background-color: #D84169;
+  color: #F2C4C4;
 }

@@ -2,3 +2,11 @@
     font-family: abys;
     src: url("../src/Components/Layout/fonts/Abys-Regular.otf") format("opentype");
 } */
+
+body {
+   background-color: #03261C;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

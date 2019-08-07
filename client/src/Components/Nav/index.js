@@ -20,14 +20,15 @@ const useStyles = makeStyles(theme => ({
   toolbar: {
     // borderBottom: `1px solid `,
     padding: `15px`,
-    backgroundColor: "#769A75",
+    backgroundColor: "white",
     height: "79px"
   },
   toolbarTitle: {
     flex: 1,
-    fontFamily: 'Raleway',
-    color: 'white',
-    fontSize: "20px"
+    fontFamily: 'Rammetto One, cursive',
+    color: 'black',
+    fontSize: "40px",
+    letterSpacing: '3px',
   },
   toolbarSecondary: {
     direction: 'row',
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 
   },
  buttonDesign:{
-  backgroundColor: '#F4FBF3',
+  backgroundColor: '#12A57B',
   color: 'white',
   margin: "5px",
  },
@@ -60,7 +61,13 @@ function Nav() {
       <Toolbar className={classes.toolbar}>
 
       <Link to="/">
-        <img src='https://i.ibb.co/qyh8GPg/Add-a-little-bit-of-body-text.png' alt = "giraffe" height="75" width="200"/>
+        {/* <Typography className={classes.toolbarTitle}>
+
+        zafaruh
+        </Typography> */}
+
+        
+        <img src='https://i.ibb.co/0B2026W/Add-a-little-bit-of-body-text-2.png' alt = "giraffe" height="75" width="200"/>
 </Link>
         {/* <Link to="/"> */}
         <Typography
@@ -83,7 +90,7 @@ function Nav() {
         </Link> */}
         <Link to="/SignUp">
           {/* <Tooltip title="Signup"> */}
-          <Fab size="small" focusable="false" className="hide-on-small-only">Sign up</Fab>
+          <Fab size="small" focusable="false" className="hide-on-small-only navBtns">Sign up</Fab>
           <IconButton className="hide-on-med-and-up">
             <AddPerson/>
           </IconButton>
@@ -91,7 +98,7 @@ function Nav() {
         </Link>
 
         <Link to="/SignIn">
-          <Fab variant="outlined" size="small" className="hide-on-small-only" >
+          <Fab variant="outlined" size="small" className="hide-on-small-only navBtns" >
             Login
         </Fab>
         <IconButton className="hide-on-med-and-up">
