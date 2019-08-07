@@ -48,12 +48,13 @@
     "serialize-javascript": "^1.4.0",
     "session": "^0.1.0"
   },
+
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jessicagomez11/projectzefaruh.git"
+    "url": "git+https://github.com/modimohini/projectzefaruh.git"
   },
   "bugs": {
-    "url": "https://github.com/Jessicagomez11/projectzefaruh/issues"
+    "url": "https://github.com/modimohini/projectzefaruh/issues"
   },
-  "homepage": "https://github.com/Jessicagomez11/projectzefaruh#readme"
+  "homepage": "https://github.com/modimohini/projectzefaruh#readme"
 }
