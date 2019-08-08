@@ -60,13 +60,24 @@ main {
   background-color: #D84169;
   color: white !important;
   text-shadow: 1px 1px rgb(206, 92, 122);
-  border-radius: 4px;
+  /* border-radius: 4px; */
   font-size: 12px;
-  padding: 11px 30px;
+  /* padding: 11px 30px; */
 }
 
 
+/* .pinkBtns{
+  background-color: #D84169 !important;
+  text-shadow: 1px 1px rgb(206, 92, 122);
+   border-radius: 4px !important; 
+  padding: 11px 30px!important;
+} */
+
+
 /* round button focus */
+/* .MuiButtonBase-root.MuiIconButton-root{
+  color:#D4D85B
+} */
 .MuiButtonBase-root.MuiIconButton-root:focus{
   background-color: #D84169 !important;
   color: white;
@@ -86,9 +97,11 @@ main {
 /*  ------------------------------------------NAV BUTTON LINKS----------------------------------------------- */
 .navBtns, .navBtns:focus, .navBtns:hover, .MuiButton-root:hover, .MuiButton-root{
   /* color:  #D84169!important; */
-  background-color: white;
-  font-size: 16px !important;
-  margin: 0px, 4px;
+  background-color: #D84169 !important;
+  text-shadow: 1px 1px rgb(206, 92, 122);
+   /* border-radius: 4px !important;  */
+  /* padding: 11px 25px!important; */
+  margin: 0px 5px!important;
 
 
 
@@ -129,12 +142,12 @@ a:hover{
 
 /* LABELS FOR FORM INPUTS FOCUS &&&&&&&*/
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
-  color:#D84169;
+  color:#D4D85B;
   
 }
 /* INPUT BOX LINES WHEN USER CLICKS ON IT &&&&&&&&*/
 #inputLine:focus{
-  border-bottom: 1px solid #D84169;
+  border-bottom: 1px solid #D4D85B;
   box-shadow:none;
 }
 
@@ -147,6 +160,11 @@ a:hover{
 .MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-inputMuiOutlinedInput-input.MuiInputBase-inputSelect.MuiOutlinedInput-inputSelect.MuiSelect-outlined{
  border-color:black!important;
 }
+
+
+/* .MuiSvgIcon-root{
+  color:#D4D85B!important;
+} */
 
 
 
@@ -208,3 +226,4 @@ a:hover{
   /* text-transform: uppercase; */
   font-size: 15px;
 }
+

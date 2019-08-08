@@ -2,14 +2,14 @@ import React, { Component } from "react"
 import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
 import TextField from '@material-ui/core/TextField';
-// import DatePicker from '../Components/DatePicker'
+import DatePicker from '../Components/DatePicker'
 // import CategoryInput from "../Components/CategoryInput"
 import SubmitButton from "../Components/Button"
 //import API from "../utils/API";
 import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
-// import TimePicker from "../Components/TimePicker";
+import TimePicker from "../Components/TimePicker";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
@@ -218,23 +218,23 @@ class Home extends Component {
 
 
 
-                {/* <div className="row">
-                    <div className="col m6">
+                 {/* <div className="row">
+                    <div className="col m6"> */}
 
 
-                        <DatePicker
+                        {/* <DatePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate}
+                            setSelectedDate={this.setSelectedDate} */}
 
-                        />
-                    </div>
+                        {/* /> */}
+                    {/* </div> */}
 
-                    <div className="col m6">
-                        <TimePicker
+                    {/* <div className="col m6"> */}
+                        {/* <TimePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate} /> */}
+                            setSelectedDate={this.setSelectedDate} />  */}
 
 
                 {/* <CategoryInput />

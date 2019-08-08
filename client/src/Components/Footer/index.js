@@ -25,6 +25,7 @@ const FooterBar = () => {
               to="/event">
               <Button
                 id="createEventBtn"
+                className="pinkBtns"
                 style={styles.button}>Create Event</Button>
             </Link>
           </div>
