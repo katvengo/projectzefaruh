@@ -106,6 +106,9 @@ class Event extends Component {
         }).catch((err) => {
             console.log(err)
         });
+
+           alert('Event submitted!')
+            this.props.history.push('/')
     }
 
 
