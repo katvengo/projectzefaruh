@@ -57,7 +57,7 @@ const ResultCard = ({ locationName, title, dates, image, note,
   tickets, description, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits }) => {
   // const classes = useStyles();
  
-console.log(tickets)
+
 
 
   return (
@@ -77,7 +77,7 @@ console.log(tickets)
 
           <div className="col-md-7">
             <div className="card-body valign-wrapper center" style={Styles.cardBodyMargins}>
-              <div className="bodyContainer ">
+              <div className="bodyContainer center ">
                 <div className="row " style={Styles.margins}>
 
                   <div className="" >
