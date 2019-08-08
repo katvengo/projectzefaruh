@@ -32,8 +32,9 @@ const Styles = {
 
   },
   cardBodyMargins: {
-    margin: "30px 10px 15px",
+    margin: "30px 0px 15px",
     border: " 1px solid white",
+
   },
 
   imgDiv: {
@@ -53,10 +54,10 @@ const Styles = {
 
 
 const ResultCard = ({ locationName, title, dates, image, note,
-  tickets, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits }) => {
+  tickets, description, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits }) => {
   // const classes = useStyles();
  
-
+console.log(tickets)
 
 
   return (
@@ -70,17 +71,17 @@ const ResultCard = ({ locationName, title, dates, image, note,
         <div className="row center " >
 
 
-          <div className="col-md-5 valign-wrapper center">
+          <div className="col-md-4 valign-wrapper center">
             <img src={image} className="card-img center" alt="..." style={Styles.cardImage} />
           </div>
 
           <div className="col-md-7">
-            <div className="card-body valign-wrapper" style={Styles.cardBodyMargins}>
-              <div className="bodyContainer">
+            <div className="card-body valign-wrapper center" style={Styles.cardBodyMargins}>
+              <div className="bodyContainer ">
                 <div className="row " style={Styles.margins}>
 
                   <div className="" >
-                    <h4 style={Styles.place} className="card-title flow-text" >{title.trim()}</h4>
+                    <h4 style={Styles.place} className="center flow-text" >{title.trim(' ')}</h4>
                   </div>
 
 
@@ -95,6 +96,7 @@ const ResultCard = ({ locationName, title, dates, image, note,
                   <br />
                   {locationCity}, {locationState}
                   </p>
+                  <p>{description}</p>
 
 
                 {/* <p className="card-text flow-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
@@ -109,7 +111,7 @@ const ResultCard = ({ locationName, title, dates, image, note,
 
                 <div className="row " style={Styles.linkRow}>
                   <div className="col m6">
-                    <a href={tickets} target="_blank" className="card-link tktBtn flow-text">Tickets</a>
+                    <a href={tickets} target="_blank" rel="tickets" className="card-link tktBtn flow-text">Tickets</a>
                   </div>
                   <div className="col m6">
                     <IconButton aria-label="add to favorites" className="heartBtn"  >
