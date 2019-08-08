@@ -176,7 +176,7 @@ class SignUp extends React.Component {
                     <FileInput />
 
                     <Fab onClick={(event) => this.handleSubmit(event)}
-                        variant="extended"
+                        // variant="extended"
                         size="medium"
                         color="primary"
                         aria-label="submit"

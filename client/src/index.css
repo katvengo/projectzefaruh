@@ -60,10 +60,18 @@ main {
   background-color: #D84169;
   color: white !important;
   text-shadow: 1px 1px rgb(206, 92, 122);
-  border-radius: 4px;
+  /* border-radius: 4px; */
   font-size: 12px;
-  padding: 11px 30px;
+  /* padding: 11px 30px; */
 }
+
+
+/* .pinkBtns{
+  background-color: #D84169 !important;
+  text-shadow: 1px 1px rgb(206, 92, 122);
+   border-radius: 4px !important; 
+  padding: 11px 30px!important;
+} */
 
 
 /* round button focus */
@@ -86,9 +94,11 @@ main {
 /*  ------------------------------------------NAV BUTTON LINKS----------------------------------------------- */
 .navBtns, .navBtns:focus, .navBtns:hover, .MuiButton-root:hover, .MuiButton-root{
   /* color:  #D84169!important; */
-  background-color: white;
-  font-size: 16px !important;
-  margin: 0px, 4px;
+  background-color: #D84169 !important;
+  text-shadow: 1px 1px rgb(206, 92, 122);
+   /* border-radius: 4px !important;  */
+  /* padding: 11px 25px!important; */
+  margin: 0px 5px!important;
 
 
 
