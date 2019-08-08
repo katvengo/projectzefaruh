@@ -24,14 +24,14 @@ module.exports = {
         })
     },
 
-    findById: function(req, res) {
-    // var user = req.user
+    findOne: function(req, res) {
+    var user = req.params.username
        db.User.findOne({
         where: {
-          username: req.user.username
+          username: req.params.username
       }
-    }).then(function (users) {
-      return res.json(users)
+    }).then(function (dbUsers) {
+      return res.json(dbUsers)
      }).catch(next)
     },
 

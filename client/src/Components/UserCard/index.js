@@ -34,12 +34,12 @@ function UserCard(props) {
 
   return (
     <Card className={classes.card}>
-      {/* <CardMedia
+      <CardMedia
         component="img"
         alt="default user image"
         height="140"
-        image="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-squares-01/3/31-512.png"
-      /> */}
+        image={props.image}
+         />
       <CardContent>
         <Typography gutterBottom variant="h6" component="h6">
           name 

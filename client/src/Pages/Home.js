@@ -156,7 +156,7 @@ class Home extends Component {
                     noWrap
                     style={styles.toolbarTitle}
                 >
-                    A place to search for events and things to do
+                    Search for events
                </Typography>
 
                <div style={styles.inputDiv}>
