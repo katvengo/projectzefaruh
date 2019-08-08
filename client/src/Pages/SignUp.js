@@ -5,18 +5,16 @@ import Fab from '@material-ui/core/Button';
 import Container from "../Components/Container"
 import FileInput from "../Components/FileInput"
 
-//import Button from '../Components/SubmitButton'
-const Styles ={
-    button: {
-        background: "#156172",
-        color: "white",
-        letterSpacing: '1px',
-        boxShaddow: "0px",
-        marginBottom: "20px",
-        textAlign: 'center'
+// const Styles ={
+//     button: {
+//         background: "#F28704",
+//         color: "white ",
+//         letterSpacing: '1px',
+//         boxShaddow: "0px",
+//         margin: "5px, 0px"
 
-    },
-}
+//     },
+// }
 
 
 class SignUp extends React.Component {
