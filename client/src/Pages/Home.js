@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
-// import Nav from '../Components/Nav'
 import TextField from '@material-ui/core/TextField';
 // import DatePicker from '../Components/DatePicker'
 // import CategoryInput from "../Components/CategoryInput"
@@ -11,14 +10,13 @@ import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 // import TimePicker from "../Components/TimePicker";
-//import { textAlign } from "@material-ui/system";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 // import Button from '@material-ui/core/Button';
 // import { Link } from "react-router-dom"
 
-import Loader from "../Components/Loader"
+// import Loader from "../Components/Loader"
 
 var moment = require('moment');
 
@@ -44,11 +42,11 @@ const styles = {
         background: "white"
     },
     button: {
-        background: "#79D8AC",
+        background: "#156172",
         color: "white ",
-        letterSpacing: '1px',
-        boxShaddow: "0px",
-        margin: "5px, 0px"
+        // letterSpacing: '1px',
+        // boxShaddow: "0px",
+        // margin: "5px, 0px"
 
     },
 
@@ -157,7 +155,7 @@ class Home extends Component {
                     noWrap
                     style={styles.toolbarTitle}
                 >
-                    A place to search for events and things to do
+                    Search for events
                </Typography>
 
                <div style={styles.inputDiv}>
@@ -173,6 +171,11 @@ class Home extends Component {
                     label="Event or Activity"
                     InputProps={{
                         disableUnderline: true,
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+                            </InputAdornment>
+                        )
 
                     }}
                     // variant="none"
@@ -180,14 +183,7 @@ class Home extends Component {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                    InputProps={{
-                        disableUnderline: true,
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                        )
-                    }}
+                    
 
                 />
                 </div>
@@ -249,8 +245,8 @@ class Home extends Component {
                 <div className="row ">
                     <div className="col m12 center ">
                         <SubmitButton
-                            onClick={(event) => this.handleSubmit(event)}
-                            style={styles.button} className="center " />
+                                 onClick={(event) => this.handleSubmit(event)}
+                                 style={styles.button} className="center " />
                     </div>
                 </div>
 {/* 
@@ -276,9 +272,12 @@ class Home extends Component {
                         handleExpandClick={this.setExpanded}
                         handleUnExpandClick={this.setUnExpanded}
                         title={event.eventName}
-                        dates={event.eventDateStart.start.dateTime}
+                        dates={event.eventDateStart.start.localDate}
+                        time={event.eventDateStart.start.localTime}
                         image={event.eventImage[0].image.url}
                         note={event.eventNote}
+                        description={event.eventDescription}
+                        locationVenue={event.eventLocation.name}
                         locationName={event.eventLocation.address.line1}
                         locationAddress={event.eventLocation.address.line1}
                         locationCity={event.eventLocation.city.name}

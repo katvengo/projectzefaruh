@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
+var isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // grab the User model from the models folder, the sequelize
 // index.js file takes care of the exporting for us and the 
@@ -11,10 +12,10 @@ router.route("/")
   .get(userController.findAll)
 
 
-// Matches with "/api/user/:id"
+// Matches with "/api/user/:username"
 router
-  .route("/:user")
-  .get(userController.findById)
+  .route("/:username", isAuthenticated)
+  .get(userController.findOne)
 //   .delete(userController.remove);
 
 // copied

@@ -10,7 +10,8 @@
 main {
   flex: 1 0 auto;
   /* font-size: 16px !important; */
-  font-family: 'Raleway';
+  font-family: 'Noto Serif JP';
+  letter-spacing: 1px;
 
 }
 /* .container{
@@ -24,17 +25,17 @@ main {
 .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding.MuiToolbar-gutters, .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current.MuiPickersDay-daySelected, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-daySelected
 /* DATEPICKER HEADER  */
 {
-  background-color: #F28704;
+  background-color: #D84169;
 }
 /* DATE PICKER HAND */
 .MuiPickersClock-pin, .MuiPickersClockPointer-pointer{
-  background-color: #F28704 !important;
-  border: #F28704 !important;
+  background-color: #D84169 !important;
+  border: #D84169 !important;
 }
 /* PONITER */
 .MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
-  background-color: #F28704 !important;	 
-  border: #F28704 14px solid !important;	  
+  background-color: #D84169 !important;	 
+  border: #D84169 14px solid !important;	  
 }	
 /* button labels */
 /* .MuiButton-label, .MuiButton-label:focus, .MuiButton-label:active{ */
@@ -47,22 +48,27 @@ main {
 
 /* CURRENT DAY */
 .MuiPickersDay-current{
-  color: #F28704 !important;
+  color: #D84169 !important;
 }
 /* DAY SELECTED */
 .MuiPickersDay-daySelected{
   color: white !important;
-  background-color: #F28704;
+  background-color: #D84169;
 }
 /* DATE PICKER BUTTON LABELS */
 .MuiButton-label{
-  color: #F28704 !important;
+  background-color: #D84169;
+  color: white !important;
+  text-shadow: 1px 1px rgb(206, 92, 122);
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 11px 30px;
 }
 
 
 /* round button focus */
 .MuiButtonBase-root.MuiIconButton-root:focus{
-  background-color: #F28704 !important;
+  background-color: #D84169 !important;
   color: white;
 }
 .MuiButtonBase-root.MuiIconButton-root:active{
@@ -94,7 +100,10 @@ a:hover{
 /*  ------------------------------------------ TICKET LINK ----------------------------------------------- */
 
 .tktBtn{
-  color: #F28704;
+  color: #D84169;
+}
+.tktBtn:hover{
+  color: #D4D85B;
 }
 
 /*  ------------------------------------------NAV BUTTON LINKS----------------------------------------------- */
@@ -106,13 +115,13 @@ a:hover{
 /*  ------------------------------------------INPUT LABELS----------------------------------------------- */
 /* LABELS FOR FORM INPUTS*/
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
-  color: #013F2E;
+  color: #156172;
   letter-spacing: 3px !important;
   font-size: 18px !important;
   text-transform: uppercase;
 }
   #inputLine{
-    color:  #013F2E;
+    color:  #156172;
 
   }
 
@@ -120,12 +129,12 @@ a:hover{
 
 /* LABELS FOR FORM INPUTS FOCUS &&&&&&&*/
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
-  color:#F28704;
+  color:#D84169;
   
 }
 /* INPUT BOX LINES WHEN USER CLICKS ON IT &&&&&&&&*/
 #inputLine:focus{
-  border-bottom: 1px solid #F28704;
+  border-bottom: 1px solid #D84169;
   box-shadow:none;
 }
 
@@ -167,19 +176,19 @@ a:hover{
 .MuiButtonBase-root.MuiIconButton-root.heartBtn:focus{
   background-color: white !important;
 
-  color:red;
+  color:#F2C4C4;
 }
 .MuiButtonBase-root.MuiIconButton-root.heartBtn:visited{
   background-color: white !important;
 
-  color:red;
+  color:#D84169;
 }
 
 /*  ---------------------------------------- CARD DIV----------------------------------------------- */
 /* .cardDiv{
   /* border:  1px solid red; */
   /* background-color:; */
-/* }  */
+ /* */ 
 
 
 
@@ -192,8 +201,8 @@ a:hover{
 /*  ------------------------------------------FOOTER----------------------------------------------- */
 
 .page-footer {
-  background-color: #027249;
-  color: #A7D5F2;
+  background-color: rgb(196, 245, 222);
+  color: #156172;
   font-weight: 600;
   /* opacity: .83; */
   /* text-transform: uppercase; */

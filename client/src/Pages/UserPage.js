@@ -25,23 +25,31 @@ class UserPage extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      title: '',
+      username: null,
       locationCity: "",
-      postedEvents: [],
-      favEvents: []
+      createdEvents: [],
+      favoritedEvents: []
     };
   }
-// ! needs work
+  
   componentDidMount(){
-    this.loadUser();
+   const {handle} = this.props.match.params
+
+   fetch(`/api/user/:${handle}`)
+    .then((user) => {
+    this.setState(() => ({user}))
+   }).then(function (data) {
+    console.log(data)
+   }).catch((err) => {
+    console.log(err)
+   });
   }
 
-  loadUser = () => {
-    // API.getUser()
-    //   .then(res => this.setState({user: res.data}))
-    //   .catch(err => console.log(err));
-  }
-  // ! 
+ 
+  
+  
+  
 
   render() {
     return (
@@ -50,7 +58,8 @@ class UserPage extends Component {
         <div className="row">
           <div className="col-sm-4">
             <UserCard
-            name={this.props.username} />
+            image={this.state.image}
+            name={this.state.username} />
             <Link to="/">
               <SearchButton style={styles.button} />
             </Link>

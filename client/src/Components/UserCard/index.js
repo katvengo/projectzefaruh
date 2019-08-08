@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import CardActions from "@material-ui/core/CardActions";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
+// import CardActions from "@material-ui/core/CardActions";
+// import Avatar from "@material-ui/core/Avatar";
+// import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import SettingsIcon from "@material-ui/icons/Settings";
-import { green, grey } from "@material-ui/core/colors";
+// import SettingsIcon from "@material-ui/icons/Settings";
+// import { green, grey } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -34,12 +34,12 @@ function UserCard(props) {
 
   return (
     <Card className={classes.card}>
-      {/* <CardMedia
+      <CardMedia
         component="img"
         alt="default user image"
         height="140"
-        image="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-squares-01/3/31-512.png"
-      /> */}
+        image={props.image}
+         />
       <CardContent>
         <Typography gutterBottom variant="h6" component="h6">
           name 

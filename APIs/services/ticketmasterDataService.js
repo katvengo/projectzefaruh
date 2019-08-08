@@ -13,7 +13,6 @@ function searchTicketmaster(query, time = defaultTime) {
        return axios.get(ticketmasterUrl)
            .then(function (apiEvents) {
             var apiEventResults = apiEvents.data._embedded.events
-
             var results = apiEventResults.map(transformData)
             //console.log(apiEventsParsed)
            //var sendData = apiEventsParsed

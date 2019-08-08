@@ -6,16 +6,16 @@ import Container from "../Components/Container"
 import FileInput from "../Components/FileInput"
 import SubmitButton from "../Components/Button"
 
-const Styles ={
-    button: {
-        background: "#F28704",
-        color: "white ",
-        letterSpacing: '1px',
-        boxShaddow: "0px",
-        margin: "5px, 0px"
+// const Styles ={
+//     button: {
+//         background: "#F28704",
+//         color: "white ",
+//         letterSpacing: '1px',
+//         boxShaddow: "0px",
+//         margin: "5px, 0px"
 
-    },
-}
+//     },
+// }
 
 
 class SignUp extends React.Component {

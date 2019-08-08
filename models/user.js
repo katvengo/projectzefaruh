@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     image: DataTypes.BLOB,
-    intersts: DataTypes.STRING,
+    interests: DataTypes.STRING,
     resetPasswordToken: {
       type: DataTypes.STRING
     },
