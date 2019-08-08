@@ -11,10 +11,12 @@ const db = require('./models');
 const app = express();
 
 
+
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: false })); //For body parser
 app.use(bodyParser.json());
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -23,7 +25,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(flash());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -31,7 +32,6 @@ app.use(function (req, res, next) {
 });
 
 app.use(routes);
-// app.use('.env'(search()))
 
 
 app.get('*', function(req, res) {

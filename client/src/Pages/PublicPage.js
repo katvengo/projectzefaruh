@@ -21,27 +21,34 @@ const styles = {
   }
 };
 
-class UserPage extends Component {
+
+class PublicPage extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      name: "",
       locationCity: "",
       postedEvents: [],
       favEvents: []
     };
   }
-// ! needs work
-  componentDidMount(){
-    this.loadUser();
-  }
 
-  loadUser = () => {
-    // API.getUser()
-    //   .then(res => this.setState({user: res.data}))
-    //   .catch(err => console.log(err));
-  }
-  // ! 
+  componentDidMount(){
+    fetch("/api/user", {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(userInfo)
+    }).then(function(response) {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
+        }
+        return response.json();
+    }).then(function() {
+        window.location.replace("/api/event");
+    }).catch((err) => {
+        console.log(err)
+    });
+}
 
   render() {
     return (
@@ -50,7 +57,7 @@ class UserPage extends Component {
         <div className="row">
           <div className="col-sm-4">
             <UserCard
-            name={this.props.username} />
+            name={this.props.name} />
             <Link to="/">
               <SearchButton style={styles.button} />
             </Link>
@@ -60,11 +67,11 @@ class UserPage extends Component {
           </div>
         </div>
 
-        {/* <h5>My Events:</h5> */}
-        {/* <div className="card-columns"> */}
-        {/* <ResultCard /> */}
-        {/* posted evets */}
-        {/* {this.state.postedEvents.map(event => {
+        <h5>My Events:</h5> 
+       <div className="card-columns"> 
+       <ResultCard /> 
+     {/* Posted Events */}
+       {this.state.postedEvents.map(event => {
             return (
               <ResultCard
                 title={favEvents.name}
@@ -78,13 +85,13 @@ class UserPage extends Component {
                 locationState={event._embedded.venues[0].state.name}
               />
             );
-          })} */}
-        {/* </div> */}
-        {/* <h5>Saved Events:</h5> */}
-        {/* <div className="card-columns"> */}
-        {/* saved/favorite evets */}
-        {/* <ResultCard /> */}
-        {/* {this.state.favEvents.map(event => {
+          })} 
+        </div> 
+        <h5>Saved Events:</h5> 
+        <div className="card-columns"> 
+        {/* saved/favorite evets  */}
+        <ResultCard /> 
+        {this.state.favEvents.map(event => {
             return (
               <ResultCard
                 title={favEvents.name}
@@ -101,11 +108,11 @@ class UserPage extends Component {
                 locationDistanceUnits={event._embedded.venues[0].units}
               />
             );
-          })} */}
-        {/* </div> */}
+          })} 
+        </div>
       </Container>
     );
   }
 }
 
-export default UserPage;
+export default PublicPage;

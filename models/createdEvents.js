@@ -26,12 +26,13 @@ module.exports = function (sequelize, DataTypes) {
     
        
     });
+
     CreatedEvents.associate = function(models){
         CreatedEvents.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-              }   
-        })
+            foreignKey: 'e_user_id' /* { 
+                //allowNull: false
+              }    */
+        }) 
     }
     return CreatedEvents;
       // This function grabs favorite from the database and updates the view

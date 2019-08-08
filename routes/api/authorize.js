@@ -12,50 +12,20 @@ router
           time,
         }
       } = req;
-      const apiEvents = await search(query, time);
-      // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
-      var events = apiEvents.ticketMaster.data._embedded.events
+       try{
+        const apiEvents = await search(query, time); 
+        //const ticketMasterEvents = apiEvents.ticketMaster.data[0]
+        //const databaseEvents = apiEvents.database
+        console.log(apiEvents)
+        console.log("ticket Master Events ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~above")
+        //const concatEvents = [ticketMasterEvents + databaseEvents]
+        //const events = JSON.stringify(concatEvents) 
+        
+       return res.json(apiEvents);
+       } catch (e) {
+      //   console.log(e);
+      }    
      
-      // for (let i = 0; i < events.length; i++) {
-      //  array[i];
-        
-      // }
-
-      // var formattedEvents = {
-      //   eventName: event.name,
-
-      //   eventLocation: event.event._embedded.venues[0].name,
-        
-      //   eventPriceRange: event.eventPriceRanges[0].max,
-    
-      //   eventDate: event.dates.start.localDate,
-            
-      //   eventTime: event.dates.start.localTime,
-
-      //   eventDescription: event.info,
-
-      //   eventCategory: event.classifications[0].segment.name,
-
-      //   eventImage: event.images[0].url,
-
-      //   eventURL: event.url,
-
-      //   eventPreSale: event.sales.presales[0].startDateTime,
-
-      //   eventPublicSell: event.sales.public[0].startDateTime,
-      
-      // }
-      console.log('------------------------------------------');
-      //var events = apiEvents.ticketMaster.data._embedded.events
-      //console.log(events)
-      // events ={
-
-      // }
-      // var dataBaseEvents = dataBaseSearchEvents
-      //console.log({events})
-      //console.log(apiEvents);
-      return res.send(events);
-      // creating a function to search our database
     } catch (err) {
       console.error(err);
       res.sendStatus(500);
@@ -64,3 +34,14 @@ router
 
 
 module.exports = router;
+
+//  var ticketMasterEvents = apiEvents.ticketMaster.map(object => ({object}))
+      //  var getEvents = ticketMasterEvents.map(object => (object))
+       //console.log("events-------->")
+       //console.log({getEvents})
+       //var ticketMasterEvents = apiEvents.ticketMaster
+       //var databaseEvents = apiEvents.database
+
+       //var concatEvents = JSON.stringify(ticketMasterEvents + databaseEvents)
+        // const dataBaseSearchEvents = await searchDatabase(query, time, location, date)
+        // var events = apiEvents.ticketMaster.data._embedded.events  

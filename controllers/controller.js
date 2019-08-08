@@ -1,5 +1,5 @@
 var db = require("../models");
-
+// this is event controller
 module.exports = {
 
     create: function (req, res) {
@@ -12,9 +12,9 @@ module.exports = {
             eventTime: req.body.eventTime,
             eventCategory: req.body.eventCategory,
             eventPriceRange: req.body.eventPriceRange,
-            eventURL: req.body.eventPriceRange,
-            eventPreSale: req.body.eventPriceRange,
-            eventPublicSell: req.body.eventPriceRange,
+            eventLink: req.body.eventLink,
+            eventPreSale: req.body.eventPreSale,
+            eventPublicSell: req.body.eventPublicSell,
         }).then(function () {
             res.redirect(307, "/api/login");
         }).catch(function (err) {
@@ -41,5 +41,7 @@ module.exports = {
 
     findById: function(req, res) {},
     remove: function(req, res) {}
+
+    
 
 }

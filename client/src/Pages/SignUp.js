@@ -1,9 +1,21 @@
 import React from "react";
 import TextField from '@material-ui/core/TextField';
-import Fab from '@material-ui/core/Button';
+// import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
 import Container from "../Components/Container"
 import FileInput from "../Components/FileInput"
+import SubmitButton from "../Components/Button"
+
+const Styles ={
+    button: {
+        background: "#F28704",
+        color: "white ",
+        letterSpacing: '1px',
+        boxShaddow: "0px",
+        margin: "5px, 0px"
+
+    },
+}
 
 
 class SignUp extends React.Component {
@@ -163,16 +175,17 @@ class SignUp extends React.Component {
                     />
                     <FileInput />
 
-                    <Fab onClick={(event) => this.handleSubmit(event)}
+                    <SubmitButton onClick={(event) => this.handleSubmit(event)}
                         variant="extended"
                         size="medium"
                         color="primary"
                         aria-label="submit"
                         className="submitBtn"
+                        
                     >
                         <Send />
                         Submit
-                    </Fab>
+                    </SubmitButton>
 
                     {/* this submit button needs to save the user information to the database */}
 

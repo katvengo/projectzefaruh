@@ -41,7 +41,7 @@ const FooterBar = () => {
       </div>
       <div className="footer-copyright">
         <div className="container">
-          zafaruh
+      
       {/* <a className="grey-text text-lighten-4 right" href="#!">More Links</a> */}
         </div>
       </div>

@@ -24,11 +24,6 @@ var moment = require('moment');
 
 
 
-//  var latlon;
-//  var showPosition;
-//  var showError
-
-
 const styles = {
     heading: {
         color: "white",
@@ -109,31 +104,20 @@ class Home extends Component {
         )
     }
 
+  
+
     searchThruDatabase = (query, time) => {
         const request = { query, time }
-        axios.post('/api/authorize', request)
-            //.then(res => res.json())
-            .then((events) => {
-                console.log({ events })
-                //console.log(ticketMaster)
-                this.setState({
-                    events: events.data
-                })
+        axios.post('/api/authorize', request) 
+            // .then(res => res.json())
+            .then((events) => {  
+                var mainEvent = events.data.combine
+               console.log(mainEvent)
+               return this.setState({
+                   events: mainEvent
+               })
             })
-        // fetch("/authorize", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(request)})
-    }
-
-    // searchThruDatabase = (query, query2, query3, query4) => {
-    //     API.search(query, query2, query3, query4)
-    //     .then(res => {
-    //     var events = res.data._embedded.events
-    //     console.log({ events });
-    //     this.setState({ 
-    //         events: res.data._embedded.events 
-    //     })
-    // })
-    //     .catch(err => console.log(err));
-    //     };
+        }
 
 
     handleInputChange = event => {
@@ -148,9 +132,9 @@ class Home extends Component {
         this.setState({ selectedDate: date })
     }
 
-    showLoader = event =>{
+    // showLoader = event =>{
         
-    }
+    // }
 
 
     //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
@@ -284,36 +268,23 @@ class Home extends Component {
 
                 {/* <Loader></Loader> */}
 
-
-                {/* {this.state.events.map(event => {
-                        return (<ResultCard
-                            title={event.name.text}
-                            dates={event.start.local}
-                            image={event.logo.url}
-                            note={event.summary}
-                            key={event.id}
-                            tickets={event.url}
-                        />
-                        )
-                    })} } */}
-                {this.state.events.map(event => {
-                    return (<ResultCard
+                 {this.state.events.map(event => {
+                    return (<ResultCard   
+                        key={event.key}
                         expanded={this.state.expanded}
                         handleExpandClick={this.setExpanded}
                         handleUnExpandClick={this.setUnExpanded}
-                        title={event.name}
-                        dates={event.dates.start.localDate}
-                        image={event.images[0].url}
-                        note={event.pleaseNote}
-                        key={event.id}
-                        locationName={event._embedded.venues[0].name}
-                        tickets={event._embedded.attractions[0].url}
-                        locationAddress={event._embedded.venues[0].address.line1}
-                        locationCity={event._embedded.venues[0].city.name}
-                        locationPostalCode={event._embedded.venues[0].postalCode}
-                        locationState={event._embedded.venues[0].state.name}
-                        locationDistance={event._embedded.venues[0].distance}
-                        locationDistanceUnits={event._embedded.venues[0].units}
+                        title={event.eventName}
+                        dates={event.eventDateStart.start.localDate}
+                        image={event.eventImage[0].image.url}
+                        note={event.eventNote}
+                        locationName={event.eventLocation.address.line1}
+                        locationAddress={event.eventLocation.address.line1}
+                        locationCity={event.eventLocation.city.name}
+                        locationPostalCode={event.eventLocation.postalCode}
+                        locationState={event.eventLocation.state.name}
+                        locationDistance={event.eventLocation.distance}
+                        locationDistanceUnits={event.eventLocation.units}
                     />
                     )
                 })}

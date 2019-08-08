@@ -19,13 +19,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TIME,
         },
 
-        eventDescription: { type: Sequelize.STRING, allowNull: false },
+        eventDescription: Sequelize.STRING,
+        
+        eventNote: Sequelize.STRING,
 
-        eventCategory: { type: Sequelize.STRING, allowNull: false },
+        eventCategory: Sequelize.STRING,
 
         eventImage: DataTypes.BLOB,
 
-        eventURL: DataTypes.STRING,
+        eventLink: DataTypes.STRING,
 
         eventPreSale: DataTypes.STRING,
 
@@ -34,5 +36,17 @@ module.exports = function (sequelize, DataTypes) {
        
     });
 
+    Event.associate = function(models){
+        Event.belongsTo(models.User, {
+            foreignKey: 'e_user_id' /* { 
+                //allowNull: false
+              }    */
+        })
+    }
+    
+
     return Event;
+      // This function grabs posts from the database and updates the view
+
+  
 };
