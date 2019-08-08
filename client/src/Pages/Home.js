@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
-// import Nav from '../Components/Nav'
 import TextField from '@material-ui/core/TextField';
 // import DatePicker from '../Components/DatePicker'
 // import CategoryInput from "../Components/CategoryInput"
@@ -11,14 +10,13 @@ import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
 // import TimePicker from "../Components/TimePicker";
-//import { textAlign } from "@material-ui/system";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 // import Button from '@material-ui/core/Button';
 // import { Link } from "react-router-dom"
 
-import Loader from "../Components/Loader"
+// import Loader from "../Components/Loader"
 
 var moment = require('moment');
 
@@ -44,11 +42,11 @@ const styles = {
         background: "white"
     },
     button: {
-        background: "#79D8AC",
+        background: "#156172",
         color: "white ",
-        letterSpacing: '1px',
-        boxShaddow: "0px",
-        margin: "5px, 0px"
+        // letterSpacing: '1px',
+        // boxShaddow: "0px",
+        // margin: "5px, 0px"
 
     },
 
@@ -173,6 +171,11 @@ class Home extends Component {
                     label="Event or Activity"
                     InputProps={{
                         disableUnderline: true,
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+                            </InputAdornment>
+                        )
 
                     }}
                     // variant="none"
@@ -180,14 +183,7 @@ class Home extends Component {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                    InputProps={{
-                        disableUnderline: true,
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                        )
-                    }}
+                    
 
                 />
                 </div>
@@ -249,8 +245,8 @@ class Home extends Component {
                 <div className="row ">
                     <div className="col m12 center ">
                         <SubmitButton
-                            onClick={(event) => this.handleSubmit(event)}
-                            style={styles.button} className="center " />
+                                 onClick={(event) => this.handleSubmit(event)}
+                                 style={styles.button} className="center " />
                     </div>
                 </div>
 {/* 

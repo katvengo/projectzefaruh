@@ -4,7 +4,6 @@ import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { fontWeight } from '@material-ui/system';
 // import { textAlign } from '@material-ui/system';
 
 var moment = require('moment');
@@ -17,7 +16,7 @@ const Styles = {
     margin: "0px",
     marginBottom: "0px",
     fontWeight: "700",
-    color: "#013F2E",
+    color: "#156172",
 
   },
   margins: {
@@ -32,7 +31,7 @@ const Styles = {
 
   },
   cardBodyMargins: {
-    margin: "30px 0px 15px",
+    margin: "10px 0px 15px",
     border: " 1px solid white",
 
   },
@@ -44,40 +43,45 @@ const Styles = {
     marginTop: '20px'
   },
   paragraph: {
-    //  border: " 1px solid red"
+    // border: " 1px solid red",
     marginTop: "20px",
-    fontSize: "18px"
+    fontSize: "20px",
+    fontWeight: "500"
+
+
   },
+
   cardTitle: {
     marginTop: "10px",
+    marginBottom: "5px",
     textALign: "center",
-    marginLeft: "20px",
-    fontSize: "24px",
+    marginLeft: "px",
+    fontSize: "28px",
     fontWeight: "700",
-    color: "#013F2E",
+    color: "black",
   },
   Date: {
     fontWeight: "300",
-    color: "#013F2E",
+    // color: "#156172",
     marginTop: "10px",
     textALign: "center",
     marginLeft: "20px",
-    fontSize: "24px",
+    fontSize: "20px",
   },
   heartSpan: {
     textAlign: 'right',
-    marginTop: "20px",
-    marginRight: "20px"
+    marginTop: "30px",
+    marginRight: "30px"
   }
 
 }
 
 
 
-const ResultCard = ({ locationName, title, dates, time, image, secondImage, locationVenue, note,
-  tickets, description, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits }) => {
+const ResultCard = ({  title, dates, time, image,  locationVenue, 
+  tickets, description, locationAddress, locationCity, locationPostalCode, locationState,  }) => {
   // const classes = useStyles();
- 
+
 
 
 
@@ -88,68 +92,68 @@ const ResultCard = ({ locationName, title, dates, time, image, secondImage, loca
 
     <div>
       {/* <h3>Results for {title}</h3>  */}
+      {/* ---------------------------HEART SPAN---------------------------------- */}
       <div className="card mb-3 cardDiv">
         <span style={Styles.heartSpan}>
-               <IconButton aria-label="add to favorites" className="heartBtn">
-                      <FavoriteIcon id="faveBtn" style={Styles.heart} />
-                    </IconButton>
-    </span>
-        <h5 style={Styles.cardTitle}>{title.trim(' ')}</h5>
-        <h6 style={Styles.Date}>{moment(dates).format("MMM Do YY")} @ {time} located at {locationVenue}</h6>
-        <div className="row center " >
-          <div className="col-md-4 valign-wrapper center">
-            <img src={image} className="card-img center" alt="..." style={Styles.cardImage} />
-          </div>
+          <IconButton aria-label="add to favorites" className="heartBtn">
+            <FavoriteIcon id="faveBtn" style={Styles.heart} />
+          </IconButton>
+        </span>
 
-          <div className="col-md-7">
-            <div className="card-body valign-wrapper center" style={Styles.cardBodyMargins}>
-              <div className="bodyContainer center ">
-                <div className="row " style={Styles.margins}>
-
-                  <div className="" >
-                    {/* <h4 style={Styles.place} className="center flow-text" >{title.trim(' ')}</h4> */}
-                  </div>
-                </div>
-
-                <p className="flow-text"  style={Styles.paragraph}>
-{/* 
-                  {moment(dates).format("MMM Do YY")} <br />
-                  {locationName} */}
-                  <br />
-                  Address: {locationAddress}<br></br> {locationCity}, {locationState}
-                  </p>
-                  <p>{description}</p>
-
-
-                {/* <p className="card-text flow-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
-                {/* <div className="card-action">
-                <a href={tickets} target="_blank" rel="noopener noreferrer" >Purchase Tickets</a>
-              </div> */}
-
-
-                {/* <a href="/" className="card-link">Another link</a> */}
-
-
-
-                <div className="row" style={Styles.linkRow}>
-                  <div className="col m12">
-                    <a href={tickets} target="_blank" rel="tickets" className="card-link tktBtn flow-text">Purchase Tickets</a>
-                  </div>
-                  {/* <div className="col m6">
-                    {/* <IconButton aria-label="add to favorites" className="heartBtn"  >
-                      <FavoriteIcon id="faveBtn" style={Styles.heart} />
-                    </IconButton> 
-                  </div> */}
-                </div>
-              </div>
-            </div>
-
-          </div>
-          {/* <div className="col-md-1" style={Styles.cardBodyMargins} >
-           
-
-          </div> */}
+        {/* ---------------------------TITLE---------------------------------- */}
+        <div className="row">
+          <h5 className="center" style={Styles.cardTitle}>{title}</h5>
         </div>
+        {/* -----------------------------------------CARD INFO----------------------------------------------- */}
+
+        <div className="row center flow-text" >
+
+          {/* ---------------------------IMAGE----------------------------------- */}
+          <div className="col-md-4 valign-wrapper center">
+            <img src={image} className="card-img right-align responsive-img " alt="..." style={Styles.cardImage} />
+          </div>
+
+
+          {/* ------------------------TEXT ------------------------------------- */}
+
+          <div className="row ">
+            <div className="col-md-12">
+              <div className="card-body valign-wrapper center" style={Styles.cardBodyMargins}>
+                <div className="bodyContainer center" >
+
+
+                  <p className="flow-text" style={Styles.paragraph}>
+                    <span style={Styles.place}>{locationVenue} </span> <br />
+                    Date: {moment(dates).format("MMM Do YY")} <br />
+                    Time: {time} <br />
+
+                    {locationAddress}<br></br>
+                    {locationCity}, {locationState}, {locationPostalCode}
+                  </p>
+                  {/* <p>{description}</p> */}
+
+
+
+                  {/* ---------------------------LINKS---------------------------------- */}
+
+                  <div className="row" style={Styles.linkRow}>
+                    <div className="col m12">
+                      <a href={tickets} target="_blank" rrel="noopener noreferrer" className="card-link tktBtn flow-text">Purchase Tickets</a>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
       </div>
     </div>
 
