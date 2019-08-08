@@ -33,7 +33,7 @@ const Styles = {
   },
   cardBodyMargins: {
     margin: "30px 10px 15px",
-    // border: " 1px solid red"
+    border: " 1px solid white",
   },
 
   imgDiv: {
