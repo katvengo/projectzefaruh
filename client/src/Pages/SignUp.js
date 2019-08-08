@@ -1,10 +1,10 @@
 import React from "react";
 import TextField from '@material-ui/core/TextField';
-// import Fab from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
 import Container from "../Components/Container"
 import FileInput from "../Components/FileInput"
-import SubmitButton from "../Components/Button"
+// import SubmitButton from "../Components/Button"
 
 // const Styles ={
 //     button: {
@@ -175,7 +175,7 @@ class SignUp extends React.Component {
                     />
                     <FileInput />
 
-                    <SubmitButton onClick={(event) => this.handleSubmit(event)}
+                    <Fab onClick={(event) => this.handleSubmit(event)}
                         variant="extended"
                         size="medium"
                         color="primary"
@@ -185,7 +185,7 @@ class SignUp extends React.Component {
                     >
                         <Send />
                         Submit
-                    </SubmitButton>
+                    </Fab>
 
                     {/* this submit button needs to save the user information to the database */}
 

@@ -97,7 +97,7 @@ class SignUp extends React.Component {
                 />
 
                 <Fab onClick={(event) => this.handleSubmit(event)}
-                    variant="extended"
+                    // variant="extended"
                     size="medium"
                     color="primary"
                     aria-label="submit"
