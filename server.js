@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(flash());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -31,14 +30,13 @@ app.use(function (req, res, next) {
 });
 
 app.use(routes);
-// app.use('.env'(search()))
 
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
-db.sequelize.sync({force: true}).then(function(){ 
+db.sequelize.sync().then(function(){ 
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });

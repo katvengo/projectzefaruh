@@ -23,7 +23,7 @@
 // }
 
 function transformRecord(ticketMasterEventRecord) {
-    var data = ticketMasterEventRecord
+    //var data = ticketMasterEventRecord
     //console.log({data})
    
     // var events = ticketMasterEventRecord._embedded.events
@@ -38,10 +38,11 @@ function transformRecord(ticketMasterEventRecord) {
         eventDescription: ticketMasterEventRecord.info,
         eventNote: ticketMasterEventRecord.pleaseNote,
         eventLocation: ticketMasterEventRecord._embedded.venues[0],
-        //eventPriceRange: ticketMasterEventRecord.priceRanges.map(priceRanges => (priceRanges))
+        //eventPriceRange: ticketMasterEventRecord.priceRanges.map(priceRanges => (priceRanges)),
         //eventCategory: ticketMasterEventRecord.classifictions.map(classifications => ({classifications}))
     }
 }
+
 
 // function transformData (ticketMasterEventRecord) {
 //     //console.log(ticketMasterData);

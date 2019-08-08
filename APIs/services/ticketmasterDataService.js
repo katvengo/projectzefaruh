@@ -11,14 +11,19 @@ function searchTicketmaster(query, time = defaultTime) {
 
   //console.log('****************** TicketMaster URL: ', ticketmasterUrl);
        return axios.get(ticketmasterUrl)
-           .then(function (apiEvents){
-            apiEventsParsed = apiEvents.data._embedded.events 
-            console.log(apiEventsParsed)
-           var sendData = apiEventsParsed.map(transformData)
-           console.log(sendData)
-             //return apiEventsParsed
-            return sendData;
-           })
+           .then(function (apiEvents) {
+            var apiEventResults = apiEvents.data._embedded.events
+
+            var results = apiEventResults.map(transformData)
+            //console.log(apiEventsParsed)
+           //var sendData = apiEventsParsed
+           //console.log(results)
+           //console.log("data sent from ticketMasterDataService------------")
+           //console.log(sendData)
+            
+             //return apiEvents
+            return results;
+          })
            .catch((err) =>{
            console.log(err)   
            })

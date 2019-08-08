@@ -28,13 +28,16 @@
     ])
     //, eventBrite, tradeGov
     .then(axios.spread((ticketMaster, database) => {
+      console.log("~~~~~~~~~~~~~~~~~~From API")
+      //console.log(ticketMaster)
+      var combine = database.concat(ticketMaster)
+      console.log(combine)
+      //const events = ticketMaster + database 
       //eventBrite = eventBrite.data.response;
-      console.log(ticketMaster)
       // tradeGov = tradeGov.response;      
       return({
       title: 'events',
-      ticketMaster: ticketMaster,
-      database: database
+      combine: combine
       //  eventBrite,
       //   tradeGov
       })
