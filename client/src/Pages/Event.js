@@ -127,6 +127,7 @@ class Event extends Component {
 
 
     render() {
+        
 
         return (
             <Container>

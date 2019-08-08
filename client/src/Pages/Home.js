@@ -222,19 +222,19 @@ class Home extends Component {
                     <div className="col m6"> */}
 
 
-                        {/* <DatePicker
+                        <DatePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate} */}
+                            setSelectedDate={this.setSelectedDate}
 
-                        {/* /> */}
+                        /> 
                     {/* </div> */}
 
                     {/* <div className="col m6"> */}
-                        {/* <TimePicker
+                        <TimePicker
                             id="inputLine"
                             selectedDate={this.state.selectedDate}
-                            setSelectedDate={this.setSelectedDate} />  */}
+                            setSelectedDate={this.setSelectedDate} /> 
 
 
                 {/* <CategoryInput />
