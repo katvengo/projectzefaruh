@@ -18,10 +18,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom"
 
+
 var moment = require('moment');
-//  var latlon;
-//  var showPosition;
-//  var showError
+
 
 
 const styles = {
@@ -106,26 +105,11 @@ class Home extends Component {
             // .then(res => res.json())
             .then((events) => {  
                 var mainEvent = events.data.combine
-               //var myObj = JSON.parse(res.data) 
-               //var events = myObj.map( event => (event))
-                // var ticketMasterData = res.data.ticketMaster.forEach(event => ({event}))
-                // var databaseData = res.data.databaseData
-                // const events = {ticketMasterData, databaseData}
                console.log(mainEvent)
                return this.setState({
                    events: mainEvent
                })
             })
-
-      // fetch(`/api/authorize/:${query}/:${time}`)
-      // .then((events) => {
-                        //     var eventsTwo = events.data
-                        //     console.log(eventsTwo)
-                        //     //console.log(ticketMaster)
-                        //    return this.setState({
-                        //         events: eventsTwo
-                        //     })
-                        // })
         }
 
 
@@ -265,20 +249,9 @@ class Home extends Component {
                     </div>
                 </div>
 
-                    {/* {this.state.events.map(event => {
-                        return (<ResultCard
-                            title={event.eventName}
-                            key={event.id}
-                            // dates={event.start.local}
-                            // image={event.logo.url}
-                            // note={event.summary}
-                            // key={event.id}
-                            // tickets={event.url}
-                        />
-                        )
-                    })}  */}
                  {this.state.events.map(event => {
-                    return (<ResultCard
+                    return (<ResultCard   
+                        key={event.key}
                         expanded={this.state.expanded}
                         handleExpandClick={this.setExpanded}
                         handleUnExpandClick={this.setUnExpanded}
@@ -286,7 +259,6 @@ class Home extends Component {
                         dates={event.eventDateStart.start.localDate}
                         image={event.eventImage[0].image.url}
                         note={event.eventNote}
-                        key={event.key}
                         locationName={event.eventLocation.address.line1}
                         locationAddress={event.eventLocation.address.line1}
                         locationCity={event.eventLocation.city.name}
