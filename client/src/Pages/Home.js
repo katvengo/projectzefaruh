@@ -3,20 +3,20 @@ import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
 // import Nav from '../Components/Nav'
 import TextField from '@material-ui/core/TextField';
-import DatePicker from '../Components/DatePicker'
+// import DatePicker from '../Components/DatePicker'
 // import CategoryInput from "../Components/CategoryInput"
 import SubmitButton from "../Components/Button"
 //import API from "../utils/API";
 import axios from 'axios';
 import ResultCard from "../Components/ResultCard"
 import Geohash from 'latlon-geohash';
-import TimePicker from "../Components/TimePicker";
+// import TimePicker from "../Components/TimePicker";
 //import { textAlign } from "@material-ui/system";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom"
+// import Button from '@material-ui/core/Button';
+// import { Link } from "react-router-dom"
 
 
 var moment = require('moment');
@@ -38,17 +38,23 @@ const styles = {
         padding: "50px",
         letterSpacing: "2px",
         fontSize: '30px'
-    },
+    }, 
+    inputDiv:{
+        marginBottom: "20px",
+        
+      },
 
     headingDiv: {
         background: "white"
     },
 
     button: {
-        background: "#D4D85B",
+        background: "#F28704",
         color: "white ",
         letterSpacing: '1px',
-        
+        boxShaddow: "0px",
+        margin: "5px, 0px"
+
     },
     toolbarTitle: {
         flex: 1,
@@ -164,11 +170,13 @@ class Home extends Component {
                 >
                     A place to search for events and things to do
                </Typography>
+
+               <div style={styles.inputDiv}>
                 <TextField
                     id="inputLine"
                     name="eventSearched"
                     value={this.state.eventSearched}
-                    placeholder="  i.e. outdoor concerts, roll-outs"
+                    placeholder="  i.e. festivals"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
@@ -189,10 +197,11 @@ class Home extends Component {
                             <InputAdornment position="start">
                                 <SearchIcon />
                             </InputAdornment>
-                        ),
+                        )
                     }}
 
                 />
+                </div>
 
 
 
@@ -242,30 +251,31 @@ class Home extends Component {
                             selectedDate={this.state.selectedDate}
                             setSelectedDate={this.setSelectedDate} /> */}
 
-                        `
-                            {/* <CategoryInput />
+
+                {/* <CategoryInput />
 
                        */}
-                    {/* </div>
+                {/* </div>
                 </div> */}
                 <div className="row ">
-                    <SubmitButton
-                        onClick={(event) => this.handleSubmit(event)} 
-                        style={styles.button} className="center" />
-
+                    <div className="col m12 center ">
+                        <SubmitButton
+                            onClick={(event) => this.handleSubmit(event)}
+                            style={styles.button} className="center " />
+                    </div>
                 </div>
-
+{/* 
                 <div className="row center">
                     <div className="col m6">
                         <h6>Have an event to share with the world?</h6><br />
                         <Link
                             to="/event">
-                            <Button 
-                            id="createEventBtn"
-                            style={styles.button}>Create Event</Button>
+                            <Button
+                                id="createEventBtn"
+                                style={styles.button}>Create Event</Button>
                         </Link>
                     </div>
-                </div>
+                </div> */}
 
 
                 {/* {this.state.events.map(event => {

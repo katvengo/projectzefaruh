@@ -121,7 +121,7 @@ class Event extends Component {
         this.setState({ selectedDate: date })
     }
 
-   
+
 
     render() {
 
@@ -129,8 +129,8 @@ class Event extends Component {
             <Container>
                 {/* <div style={styles.headingDiv}> */}
 
-                    {/* <h1 style={styles.heading}>ZEFARUH</h1> */}
-                    <h2 style={styles.subheading}>Create your Event!</h2>
+                {/* <h1 style={styles.heading}>ZEFARUH</h1> */}
+                <h2 style={styles.subheading}>Create your Event!</h2>
                 {/* </div> */}
 
 
@@ -253,14 +253,14 @@ class Event extends Component {
                     }}
 
                 /> */}
-                <FileInput 
-                onChange={this.handleInputChange}
-                value={this.state.eventImage}
+                <FileInput
+                    onChange={this.handleInputChange}
+                    value={this.state.eventImage}
                 />
 
 
 
-                <div className="row center">
+                {/* <div className="row center">
                     
                     <div className="col-m-6 col-s-12 center">
                         <DatePicker
@@ -278,10 +278,36 @@ class Event extends Component {
                    setSelectedDate={this.setSelectedDate} 
                           
                             />
-                    </div>
-                   
+                    </div> */}
 
+
+                {/* </div> */}
+
+
+
+
+                <div className="row">
+                    <div className="col m6">
+
+
+                        <DatePicker
+                            id="inputLine"
+                            selectedDate={this.state.selectedDate}
+                            setSelectedDate={this.setSelectedDate}
+
+                        />
+                    </div>
+
+                    <div className="col m6">
+                        <TimePicker
+                            id="inputLine"
+                            selectedDate={this.state.selectedDate}
+                            setSelectedDate={this.setSelectedDate} />
+
+
+                    </div>
                 </div>
+
                 <div className="row">
                     <div className="col m6" style={styles.centerStage}>
                         <Fab onClick={(event) => this.handleSubmit(event)}

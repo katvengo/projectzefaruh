@@ -3,75 +3,66 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+
+
 }
 
 main {
   flex: 1 0 auto;
+  font-size: 16px !important;
+  font-family: 'Raleway';
+
 }
+/* .container{
+  background-color: white;
+} */
 
 
+
+/*  ------------------------------------------DATE TIME PICKERS----------------------------------------------- */
 /* date and time pickers */
 .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding.MuiToolbar-gutters, .MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar.MuiPickersDatePickerRoot-toolbar.MuiToolbar-gutters, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-current.MuiPickersDay-daySelected, .MuiButtonBase-root.MuiIconButton-root.MuiPickersDay-day.MuiPickersDay-daySelected
-
+/* DATEPICKER HEADER  */
 {
-  background-color: #D4D85B
+  background-color: #F28704;
 }
-
+/* DATE PICKER HAND */
 .MuiPickersClock-pin, .MuiPickersClockPointer-pointer{
-  background-color: #D4D85B !important;
-  border: #D4D85B !important;
+  background-color: #F28704 !important;
+  border: #F28704 !important;
 }
-
+/* PONITER */
 .MuiPickersClockPointer-thumb.MuiPickersClockPointer-noPoint, .MuiPickersClockPointer-thumb {
-  background-color: #D4D85B !important;	  background-color: #D4D85B !important;
-  border: #D4D85B 14px solid !important;	  border: #D4D85B 14px solid !important;
+  background-color: #F28704 !important;	 
+  border: #F28704 14px solid !important;	  
 }	
 /* button labels */
 /* .MuiButton-label, .MuiButton-label:focus, .MuiButton-label:active{ */
-.navBtns{
-  color: #D4D85B !important;
-
-}
-.navBtns:focus, .navBtns:hover, .MuiButton-root:hover{
-  color: white !important;
-  background-color: #D4D85B;
-
-}
-
-
-
-/* span.MuiButton-label:hover{
-
+/* .navBtns{
+  color:  #768c26 !important;
+  background-color:  white !important;
 } */
-a:hover{
-  text-decoration: none;
-}
-button:focus{
-  background-color:white;
-}
+
+
+
+/* CURRENT DAY */
 .MuiPickersDay-current{
-  color: #D4D85B !important;
+  color: #F28704 !important;
 }
+/* DAY SELECTED */
 .MuiPickersDay-daySelected{
   color: white !important;
-  background-color: #D4D85B;
+  background-color: #F28704;
 }
-
-
-/* labels */
-.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
-  color: #03261C;
-}
-
-.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
-  color:#D4D85B;
-  ;
+/* DATE PICKER BUTTON LABELS */
+.MuiButton-label{
+  color: #F28704 !important;
 }
 
 
 /* round button focus */
 .MuiButtonBase-root.MuiIconButton-root:focus{
-  background-color: #D4D85B !important;
+  background-color: #F28704 !important;
   color: white;
 }
 .MuiButtonBase-root.MuiIconButton-root:active{
@@ -79,15 +70,75 @@ button:focus{
   
 }
 
+
+/* PICKER BOTTOM LABELS */
+/* span.MuiButton-label{
+  color: RED;
+} */
+
+
+/*  ------------------------------------------NAV BUTTON LINKS----------------------------------------------- */
+.navBtns, .navBtns:focus, .navBtns:hover, .MuiButton-root:hover, .MuiButton-root{
+  /* color:  #D84169!important; */
+  background-color: white;
+  font-size: 16px !important;
+  margin: 0px, 4px;
+
+
+
+}
+/* HOVER */
+a:hover{
+  text-decoration: none;
+}
+/*  ------------------------------------------ TICKET LINK ----------------------------------------------- */
+
+.tktBtn{
+  color: #F28704;
+}
+
+/*  ------------------------------------------NAV BUTTON LINKS----------------------------------------------- */
+
+
+.MuiButtonBase-root.MuiButton-root:focus{
+  background-color: WHITE;
+}
+/*  ------------------------------------------INPUT LABELS----------------------------------------------- */
+/* LABELS FOR FORM INPUTS*/
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink{
+  color: #013F2E;
+  letter-spacing: 3px !important;
+  font-size: 18px !important;
+  text-transform: uppercase;
+}
+  #inputLine{
+    color:  #013F2E;
+
+  }
+
+  /*  ---------------------INPUT LABELS ON FOCUS -------------------------- */
+
+/* LABELS FOR FORM INPUTS FOCUS &&&&&&&*/
+.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.Mui-focused.Mui-focused{
+  color:#F28704;
+  
+}
+/* INPUT BOX LINES WHEN USER CLICKS ON IT &&&&&&&&*/
+#inputLine:focus{
+  border-bottom: 1px solid #F28704;
+  box-shadow:none;
+}
+
+  /*  ----------------------------------------------------------------------- */
+
+
+
 /* category box outline  */
 /* not working */
 .MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-inputMuiOutlinedInput-input.MuiInputBase-inputSelect.MuiOutlinedInput-inputSelect.MuiSelect-outlined{
- border-color:red !important;
+ border-color:black!important;
 }
-#inputLine:focus{
-  border-bottom: 1px solid #D4D85B;
-  box-shadow:none;
-}
+
 
 
 
@@ -98,14 +149,53 @@ button:focus{
 } */
 
 
-/* heart button */
-button.MuiButtonBase-root.MuiIconButton-root{
-  margin: 0px, 10px, 0px, 0px;
+/*  ------------------------------------------ SUBMIT BUTTON---------------------------------------------- */
+.submitBtn{
+  font-size: 20px!important;
 }
 
 
-/*  footer   */
+/*  ------------------------------------------HEART BUTTON---------------------------------------------- */
+.MuiButtonBase-root.MuiIconButton-root.heartBtn{
+  padding: 0px;
+  color: black;
+}
+.MuiButtonBase-root.MuiIconButton-root.heartBtn:active{
+  color: pink;
+  background-color: white;
+}
+.MuiButtonBase-root.MuiIconButton-root.heartBtn:focus{
+  background-color: white !important;
+
+  color:red;
+}
+.MuiButtonBase-root.MuiIconButton-root.heartBtn:visited{
+  background-color: white !important;
+
+  color:red;
+}
+
+/*  ---------------------------------------- CARD DIV----------------------------------------------- */
+.cardDiv{
+  /* border:  1px solid red; */
+  /* background-color:; */
+}
+
+
+
+
+/*  -----------------------------------------SIGN UP DIV----------------------------------------------- */
+
+#signUpDiv{
+  margin-bottom:50px;
+}
+/*  ------------------------------------------FOOTER----------------------------------------------- */
+
 .page-footer {
-  background-color: #D84169;
-  color: #F2C4C4;
+  background-color: #027249;
+  color: #A7D5F2;
+  font-weight: 600;
+  /* opacity: .83; */
+  /* text-transform: uppercase; */
+  font-size: 15px;
 }

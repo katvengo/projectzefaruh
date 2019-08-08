@@ -58,7 +58,7 @@ class SignUp extends React.Component {
     render() {
         return (
             <Container>
-                <div className="center">
+                <div className="center" id="signUpDiv">
                     <TextField
                         id="inputLine"
                         name="username"
@@ -168,6 +168,7 @@ class SignUp extends React.Component {
                         size="medium"
                         color="primary"
                         aria-label="submit"
+                        className="submitBtn"
                     >
                         <Send />
                         Submit
