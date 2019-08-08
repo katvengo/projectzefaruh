@@ -43,7 +43,6 @@ const styles = {
     headingDiv: {
         background: "white"
     },
-
     button: {
         background: "#F28704",
         color: "white ",
@@ -52,6 +51,8 @@ const styles = {
         margin: "5px, 0px"
 
     },
+
+  
     toolbarTitle: {
         flex: 1,
         fontFamily: 'Raleway',
@@ -275,7 +276,7 @@ class Home extends Component {
                         handleExpandClick={this.setExpanded}
                         handleUnExpandClick={this.setUnExpanded}
                         title={event.eventName}
-                        dates={event.eventDateStart.start.localDate}
+                        dates={event.eventDateStart.start.dateTime}
                         image={event.eventImage[0].image.url}
                         note={event.eventNote}
                         locationName={event.eventLocation.address.line1}

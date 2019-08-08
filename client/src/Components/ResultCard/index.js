@@ -7,7 +7,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { fontWeight } from '@material-ui/system';
 // import { textAlign } from '@material-ui/system';
 
-// var moment = require('moment');
+var moment = require('moment');
 
 
 
@@ -90,7 +90,7 @@ const ResultCard = ({ locationName, title, dates, image, note,
 
                 <p className="flow-text"  style={Styles.paragraph}>
 
-                  {dates} <br />
+                  {moment(dates).format("MMM Do YY")} <br />
                   {locationName}
                   <br />
                   {locationCity}, {locationState}
