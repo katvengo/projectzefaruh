@@ -198,14 +198,13 @@ class SignUp extends React.Component {
                     <FileInput />
 
                     <Fab onClick={(event) => this.handleSubmit(event)}
-                        variant="extended"
+                        // variant="extended"
                         size="medium"
                         aria-label="submit"
                         className="submitBtn"
                     >
                         Submit
                     </Fab>
-                    
 
                     {/* this submit button needs to save the user information to the database */}
 
