@@ -77,8 +77,6 @@ class UserPage extends Component {
              />
              <h3 style={styles.cardTitle}>{this.state.username}</h3>
 
-            <CardContent>
-            </CardContent>
              <Link to="/">
                <SearchButton style={styles.button} />
              </Link>
@@ -87,6 +85,13 @@ class UserPage extends Component {
              <TabPanel />
            </div>
          </div>
+
+       </Container>
+  );
+  }
+}
+
+export default UserPage;
 
 //         {/* <h5>My Events:</h5> */}
 //         {/* <div className="card-columns"> */}
@@ -131,9 +136,3 @@ class UserPage extends Component {
 //             );
 //           })} */}
          {/* </div> */}
-       </Container>
-  );
-  }
-}
-
-export default UserPage;
