@@ -47,5 +47,14 @@
     "sequelize": "^5.8.9",
     "serialize-javascript": "^1.4.0",
     "session": "^0.1.0"
-  }
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jessicagomez11/projectzefaruh.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jessicagomez11/projectzefaruh.git"
+  },
+  "homepage": "https://github.com/Jessicagomez11/projectzefaruh.git"
 }
