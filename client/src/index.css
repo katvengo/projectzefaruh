@@ -56,7 +56,12 @@ main {
 }
 /* DATE PICKER BUTTON LABELS */
 .MuiButton-label{
-  color: #F28704 !important;
+  background-color: #D84169;
+  color: white !important;
+  text-shadow: 1px 1px rgb(206, 92, 122);
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 11px 30px;
 }
 
 
@@ -94,7 +99,7 @@ a:hover{
 /*  ------------------------------------------ TICKET LINK ----------------------------------------------- */
 
 .tktBtn{
-  color: #F28704;
+  color: #D84169;
 }
 
 /*  ------------------------------------------NAV BUTTON LINKS----------------------------------------------- */
@@ -176,10 +181,10 @@ a:hover{
 }
 
 /*  ---------------------------------------- CARD DIV----------------------------------------------- */
-.cardDiv{
+/* .cardDiv{
   /* border:  1px solid red; */
   /* background-color:; */
-}
+ */
 
 
 
@@ -192,8 +197,8 @@ a:hover{
 /*  ------------------------------------------FOOTER----------------------------------------------- */
 
 .page-footer {
-  background-color: #027249;
-  color: #A7D5F2;
+  background-color: #79D8AC;
+  color: rgb(30, 116, 170);
   font-weight: 600;
   /* opacity: .83; */
   /* text-transform: uppercase; */

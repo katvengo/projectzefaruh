@@ -62,7 +62,7 @@ function Nav() {
         </Typography> */}
 
         
-        <img src='https://i.ibb.co/0B2026W/Add-a-little-bit-of-body-text-2.png' alt = "giraffe" height="75" width="200"/>
+        <img src='https://i.ibb.co/0B2026W/Add-a-little-bit-of-body-text-2.png' alt = "zebra" height="75" width="200"/>
 </Link>
         {/* <Link to="/"> */}
         <Typography

@@ -47,13 +47,34 @@ const Styles = {
     //  border: " 1px solid red"
     marginTop: "20px",
     fontSize: "18px"
+  },
+  cardTitle: {
+    marginTop: "10px",
+    textALign: "center",
+    marginLeft: "20px",
+    fontSize: "24px",
+    fontWeight: "700",
+    color: "#013F2E",
+  },
+  Date: {
+    fontWeight: "300",
+    color: "#013F2E",
+    marginTop: "10px",
+    textALign: "center",
+    marginLeft: "20px",
+    fontSize: "24px",
+  },
+  heartSpan: {
+    textAlign: 'right',
+    marginTop: "20px",
+    marginRight: "20px"
   }
 
 }
 
 
 
-const ResultCard = ({ locationName, title, dates, image, note,
+const ResultCard = ({ locationName, title, dates, time, image, secondImage, locationVenue, note,
   tickets, description, locationAddress, locationCity, locationPostalCode, locationState, locationDistance, locationDistanceUnits }) => {
   // const classes = useStyles();
  
@@ -66,11 +87,16 @@ const ResultCard = ({ locationName, title, dates, image, note,
 
 
     <div>
-      {/* <h3>Results for {title}</h3> */}
+      {/* <h3>Results for {title}</h3>  */}
       <div className="card mb-3 cardDiv">
+        <span style={Styles.heartSpan}>
+               <IconButton aria-label="add to favorites" className="heartBtn">
+                      <FavoriteIcon id="faveBtn" style={Styles.heart} />
+                    </IconButton>
+    </span>
+        <h5 style={Styles.cardTitle}>{title.trim(' ')}</h5>
+        <h6 style={Styles.Date}>{moment(dates).format("MMM Do YY")} @ {time} located at {locationVenue}</h6>
         <div className="row center " >
-
-
           <div className="col-md-4 valign-wrapper center">
             <img src={image} className="card-img center" alt="..." style={Styles.cardImage} />
           </div>
@@ -81,20 +107,16 @@ const ResultCard = ({ locationName, title, dates, image, note,
                 <div className="row " style={Styles.margins}>
 
                   <div className="" >
-                    <h4 style={Styles.place} className="center flow-text" >{title.trim(' ')}</h4>
+                    {/* <h4 style={Styles.place} className="center flow-text" >{title.trim(' ')}</h4> */}
                   </div>
-
-
-
                 </div>
 
-
                 <p className="flow-text"  style={Styles.paragraph}>
-
+{/* 
                   {moment(dates).format("MMM Do YY")} <br />
-                  {locationName}
+                  {locationName} */}
                   <br />
-                  {locationCity}, {locationState}
+                  Address: {locationAddress}<br></br> {locationCity}, {locationState}
                   </p>
                   <p>{description}</p>
 
@@ -109,15 +131,15 @@ const ResultCard = ({ locationName, title, dates, image, note,
 
 
 
-                <div className="row " style={Styles.linkRow}>
-                  <div className="col m6">
-                    <a href={tickets} target="_blank" rel="tickets" className="card-link tktBtn flow-text">Tickets</a>
+                <div className="row" style={Styles.linkRow}>
+                  <div className="col m12">
+                    <a href={tickets} target="_blank" rel="tickets" className="card-link tktBtn flow-text">Purchase Tickets</a>
                   </div>
-                  <div className="col m6">
-                    <IconButton aria-label="add to favorites" className="heartBtn"  >
+                  {/* <div className="col m6">
+                    {/* <IconButton aria-label="add to favorites" className="heartBtn"  >
                       <FavoriteIcon id="faveBtn" style={Styles.heart} />
-                    </IconButton>
-                  </div>
+                    </IconButton> 
+                  </div> */}
                 </div>
               </div>
             </div>

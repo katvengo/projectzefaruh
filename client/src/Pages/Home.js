@@ -276,9 +276,12 @@ class Home extends Component {
                         handleExpandClick={this.setExpanded}
                         handleUnExpandClick={this.setUnExpanded}
                         title={event.eventName}
-                        dates={event.eventDateStart.start.dateTime}
+                        dates={event.eventDateStart.start.localDate}
+                        time={event.eventDateStart.start.localTime}
                         image={event.eventImage[0].image.url}
                         note={event.eventNote}
+                        description={event.eventDescription}
+                        locationVenue={event.eventLocation.name}
                         locationName={event.eventLocation.address.line1}
                         locationAddress={event.eventLocation.address.line1}
                         locationCity={event.eventLocation.city.name}

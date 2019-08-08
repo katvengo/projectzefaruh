@@ -25,6 +25,7 @@ class UserPage extends Component {
   constructor() {
     super();
     this.state = {
+      title: '',
       username: null,
       locationCity: "",
       createdEvents: [],
