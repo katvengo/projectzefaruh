@@ -45,17 +45,18 @@ class SignUp extends React.Component {
             }
             return response.json()
         }).then(function(req, res) {
-           window.location.replace(res)
+            this.props.history.push('/api/')
         }).catch((err) => {
             console.log(err)
         });
         }
+            alert('Thank you for signing in!')
+            this.props.history.push('/')
     }
     render() {
         return (
             <Container>
             <div className="center">
-
                 <TextField
                     id="inputLine"
                     name="email"
@@ -103,9 +104,8 @@ class SignUp extends React.Component {
                     aria-label="submit"
                     className="submitBtn"
                 >
-                    <Send />
-                    Submit
-                    </Fab>
+                    Log-In
+                </Fab>
 
                 {/* this submit button needs to save the user information to the database */}
 

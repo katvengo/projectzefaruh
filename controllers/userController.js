@@ -28,11 +28,11 @@ module.exports = {
     var user = req.params.username
        db.User.findOne({
         where: {
-          username: req.params.username
+          username: user
       }
     }).then(function (dbUsers) {
       return res.json(dbUsers)
-     }).catch(next)
+     }).catch()
     },
 
     //remove: function(req, res) {}

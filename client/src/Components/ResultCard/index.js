@@ -94,7 +94,7 @@ const ResultCard = ({ locationName, title, dates, time, image, secondImage, loca
                       <FavoriteIcon id="faveBtn" style={Styles.heart} />
                     </IconButton>
     </span>
-        <h5 style={Styles.cardTitle}>{title.trim(' ')}</h5>
+        <h5 style={Styles.cardTitle}>{title}</h5>
         <h6 style={Styles.Date}>{moment(dates).format("MMM Do YY")} @ {time} located at {locationVenue}</h6>
         <div className="row center " >
           <div className="col-md-4 valign-wrapper center">

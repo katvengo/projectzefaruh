@@ -1,18 +1,19 @@
 import React from "react";
 import TextField from '@material-ui/core/TextField';
-// import Fab from '@material-ui/core/Button';
-import Send from '@material-ui/icons/Send';
+import Fab from '@material-ui/core/Button';
+//import Send from '@material-ui/icons/Send';
 import Container from "../Components/Container"
 import FileInput from "../Components/FileInput"
-import SubmitButton from "../Components/Button"
 
+//import Button from '../Components/SubmitButton'
 const Styles ={
     button: {
-        background: "#F28704",
-        color: "white ",
+        background: "#156172",
+        color: "white",
         letterSpacing: '1px',
         boxShaddow: "0px",
-        margin: "5px, 0px"
+        marginBottom: "20px",
+        textAlign: 'center'
 
     },
 }
@@ -27,11 +28,12 @@ class SignUp extends React.Component {
             password: '',
             image: '',
             interests: '',
-            msg: ''
+            msg: '',
+        redirect: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+   
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -47,26 +49,28 @@ class SignUp extends React.Component {
         var userInfo = {
             username: this.state.username,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            image: this.state.image,
+            interests: this.state.interests
         }
         console.log(userInfo)
         fetch("/api/signup", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(userInfo)
-        }).then(function (response) {
-            if (response.status >= 400) {
+            body: JSON.stringify(userInfo),
+        }).then(res => {
+            if (res.status >= 400) {
                 throw new Error("Bad response from server");
-            }
-            return response.json();
-        // }).then(function (data) {
-        //     console.log(data)
-        }).then(function() {
-            window.location.replace("/api/event");
-        }).catch((err) => {
+            } return res.json()
+          }).then(function (data) {
+              console.log(data)
+            }).catch((err) => {
             console.log(err)
-        });
+            });
+            alert('Thank you for signing up!')
+            this.props.history.push('/')
     }
+
     render() {
         return (
             <Container>
@@ -173,19 +177,37 @@ class SignUp extends React.Component {
                         }}
 
                     />
+                    <TextField
+                        id="inputLine"
+                        name="image"
+                        value={this.state.image}
+                        placeholder="url"
+                        onChange={this.handleInputChange}
+                        type="text"
+                        fullWidth
+                        margin="normal"
+                        label="image"
+                        // variant="none"
+                        style={{ margin: 8 }}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        InputProps={{
+                            disableUnderline: true
+                        }}
+
+                    />
                     <FileInput />
 
-                    <SubmitButton onClick={(event) => this.handleSubmit(event)}
+                    <Fab onClick={(event) => this.handleSubmit(event)}
                         variant="extended"
                         size="medium"
-                        color="primary"
                         aria-label="submit"
                         className="submitBtn"
-                        
                     >
-                        <Send />
                         Submit
-                    </SubmitButton>
+                    </Fab>
+                    
 
                     {/* this submit button needs to save the user information to the database */}
 

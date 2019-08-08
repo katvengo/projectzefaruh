@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    image: DataTypes.BLOB,
+    image: DataTypes.STRING,
     interests: DataTypes.STRING,
     resetPasswordToken: {
       type: DataTypes.STRING
