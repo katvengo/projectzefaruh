@@ -47,6 +47,9 @@ const Styles = {
     //  border: " 1px solid red"
     marginTop: "20px",
     fontSize: "18px"
+  },
+  cardBodyDiv:{
+    alignContent: "center"
   }
 
 }
@@ -77,11 +80,11 @@ const ResultCard = ({ locationName, title, dates, image, note,
 
           <div className="col-md-7">
             <div className="card-body valign-wrapper center" style={Styles.cardBodyMargins}>
-              <div className="bodyContainer center ">
+              <div className="bodyContainer center " style={Styles.cardBodyDiv}>
                 <div className="row " style={Styles.margins}>
 
                   <div className="" >
-                    <h4 style={Styles.place} className="center flow-text" >{title.trim(' ')}</h4>
+                    <h4 style={Styles.place} className="center flow-text" >{title}</h4>
                   </div>
 
 
