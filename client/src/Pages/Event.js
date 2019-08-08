@@ -316,7 +316,7 @@ class Event extends Component {
                             // color="primary"
                             aria-label="submit"
                         >
-                            <Send />
+                            
                             Submit
                     </Fab>
                     </div>

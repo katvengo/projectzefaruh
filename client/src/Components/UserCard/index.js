@@ -13,12 +13,14 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
   card: {
     textAlign: "center",
-    backgroundColor: "#4a8148",
+    backgroundColor: "#79D8AC",
     color: "#d9d9d9"
+  },
+  nameTitle:{
+    color: '#156172',
+    fontSize: '20px',
+    fontWeight: '400'
   }
-
-
-
   // avatar: {
   //   width: 100,
   //   height: 100
@@ -30,20 +32,19 @@ const useStyles = makeStyles(theme => ({
 
 function UserCard(props) {
   const classes = useStyles();
-  const username = {username}
+   
 
   return (
     <Card className={classes.card}>
       <CardMedia
         component="img"
-        alt="default user image"
-        height="140"
+        alt="user profile"
+        height="200"
         image={props.image}
          />
       <CardContent>
-        <Typography gutterBottom variant="h6" component="h6">
-          name 
-          {props.username}
+        <Typography gutterBottom variant="h6" component="h6" className={classes.nameTitle}>
+         {props.username}
         </Typography>
       </CardContent>
       {/* <CardActions>
