@@ -18,6 +18,7 @@ import Typography from '@material-ui/core/Typography';
 // import Button from '@material-ui/core/Button';
 // import { Link } from "react-router-dom"
 
+import Loader from "../Components/Loader"
 
 var moment = require('moment');
 
@@ -147,6 +148,9 @@ class Home extends Component {
         this.setState({ selectedDate: date })
     }
 
+    showLoader = event =>{
+        
+    }
 
 
     //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
@@ -276,6 +280,9 @@ class Home extends Component {
                         </Link>
                     </div>
                 </div> */}
+
+
+                {/* <Loader></Loader> */}
 
 
                 {/* {this.state.events.map(event => {
