@@ -44,7 +44,7 @@ const styles = {
         background: "white"
     },
     button: {
-        background: "#F28704",
+        background: "#79D8AC",
         color: "white ",
         letterSpacing: '1px',
         boxShaddow: "0px",
@@ -286,6 +286,7 @@ class Home extends Component {
                         locationState={event.eventLocation.state.name}
                         locationDistance={event.eventLocation.distance}
                         locationDistanceUnits={event.eventLocation.units}
+                        tickets={event.eventLocation.url}
                     />
                     )
                 })}
