@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 import Person from '@material-ui/icons/Person';
 import AddPerson from '@material-ui/icons/PersonAdd';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -38,13 +38,8 @@ const useStyles = makeStyles(theme => ({
     boxShaddoe: 'none'
 
   },
- buttonDesign:{
-  backgroundColor: '#12A57B',
-  color: 'white',
-  margin: "5px",
- },
   toolbarLink: {
-    padding: theme.spacing(10),
+    padding: theme.spacing(20),
     flexShrink: 0,
   },
 
@@ -90,7 +85,7 @@ function Nav() {
         </Link> */}
         <Link to="/SignUp">
           {/* <Tooltip title="Signup"> */}
-          <Fab size="small" focusable="false" className="hide-on-small-only navBtns">Sign up</Fab>
+          <Fab size="small" className="hide-on-small-only navBtns">Sign up</Fab>
           <IconButton className="hide-on-med-and-up">
             <AddPerson/>
           </IconButton>
@@ -98,7 +93,7 @@ function Nav() {
         </Link>
 
         <Link to="/SignIn">
-          <Fab variant="outlined" size="small" className="hide-on-small-only navBtns" >
+          <Fab  size="small" className="hide-on-small-only navBtns" >
             Login
         </Fab>
         <IconButton className="hide-on-med-and-up">
@@ -108,21 +103,7 @@ function Nav() {
 
 
       </Toolbar>
-      {/* <Toolbar component="nav" variant="dense" className='light-green darken-4' >
-        {sections.map(section => (
-          <Link
-            to="/"
-            color="inherit"
-           nowrap
-            key={section}
-            variant="body2"
-            href="#"
-            className="{classes.toolbarLink}"
-          >
-            {section}
-          </Link>
-        ))}
-      </Toolbar> */}
+    
 
     </React.Fragment>
 

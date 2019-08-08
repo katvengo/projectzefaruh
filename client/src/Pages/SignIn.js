@@ -2,6 +2,7 @@ import React from "react";
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Button';
 import Send from '@material-ui/icons/Send';
+import Container from "../Components/Container"
 
 
 class SignUp extends React.Component {
@@ -52,13 +53,14 @@ class SignUp extends React.Component {
     }
     render() {
         return (
+            <Container>
             <div className="center">
 
                 <TextField
                     id="inputLine"
                     name="email"
                     value={this.state.email}
-                    placeholder=" Email"
+                    placeholder="hi@letsgetweird.com"
                     type="text"
                     fullWidth
                     margin="normal"
@@ -78,7 +80,7 @@ class SignUp extends React.Component {
                     id="inputLine"
                     name="password"
                     value={this.state.password}
-                    placeholder=" Password"
+                    placeholder="Password"
                     onChange={this.handleInputChange}
                     type="text"
                     fullWidth
@@ -99,6 +101,7 @@ class SignUp extends React.Component {
                     size="medium"
                     color="primary"
                     aria-label="submit"
+                    className="submitBtn"
                 >
                     <Send />
                     Submit
@@ -109,7 +112,7 @@ class SignUp extends React.Component {
 
             </div>
 
-
+            </Container>
 
 
 
