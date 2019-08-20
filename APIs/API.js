@@ -16,7 +16,7 @@
   //var defaultDay = moment(Date.now()).format('YYYY[-]MM[-]').toString(); 
   // geohash = "gbsuv", city = "San Diego",
   //location = geoHash, date = defaultDay,
-  async function search(query = 'concerts', time = defaultTime){
+  async function search(query = '', time = defaultTime){
     // const ticketmasterUrl = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${query}&countryCode=US&localStartDateTime=${time}&apikey=h0unNltRv7LnmEOS2kYZ43GR9GKBQjCC`;
 
     //console.log(ticketmasterUrl);
@@ -30,8 +30,9 @@
     .then(axios.spread((ticketMaster, database) => {
       console.log("~~~~~~~~~~~~~~~~~~From API")
       //console.log(ticketMaster)
+      console.log(database)
       var combine = database.concat(ticketMaster)
-      console.log(combine)
+      //console.log(combine)
       //const events = ticketMaster + database 
       //eventBrite = eventBrite.data.response;
       // tradeGov = tradeGov.response;      

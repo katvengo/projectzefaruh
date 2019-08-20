@@ -10,7 +10,11 @@ module.exports = function (sequelize, DataTypes) {
         
         eventPriceRange: DataTypes.STRING,
     
-        eventDate:  { 
+        eventDateStart:  { 
+            type: Sequelize.DATEONLY, 
+            defaultValue: Sequelize.NOW 
+            },
+        eventDateEnd:  { 
             type: Sequelize.DATEONLY, 
             defaultValue: Sequelize.NOW 
             },

@@ -18,6 +18,8 @@ import UserPage from "./Pages/UserPage";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
 import Event from "./Pages/Event";
+import NoMatch from "./Pages/NoMatch";
+
 require('dotenv').config()
 
 
@@ -35,16 +37,18 @@ class App extends Component {
         <Nav/>
         </header>
         <main>
+        {/* <Home/> */}
+        <Route exact path="/" component={Home} /> 
+
         <Switch>
-
-      <Route exact path="/" component={Home} /> 
-      <Route exact path ="/signUp" component= {SignUp}/>
-      <Route exact path ="/signIn" component= {SignIn}/>
+         <Route exact path ="/signUp" component= {SignUp}/>
+         <Route exact path ="/signIn" component= {SignIn}/>
+         <Route exact path ="/event" component= {Event}/>
+      </Switch>
+      <Switch>
       <Route exact path='/user/:username' component={UserPage} />
-      <Route exact path ="/event" component= {Event}/>
-  
-      <Home/>
-
+      {/* <Route path="/404" component={NoMatch} /> */}
+      {/* <Route component={NoMatch} /> */}
       </Switch>
       </main>
       <footer>

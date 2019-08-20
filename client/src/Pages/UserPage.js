@@ -11,6 +11,7 @@ import TabPanel from "../Components/TabPanel";
 import { mergeClasses } from "@material-ui/styles";
 // import { makeStyles } from "@material-ui/styles";
 // import TextField from '@material-ui/core/TextField'
+import { Redirect } from "react-router-dom";
 
 const styles = {
   button: {
@@ -53,7 +54,7 @@ class UserPage extends Component {
         }).then(response => {
             if (response.status >= 400) {
                 throw new Error("Bad response from server");
-            }
+            } 
             return response.json();
         }).then(data =>{
             console.log(data)
@@ -62,6 +63,9 @@ class UserPage extends Component {
               image: data.image});
         }).catch((err) => {
             console.log(err)
+          //   if (err){
+          // <Redirect to="/NoMatch"/>
+          //   }
         });
        
       }

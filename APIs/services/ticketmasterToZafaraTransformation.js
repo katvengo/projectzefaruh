@@ -34,7 +34,7 @@ function transformRecord(ticketMasterEventRecord) {
         eventDateStart: ticketMasterEventRecord.dates,
         eventDateEnd: ticketMasterEventRecord.dates,
         eventImage: ticketMasterEventRecord.images.map(image => ({image})),
-        link: ticketMasterEventRecord.url,
+        eventLink: ticketMasterEventRecord.url,
         eventDescription: ticketMasterEventRecord.info,
         eventNote: ticketMasterEventRecord.pleaseNote,
         eventLocation: ticketMasterEventRecord._embedded.venues[0],

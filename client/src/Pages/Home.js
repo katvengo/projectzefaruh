@@ -13,14 +13,13 @@ import TimePicker from "../Components/TimePicker";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
+import { red } from "@material-ui/core/colors";
 // import Button from '@material-ui/core/Button';
 // import { Link } from "react-router-dom"
 
 // import Loader from "../Components/Loader"
 
 var moment = require('moment');
-
-
 
 const styles = {
     heading: {
@@ -49,8 +48,6 @@ const styles = {
         // margin: "5px, 0px"
 
     },
-
-  
     toolbarTitle: {
         flex: 1,
         fontFamily: 'Raleway',
@@ -59,13 +56,33 @@ const styles = {
         marginBottom: '50px'
 
     },
+    warning: {
+        color: 'grey',
+        fontFamily: 'Raleway',
+        height: '150px',
+        fontSize: '20px',
+        textAlign: 'center'
+
+    }
 
 }
 
+function WarningBanner(props) {
+    if (!props.warn) {
+      return null;
+    }
+  
+    return (
+      <div className="warning" style={styles.warning}>
+        Sorry! We found no events matching your search criteria
+      </div>
+    );
+  }
 
 class Home extends Component {
     constructor() {
         super()
+        this.state = {showWarning: true};
         this.state = {
             location: {
                 lat: 0,
@@ -76,8 +93,8 @@ class Home extends Component {
             eventLocationSearched: "",
             selectedDate: new Date(),
             geohash: 0,
-            expanded: false
-
+            expanded: false,
+            
         }
     }
     componentDidMount() {
@@ -106,15 +123,21 @@ class Home extends Component {
   
 
     searchThruDatabase = (query, time) => {
-        const request = { query, time }
+        const request = { query, time}
         axios.post('/api/authorize', request) 
             // .then(res => res.json())
             .then((events) => {  
                 var mainEvent = events.data.combine
+                if (mainEvent[0] === null){
+                    console.log('no events')
+                    return this.setState(state => ({showWarning: !state.showWarning}))
+                } else {
                console.log(mainEvent)
                return this.setState({
                    events: mainEvent
-               })
+               }) 
+                }
+              
             })
         }
 
@@ -135,18 +158,18 @@ class Home extends Component {
         
     // }
 
-
-    //moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss')
     handleSubmit = event => {
         event.preventDefault()
         console.log("hitting search")
-        this.searchThruDatabase(this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
+        this.searchThruDatabase(this.state.eventSearched, this.state.eventLocationSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
         console.log("event searched state ", this.state.eventSearched, "event date: ", moment(this.state.selectedDate).format('YYYY MM DDTHH:mm:ss'))
+        console.log(this.state.eventLocationSearched)
     }
 
     render() {
         return (
             <Container>
+
                 <Typography
                     component="h2"
                     variant="h5"
@@ -192,7 +215,7 @@ class Home extends Component {
 
 
 
-                {/* <TextField
+                <TextField
                                 id="inputLine"
                                 name="eventLocationSearched"
                                 value={this.state.eventLocationSearched}
@@ -213,7 +236,7 @@ class Home extends Component {
                                 }}
 
                             //  label="eventSearch"
-                            /> */}
+                            /> 
 
 
 
@@ -272,7 +295,7 @@ class Home extends Component {
                         handleExpandClick={this.setExpanded}
                         handleUnExpandClick={this.setUnExpanded}
                         title={event.eventName}
-                        dates={event.eventDateStart.start.localDate}
+                        dates={event.eventDateStart.start.localDate ? event.eventDateStart.start.localDate: event.eventDate}
                         time={event.eventDateStart.start.localTime}
                         image={event.eventImage[0].image.url}
                         note={event.eventNote}
@@ -289,7 +312,7 @@ class Home extends Component {
                     />
                     )
                 })}
-
+                 <WarningBanner warn= {this.state.showWarning} />
 
 
             </Container>
