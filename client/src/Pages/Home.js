@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component} from "react"
+import { render } from 'react-dom';
 import Container from '../Components/Container'
 // import InputBox from '../Components/InputBox'
 import TextField from '@material-ui/core/TextField';
@@ -16,11 +17,16 @@ import Typography from '@material-ui/core/Typography';
 import { red } from "@material-ui/core/colors";
 // import Button from '@material-ui/core/Button';
 // import { Link } from "react-router-dom"
-
 // import Loader from "../Components/Loader"
+import InputForLocation from "../Components/InputForLocation"
 
 var moment = require('moment');
 
+const names = [
+    'United States',
+    'San Diego',
+    "Los Angeles",
+]
 const styles = {
     heading: {
         color: "white",
@@ -83,21 +89,23 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {showWarning: true};
-        this.state = {
+         this.state = {
             location: {
                 lat: 0,
                 lng: 0
             },
             events: [],
             eventSearched: "",
-            eventLocationSearched: "",
+            locationInput: 0,
+            locationSearch: 0,
             selectedDate: new Date(),
             geohash: 0,
             expanded: false,
-            
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount() {
+        console.log(this.state.locationInput)
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 let lat = position.coords.latitude
@@ -122,14 +130,12 @@ class Home extends Component {
 
   
 
-    searchThruDatabase = (query, time) => {
-        const request = { query, time}
+    searchThruDatabase = (cityCode, query, time) => {
+        const request = {cityCode, query, time}
         axios.post('/api/authorize', request) 
-            // .then(res => res.json())
             .then((events) => {  
                 var mainEvent = events.data.combine
                 if (mainEvent[0] === null){
-                    console.log('no events')
                     return this.setState(state => ({showWarning: !state.showWarning}))
                 } else {
                console.log(mainEvent)
@@ -147,27 +153,25 @@ class Home extends Component {
         this.setState({
             [name]: value
         });
-
     };
-
+    
     setSelectedDate = date => {
         this.setState({ selectedDate: date })
     }
 
-    // showLoader = event =>{
-        
-    // }
+    
+
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log("hitting search")
-        this.searchThruDatabase(this.state.eventSearched, this.state.eventLocationSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
-        console.log("event searched state ", this.state.eventSearched, "event date: ", moment(this.state.selectedDate).format('YYYY MM DDTHH:mm:ss'))
-        console.log(this.state.eventLocationSearched)
+        this.searchThruDatabase(this.state.locationInput, this.state.eventSearched, moment(this.state.selectedDate).format('YYYY[-]MM[-]DDTHH:mm:ss'))
+        console.log(this.state.locationInput, this.state.eventSearched)
+        console.log(this.state.locationSearch)
     }
 
     render() {
         return (
+            
             <Container>
 
                 <Typography
@@ -182,6 +186,7 @@ class Home extends Component {
                </Typography>
 
                <div style={styles.inputDiv}>
+
                 <TextField
                     id="inputLine"
                     name="eventSearched"
@@ -206,40 +211,17 @@ class Home extends Component {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                    
-
+                
                 />
                 </div>
-
-
-
-
-
-                <TextField
-                                id="inputLine"
-                                name="eventLocationSearched"
-                                value={this.state.eventLocationSearched}
-                                placeholder="San Diego, Los Angeles, Anaheim"
-                                onChange={this.handleInputChange}
-                                type="text"
-                                fullWidth
-                                label="City"
-                                margin="normal"
-                                // variant="outlined"
-                                style={{ margin: 0 }}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                InputProps={{
-                                    disableUnderline: true,
-
-                                }}
-
-                            //  label="eventSearch"
-                            /> 
-
-
-
+                <InputForLocation
+                  id="location"
+                  name="locationSearch"
+                  value={this.state.locationSearch}
+                  onChange={this.handleInputChange}
+                  type="text"
+                
+                />
 
                  {/* <div className="row">
                     <div className="col m6"> */}
@@ -273,17 +255,7 @@ class Home extends Component {
                     </div>
                 </div>
 {/* 
-                <div className="row center">
-                    <div className="col m6">
-                        <h6>Have an event to share with the world?</h6><br />
-                        <Link
-                            to="/event">
-                            <Button
-                                id="createEventBtn"
-                                style={styles.button}>Create Event</Button>
-                        </Link>
-                    </div>
-                </div> */}
+
 
 
                 {/* <Loader></Loader> */}
@@ -312,7 +284,7 @@ class Home extends Component {
                     />
                     )
                 })}
-                 <WarningBanner warn= {this.state.showWarning} />
+                 <WarningBanner warn={this.state.showWarning} />
 
 
             </Container>

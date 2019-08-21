@@ -12,16 +12,16 @@
    token = process.env.REACT_APP_API_KEY
    token2 = process.env.REACT_APP_API_KEY_SECOND
    //console.log(token, token2)
-  var defaultTime = moment(Date.now()).format(); 
-  //var defaultDay = moment(Date.now()).format('YYYY[-]MM[-]').toString(); 
+   var defaultTime = moment(Date.now()).format('YYYY[-]MM[-]DDTHH:mm:ss').toString(); 
+   //var defaultDay = moment(Date.now()).format('YYYY[-]MM[-]').toString(); 
   // geohash = "gbsuv", city = "San Diego",
   //location = geoHash, date = defaultDay,
-  async function search(query = '', time = defaultTime){
+  async function search(cityCode = '200', query = '', time = defaultTime){
     // const ticketmasterUrl = `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${query}&countryCode=US&localStartDateTime=${time}&apikey=h0unNltRv7LnmEOS2kYZ43GR9GKBQjCC`;
 
     //console.log(ticketmasterUrl);
     return axios.all([
-        searchTicketMaster(query, time),
+        searchTicketMaster(cityCode ='200', query ='', time=defaultTime),
         searchThruDatabase(query, time)
          //axios.get(`https://www.eventbriteapi.com/v3/events/search/?token=${token}`),
       // axios.get(`https://api.trade.gov/v1/trade_events/search?api_key=${token2}&q=${query}&start_date=${start}&end_date=${end}`)
@@ -49,7 +49,7 @@
     })
   }
 
-  //console.log(search())
+  // console.log(search(200, 'concerts', defaultTime))
    
  module.exports = search
 
