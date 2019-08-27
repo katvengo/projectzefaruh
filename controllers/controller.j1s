@@ -1,6 +1,6 @@
 var db = require("../models");
 // this is event controller
-module.exports = {
+module.exports.controller = {
 
     create: function (req, res) {
         db.Event.create({
@@ -39,9 +39,9 @@ module.exports = {
         })
     },
 
-    findById: function(req, res) {},
-    remove: function(req, res) {}
+    findById: function (req, res) { },
+    remove: function (req, res) { }
 
-    
+
 
 }

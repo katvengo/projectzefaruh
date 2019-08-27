@@ -1,6 +1,6 @@
 var db = require("../models");
 // this is event controller
-module.exports = {
+module.exports.controller = {
 
     create: function (req, res) {
         db.Places.create({
@@ -20,7 +20,7 @@ module.exports = {
             HoursThursdayStart: req.body.ThursdayStart,
             HoursFridayStart: req.body.FridayStart,
             HoursSaturdayStart: req.body.SaturdayStart,
-    
+
             HoursSundayEnd: req.body.SundayEnd,
             HoursMondayEnd: req.body.MondayEnd,
             HoursTuesdayEnd: req.body.TuesdayEnd,
@@ -57,9 +57,9 @@ module.exports = {
         })
     },
 
-    findById: function(req, res) {},
-    remove: function(req, res) {}
+    findById: function (req, res) { },
+    remove: function (req, res) { }
 
-    
+
 
 }

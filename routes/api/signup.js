@@ -3,7 +3,9 @@ const eventsController = require("../../controllers/userController");
 
 // Matches with "/api/signup"
 router.route("/")
-  .get(eventsController.findAll)
+  .get(eventsController.findAll, (req, res) => {
+    console.log("TEST")
+  })
   .post(eventsController.create)
 
 

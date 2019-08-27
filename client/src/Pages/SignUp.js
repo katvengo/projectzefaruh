@@ -27,11 +27,11 @@ class SignUp extends React.Component {
             image: '',
             interests: '',
             msg: '',
-        redirect: false
+            redirect: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-   
+
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -55,18 +55,18 @@ class SignUp extends React.Component {
         fetch("/api/signup", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(userInfo),
+            body: userInfo,
         }).then(res => {
             if (res.status >= 400) {
                 throw new Error("Bad response from server");
             } return res.json()
-          }).then(function (data) {
-              console.log(data)
-            }).catch((err) => {
+        }).then(function (data) {
+            console.log(data)
+        }).catch((err) => {
             console.log(err)
-            });
-            alert('Thank you for signing up!')
-            this.props.history.push('/')
+        });
+        alert('Thank you for signing up!')
+        this.props.history.push('/')
     }
 
     render() {
